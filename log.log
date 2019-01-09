@@ -1,0 +1,288 @@
+INFO:root:[06/01/2019] Bot started
+
+INFO:cherrypy.error:[06/Jan/2019:14:20:05] ENGINE Listening for SIGTERM.
+INFO:cherrypy.error:[06/Jan/2019:14:20:05] ENGINE Listening for SIGHUP.
+INFO:cherrypy.error:[06/Jan/2019:14:20:05] ENGINE Listening for SIGUSR1.
+INFO:cherrypy.error:[06/Jan/2019:14:20:05] ENGINE Bus STARTING
+INFO:cherrypy.error:[06/Jan/2019:14:20:05] ENGINE Started monitor thread 'Autoreloader'.
+INFO:cherrypy.error:[06/Jan/2019:14:20:05] ENGINE Serving on https://195.201.138.7:8443
+INFO:cherrypy.error:[06/Jan/2019:14:20:05] ENGINE Bus STARTED
+INFO:cherrypy.error:[06/Jan/2019:14:21:23] ENGINE Caught signal SIGTERM.
+INFO:cherrypy.error:[06/Jan/2019:14:21:23] ENGINE Bus STOPPING
+INFO:cherrypy.error:[06/Jan/2019:14:21:23] ENGINE HTTP Server cherrypy._cpwsgi_server.CPWSGIServer(('195.201.138.7', 8443)) shut down
+INFO:cherrypy.error:[06/Jan/2019:14:21:23] ENGINE Stopped thread 'Autoreloader'.
+INFO:cherrypy.error:[06/Jan/2019:14:21:23] ENGINE Bus STOPPED
+INFO:cherrypy.error:[06/Jan/2019:14:21:23] ENGINE Bus EXITING
+INFO:cherrypy.error:[06/Jan/2019:14:21:23] ENGINE Bus EXITED
+INFO:cherrypy.error:[06/Jan/2019:14:21:23] ENGINE Waiting for child threads to terminate...
+INFO:root:[06/01/2019] Bot finished
+
+INFO:root:[06/01/19 14:23] Bot started
+INFO:cherrypy.error:[06/Jan/2019:14:23:34] ENGINE Listening for SIGTERM.
+INFO:cherrypy.error:[06/Jan/2019:14:23:34] ENGINE Listening for SIGUSR1.
+INFO:cherrypy.error:[06/Jan/2019:14:23:34] ENGINE Listening for SIGHUP.
+INFO:cherrypy.error:[06/Jan/2019:14:23:34] ENGINE Bus STARTING
+INFO:cherrypy.error:[06/Jan/2019:14:23:34] ENGINE Started monitor thread 'Autoreloader'.
+INFO:cherrypy.error:[06/Jan/2019:14:23:34] ENGINE Serving on https://195.201.138.7:8443
+INFO:cherrypy.error:[06/Jan/2019:14:23:34] ENGINE Bus STARTED
+INFO:cherrypy.access.139986492635288:149.154.167.232 - - [06/Jan/2019:14:23:57] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.access.139986492635288:149.154.167.232 - - [06/Jan/2019:14:23:59] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.access.139986492635288:149.154.167.232 - - [06/Jan/2019:14:24:02] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.access.139986492635288:149.154.167.232 - - [06/Jan/2019:14:24:04] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.access.139986492635288:149.154.167.232 - - [06/Jan/2019:14:24:07] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.access.139986492635288:149.154.167.232 - - [06/Jan/2019:14:24:09] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.access.139986492635288:149.154.167.232 - - [06/Jan/2019:14:24:11] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.access.139986492635288:149.154.167.232 - - [06/Jan/2019:14:24:14] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.access.139986492635288:149.154.167.232 - - [06/Jan/2019:14:24:16] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.access.139986492635288:149.154.167.232 - - [06/Jan/2019:14:24:18] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.access.139986492635288:149.154.167.232 - - [06/Jan/2019:14:24:25] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.access.139986492635288:149.154.167.232 - - [06/Jan/2019:14:24:28] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.access.139986492635288:149.154.167.232 - - [06/Jan/2019:14:24:30] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.access.139986492635288:149.154.167.232 - - [06/Jan/2019:14:24:32] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.access.139986492635288:149.154.167.232 - - [06/Jan/2019:14:24:33] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.access.139986492635288:149.154.167.232 - - [06/Jan/2019:14:24:36] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.access.139986492635288:149.154.167.232 - - [06/Jan/2019:14:24:38] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.access.139986492635288:149.154.167.232 - - [06/Jan/2019:14:25:13] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.access.139986492635288:149.154.167.232 - - [06/Jan/2019:14:25:15] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.access.139986492635288:149.154.167.232 - - [06/Jan/2019:14:25:17] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.access.139986492635288:149.154.167.232 - - [06/Jan/2019:14:25:19] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.access.139986492635288:149.154.167.232 - - [06/Jan/2019:14:25:20] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.access.139986492635288:149.154.167.232 - - [06/Jan/2019:14:25:23] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.access.139986492635288:149.154.167.232 - - [06/Jan/2019:14:25:25] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.access.139986492635288:149.154.167.232 - - [06/Jan/2019:14:26:38] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+ERROR:TeleBot:TypeError occurred, args=("Can't convert 'NoneType' object to str implicitly",)
+Traceback (most recent call last):
+  File "/home/prostoedgar/python-virtual-environments/BTS/lib/python3.5/site-packages/telebot/util.py", line 59, in run
+    task(*args, **kwargs)
+  File "main.py", line 1571, in looking_profile
+    string = string + "\nЭлектронная почта: " + profile[2]
+TypeError: Can't convert 'NoneType' object to str implicitly
+
+INFO:cherrypy.access.139986492635288:149.154.167.232 - - [06/Jan/2019:14:26:40] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.access.139986492635288:149.154.167.232 - - [06/Jan/2019:14:26:42] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.access.139986492635288:149.154.167.232 - - [06/Jan/2019:14:26:48] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.access.139986492635288:149.154.167.232 - - [06/Jan/2019:14:26:55] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.access.139986492635288:149.154.167.232 - - [06/Jan/2019:14:27:00] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.access.139986492635288:149.154.167.232 - - [06/Jan/2019:14:27:02] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.access.139986492635288:149.154.167.232 - - [06/Jan/2019:14:27:02] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.access.139986492635288:149.154.167.232 - - [06/Jan/2019:14:28:09] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.access.139986492635288:149.154.167.232 - - [06/Jan/2019:14:28:10] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.access.139986492635288:149.154.167.232 - - [06/Jan/2019:14:28:12] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.access.139986492635288:149.154.167.232 - - [06/Jan/2019:14:28:18] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.access.139986492635288:149.154.167.232 - - [06/Jan/2019:14:28:20] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.access.139986492635288:149.154.167.232 - - [06/Jan/2019:14:28:22] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.access.139986492635288:149.154.167.232 - - [06/Jan/2019:14:28:24] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.access.139986492635288:149.154.167.232 - - [06/Jan/2019:14:30:12] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.access.139986492635288:149.154.167.232 - - [06/Jan/2019:14:30:15] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.access.139986492635288:149.154.167.232 - - [06/Jan/2019:14:30:19] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+ERROR:TeleBot:TypeError occurred, args=("Can't convert 'NoneType' object to str implicitly",)
+Traceback (most recent call last):
+  File "/home/prostoedgar/python-virtual-environments/BTS/lib/python3.5/site-packages/telebot/util.py", line 59, in run
+    task(*args, **kwargs)
+  File "main.py", line 1571, in looking_profile
+    string = string + "\nЭлектронная почта: " + profile[2]
+TypeError: Can't convert 'NoneType' object to str implicitly
+
+INFO:cherrypy.error:[06/Jan/2019:14:34:32] ENGINE Restarting because /home/prostoedgar/python-virtual-environments/BTS/Batya/main.py changed.
+INFO:cherrypy.error:[06/Jan/2019:14:34:32] ENGINE Stopped thread 'Autoreloader'.
+INFO:cherrypy.error:[06/Jan/2019:14:34:32] ENGINE Bus STOPPING
+INFO:cherrypy.error:[06/Jan/2019:14:34:32] ENGINE HTTP Server cherrypy._cpwsgi_server.CPWSGIServer(('195.201.138.7', 8443)) shut down
+INFO:cherrypy.error:[06/Jan/2019:14:34:32] ENGINE Bus STOPPED
+INFO:cherrypy.error:[06/Jan/2019:14:34:32] ENGINE Bus EXITING
+INFO:cherrypy.error:[06/Jan/2019:14:34:32] ENGINE Bus EXITED
+INFO:cherrypy.error:[06/Jan/2019:14:34:32] ENGINE Waiting for child threads to terminate...
+INFO:cherrypy.error:[06/Jan/2019:14:34:32] ENGINE Re-spawning python3 main.py
+INFO:root:[06/01/19 14:34] Bot started
+INFO:cherrypy.error:[06/Jan/2019:14:34:34] ENGINE Listening for SIGUSR1.
+INFO:cherrypy.error:[06/Jan/2019:14:34:34] ENGINE Listening for SIGHUP.
+INFO:cherrypy.error:[06/Jan/2019:14:34:34] ENGINE Listening for SIGTERM.
+INFO:cherrypy.error:[06/Jan/2019:14:34:34] ENGINE Bus STARTING
+INFO:cherrypy.error:[06/Jan/2019:14:34:34] ENGINE Started monitor thread 'Autoreloader'.
+INFO:cherrypy.error:[06/Jan/2019:14:34:34] ENGINE Serving on https://195.201.138.7:8443
+INFO:cherrypy.error:[06/Jan/2019:14:34:34] ENGINE Bus STARTED
+INFO:cherrypy.access.139857328937000:149.154.167.232 - - [06/Jan/2019:14:35:12] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.access.139857328937000:149.154.167.232 - - [06/Jan/2019:14:35:13] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.access.139857328937000:149.154.167.232 - - [06/Jan/2019:14:35:14] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.access.139857328937000:149.154.167.232 - - [06/Jan/2019:14:35:16] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.error:[06/Jan/2019:14:36:53] ENGINE Restarting because /home/prostoedgar/python-virtual-environments/BTS/Batya/main.py changed.
+INFO:cherrypy.error:[06/Jan/2019:14:36:53] ENGINE Stopped thread 'Autoreloader'.
+INFO:cherrypy.error:[06/Jan/2019:14:36:53] ENGINE Bus STOPPING
+INFO:cherrypy.error:[06/Jan/2019:14:36:53] ENGINE HTTP Server cherrypy._cpwsgi_server.CPWSGIServer(('195.201.138.7', 8443)) shut down
+INFO:cherrypy.error:[06/Jan/2019:14:36:53] ENGINE Bus STOPPED
+INFO:cherrypy.error:[06/Jan/2019:14:36:53] ENGINE Bus EXITING
+INFO:cherrypy.error:[06/Jan/2019:14:36:53] ENGINE Bus EXITED
+INFO:cherrypy.error:[06/Jan/2019:14:36:53] ENGINE Waiting for child threads to terminate...
+INFO:cherrypy.error:[06/Jan/2019:14:36:53] ENGINE Re-spawning python3 main.py
+INFO:root:[06/01/19 14:36] Bot started
+INFO:cherrypy.error:[06/Jan/2019:14:36:55] ENGINE Listening for SIGTERM.
+INFO:cherrypy.error:[06/Jan/2019:14:36:55] ENGINE Listening for SIGUSR1.
+INFO:cherrypy.error:[06/Jan/2019:14:36:55] ENGINE Listening for SIGHUP.
+INFO:cherrypy.error:[06/Jan/2019:14:36:55] ENGINE Bus STARTING
+INFO:cherrypy.error:[06/Jan/2019:14:36:55] ENGINE Started monitor thread 'Autoreloader'.
+INFO:cherrypy.error:[06/Jan/2019:14:36:55] ENGINE Serving on https://195.201.138.7:8443
+INFO:cherrypy.error:[06/Jan/2019:14:36:55] ENGINE Bus STARTED
+INFO:cherrypy.access.140712129013744:149.154.167.232 - - [06/Jan/2019:14:36:59] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.access.140712129013744:149.154.167.232 - - [06/Jan/2019:14:37:00] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+ERROR:TeleBot:ApiException occurred, args=('A request to the Telegram API was unsuccessful. The server returned HTTP 400 Bad Request. Response body:\n[b\'{"ok":false,"error_code":400,"description":"Bad Request: message text is empty"}\']',)
+Traceback (most recent call last):
+  File "/home/prostoedgar/python-virtual-environments/BTS/lib/python3.5/site-packages/telebot/util.py", line 59, in run
+    task(*args, **kwargs)
+  File "main.py", line 1566, in looking_profile
+    bot.send_message(call.message.chat.id, profile[3])
+  File "/home/prostoedgar/python-virtual-environments/BTS/lib/python3.5/site-packages/telebot/__init__.py", line 598, in send_message
+    reply_markup, parse_mode, disable_notification))
+  File "/home/prostoedgar/python-virtual-environments/BTS/lib/python3.5/site-packages/telebot/apihelper.py", line 140, in send_message
+    return _make_request(token, method_url, params=payload, method='post')
+  File "/home/prostoedgar/python-virtual-environments/BTS/lib/python3.5/site-packages/telebot/apihelper.py", line 56, in _make_request
+    return _check_result(method_name, result)['result']
+  File "/home/prostoedgar/python-virtual-environments/BTS/lib/python3.5/site-packages/telebot/apihelper.py", line 75, in _check_result
+    raise ApiException(msg, method_name, result)
+telebot.apihelper.ApiException: A request to the Telegram API was unsuccessful. The server returned HTTP 400 Bad Request. Response body:
+[b'{"ok":false,"error_code":400,"description":"Bad Request: message text is empty"}']
+
+INFO:cherrypy.error:[06/Jan/2019:14:38:05] ENGINE Restarting because /home/prostoedgar/python-virtual-environments/BTS/Batya/main.py changed.
+INFO:cherrypy.error:[06/Jan/2019:14:38:05] ENGINE Stopped thread 'Autoreloader'.
+INFO:cherrypy.error:[06/Jan/2019:14:38:05] ENGINE Bus STOPPING
+INFO:cherrypy.error:[06/Jan/2019:14:38:05] ENGINE HTTP Server cherrypy._cpwsgi_server.CPWSGIServer(('195.201.138.7', 8443)) shut down
+INFO:cherrypy.error:[06/Jan/2019:14:38:05] ENGINE Bus STOPPED
+INFO:cherrypy.error:[06/Jan/2019:14:38:05] ENGINE Bus EXITING
+INFO:cherrypy.error:[06/Jan/2019:14:38:05] ENGINE Bus EXITED
+INFO:cherrypy.error:[06/Jan/2019:14:38:05] ENGINE Waiting for child threads to terminate...
+INFO:cherrypy.error:[06/Jan/2019:14:38:05] ENGINE Re-spawning python3 main.py
+INFO:root:[06/01/19 14:38] Bot started
+INFO:cherrypy.error:[06/Jan/2019:14:38:07] ENGINE Listening for SIGHUP.
+INFO:cherrypy.error:[06/Jan/2019:14:38:07] ENGINE Listening for SIGTERM.
+INFO:cherrypy.error:[06/Jan/2019:14:38:07] ENGINE Listening for SIGUSR1.
+INFO:cherrypy.error:[06/Jan/2019:14:38:07] ENGINE Bus STARTING
+INFO:cherrypy.error:[06/Jan/2019:14:38:07] ENGINE Started monitor thread 'Autoreloader'.
+INFO:cherrypy.error:[06/Jan/2019:14:38:07] ENGINE Serving on https://195.201.138.7:8443
+INFO:cherrypy.error:[06/Jan/2019:14:38:07] ENGINE Bus STARTED
+INFO:cherrypy.access.140593750497376:149.154.167.232 - - [06/Jan/2019:14:38:12] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.access.140593750497376:149.154.167.232 - - [06/Jan/2019:14:38:14] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.error:[06/Jan/2019:14:38:28] ENGINE Restarting because /home/prostoedgar/python-virtual-environments/BTS/Batya/main.py changed.
+INFO:cherrypy.error:[06/Jan/2019:14:38:28] ENGINE Stopped thread 'Autoreloader'.
+INFO:cherrypy.error:[06/Jan/2019:14:38:28] ENGINE Bus STOPPING
+INFO:cherrypy.error:[06/Jan/2019:14:38:28] ENGINE HTTP Server cherrypy._cpwsgi_server.CPWSGIServer(('195.201.138.7', 8443)) shut down
+INFO:cherrypy.error:[06/Jan/2019:14:38:28] ENGINE Bus STOPPED
+INFO:cherrypy.error:[06/Jan/2019:14:38:28] ENGINE Bus EXITING
+INFO:cherrypy.error:[06/Jan/2019:14:38:28] ENGINE Bus EXITED
+INFO:cherrypy.error:[06/Jan/2019:14:38:28] ENGINE Waiting for child threads to terminate...
+INFO:cherrypy.error:[06/Jan/2019:14:38:28] ENGINE Re-spawning python3 main.py
+INFO:root:[06/01/19 14:38] Bot started
+INFO:cherrypy.error:[06/Jan/2019:14:38:31] ENGINE Listening for SIGHUP.
+INFO:cherrypy.error:[06/Jan/2019:14:38:31] ENGINE Listening for SIGUSR1.
+INFO:cherrypy.error:[06/Jan/2019:14:38:31] ENGINE Listening for SIGTERM.
+INFO:cherrypy.error:[06/Jan/2019:14:38:31] ENGINE Bus STARTING
+INFO:cherrypy.error:[06/Jan/2019:14:38:31] ENGINE Started monitor thread 'Autoreloader'.
+INFO:cherrypy.error:[06/Jan/2019:14:38:31] ENGINE Serving on https://195.201.138.7:8443
+INFO:cherrypy.error:[06/Jan/2019:14:38:31] ENGINE Bus STARTED
+INFO:cherrypy.access.139704840722472:149.154.167.232 - - [06/Jan/2019:14:38:33] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.access.139704840722472:149.154.167.232 - - [06/Jan/2019:14:38:35] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.access.139704840722472:149.154.167.232 - - [06/Jan/2019:14:38:43] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.access.139704840722472:149.154.167.232 - - [06/Jan/2019:14:38:44] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.access.139704840722472:149.154.167.232 - - [06/Jan/2019:14:38:48] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.access.139704840722472:149.154.167.232 - - [06/Jan/2019:14:38:55] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.access.139704840722472:149.154.167.232 - - [06/Jan/2019:14:38:57] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.access.139704840722472:149.154.167.232 - - [06/Jan/2019:14:38:59] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.access.139704840722472:149.154.167.232 - - [06/Jan/2019:14:39:05] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.access.139704840722472:149.154.167.232 - - [06/Jan/2019:14:39:07] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.access.139704840722472:149.154.167.232 - - [06/Jan/2019:14:39:08] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.access.139704840722472:149.154.167.232 - - [06/Jan/2019:14:39:10] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.access.139704840722472:149.154.167.232 - - [06/Jan/2019:14:39:11] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.access.139704840722472:149.154.167.232 - - [06/Jan/2019:14:39:13] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.access.139704840722472:149.154.167.232 - - [06/Jan/2019:14:39:15] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.access.139704840722472:149.154.167.232 - - [06/Jan/2019:14:39:17] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.access.139704840722472:149.154.167.232 - - [06/Jan/2019:14:39:19] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.access.139704840722472:149.154.167.232 - - [06/Jan/2019:14:39:20] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.access.139704840722472:149.154.167.232 - - [06/Jan/2019:14:39:23] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.access.139704840722472:149.154.167.232 - - [06/Jan/2019:14:39:25] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.access.139704840722472:149.154.167.232 - - [06/Jan/2019:14:39:28] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.access.139704840722472:149.154.167.232 - - [06/Jan/2019:14:39:33] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.access.139704840722472:149.154.167.232 - - [06/Jan/2019:14:39:34] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.access.139704840722472:149.154.167.232 - - [06/Jan/2019:14:39:35] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.access.139704840722472:149.154.167.232 - - [06/Jan/2019:14:39:41] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.access.139704840722472:149.154.167.232 - - [06/Jan/2019:14:39:44] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.access.139704840722472:149.154.167.232 - - [06/Jan/2019:14:39:48] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.access.139704840722472:149.154.167.232 - - [06/Jan/2019:14:39:51] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.access.139704840722472:149.154.167.232 - - [06/Jan/2019:14:39:52] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.access.139704840722472:149.154.167.232 - - [06/Jan/2019:14:39:56] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.access.139704840722472:149.154.167.232 - - [06/Jan/2019:14:40:01] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.access.139704840722472:149.154.167.232 - - [06/Jan/2019:14:40:04] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.access.139704840722472:149.154.167.232 - - [06/Jan/2019:14:40:07] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.access.139704840722472:149.154.167.232 - - [06/Jan/2019:14:40:14] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.access.139704840722472:149.154.167.232 - - [06/Jan/2019:14:40:16] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.access.139704840722472:149.154.167.232 - - [06/Jan/2019:14:40:17] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.error:[06/Jan/2019:14:48:24] ENGINE Restarting because /home/prostoedgar/python-virtual-environments/BTS/Batya/main.py changed.
+INFO:cherrypy.error:[06/Jan/2019:14:48:24] ENGINE Stopped thread 'Autoreloader'.
+INFO:cherrypy.error:[06/Jan/2019:14:48:24] ENGINE Bus STOPPING
+INFO:cherrypy.error:[06/Jan/2019:14:48:24] ENGINE HTTP Server cherrypy._cpwsgi_server.CPWSGIServer(('195.201.138.7', 8443)) shut down
+INFO:cherrypy.error:[06/Jan/2019:14:48:24] ENGINE Bus STOPPED
+INFO:cherrypy.error:[06/Jan/2019:14:48:24] ENGINE Bus EXITING
+INFO:cherrypy.error:[06/Jan/2019:14:48:24] ENGINE Bus EXITED
+INFO:cherrypy.error:[06/Jan/2019:14:48:24] ENGINE Waiting for child threads to terminate...
+INFO:cherrypy.error:[06/Jan/2019:14:48:24] ENGINE Re-spawning python3 main.py
+INFO:root:[06/01/19 14:48] Bot started
+INFO:cherrypy.error:[06/Jan/2019:14:48:27] ENGINE Listening for SIGHUP.
+INFO:cherrypy.error:[06/Jan/2019:14:48:27] ENGINE Listening for SIGTERM.
+INFO:cherrypy.error:[06/Jan/2019:14:48:27] ENGINE Listening for SIGUSR1.
+INFO:cherrypy.error:[06/Jan/2019:14:48:27] ENGINE Bus STARTING
+INFO:cherrypy.error:[06/Jan/2019:14:48:27] ENGINE Started monitor thread 'Autoreloader'.
+INFO:cherrypy.error:[06/Jan/2019:14:48:27] ENGINE Serving on https://195.201.138.7:8443
+INFO:cherrypy.error:[06/Jan/2019:14:48:27] ENGINE Bus STARTED
+INFO:cherrypy.access.140608830453800:149.154.167.232 - - [06/Jan/2019:14:48:37] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.error.140608830453800:[06/Jan/2019:14:48:37]  🌐 Токены
+INFO:cherrypy.access.140608830453800:149.154.167.232 - - [06/Jan/2019:14:48:39] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.error.140608830453800:[06/Jan/2019:14:48:39]  Назад
+INFO:cherrypy.access.140608830453800:149.154.167.232 - - [06/Jan/2019:14:55:44] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.error.140608830453800:[06/Jan/2019:14:55:44]  📊 Оценки
+INFO:cherrypy.access.140608830453800:149.154.167.232 - - [06/Jan/2019:14:55:46] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.error.140608830453800:[06/Jan/2019:14:55:46]  📰 Оценки пользователей
+INFO:cherrypy.access.140608830453800:149.154.167.232 - - [06/Jan/2019:14:55:48] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.access.140608830453800:149.154.167.232 - - [06/Jan/2019:14:55:52] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.error.140608830453800:[06/Jan/2019:14:55:52]  📊 Оценки
+INFO:cherrypy.access.140608830453800:149.154.167.232 - - [06/Jan/2019:14:55:55] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.error.140608830453800:[06/Jan/2019:14:55:55]  👀 Посмотреть свои оценки
+INFO:cherrypy.access.140608830453800:149.154.167.232 - - [06/Jan/2019:14:56:02] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.error.140608830453800:[06/Jan/2019:14:56:02]  📊 Оценки
+INFO:cherrypy.access.140608830453800:149.154.167.232 - - [06/Jan/2019:14:56:08] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.error.140608830453800:[06/Jan/2019:14:56:08]  📰 Оценки пользователей
+INFO:cherrypy.access.140608830453800:149.154.167.232 - - [06/Jan/2019:14:56:14] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.access.140608830453800:149.154.167.232 - - [06/Jan/2019:14:56:17] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.error.140608830453800:[06/Jan/2019:14:56:17]  📋 Профиль
+INFO:cherrypy.access.140608830453800:149.154.167.232 - - [06/Jan/2019:14:56:18] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.error.140608830453800:[06/Jan/2019:14:56:18]  📰 Профили пользователей
+INFO:cherrypy.access.140608830453800:149.154.167.232 - - [06/Jan/2019:14:56:24] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.access.140608830453800:149.154.167.232 - - [06/Jan/2019:14:56:37] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.error.140608830453800:[06/Jan/2019:14:56:37]  📋 Профиль
+INFO:cherrypy.access.140608830453800:149.154.167.232 - - [06/Jan/2019:14:56:39] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.error.140608830453800:[06/Jan/2019:14:56:39]  📰 Профили пользователей
+INFO:cherrypy.access.140608830453800:149.154.167.232 - - [06/Jan/2019:14:56:44] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.access.140608830453800:149.154.167.232 - - [06/Jan/2019:14:56:56] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.error.140608830453800:[06/Jan/2019:14:56:56]  📋 Профиль
+INFO:cherrypy.access.140608830453800:149.154.167.232 - - [06/Jan/2019:14:56:58] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.error.140608830453800:[06/Jan/2019:14:56:58]  📰 Профили пользователей
+INFO:cherrypy.access.140608830453800:149.154.167.232 - - [06/Jan/2019:14:57:02] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.access.140608830453800:149.154.167.232 - - [06/Jan/2019:14:57:10] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.error.140608830453800:[06/Jan/2019:14:57:10]  📋 Профиль
+INFO:cherrypy.access.140608830453800:149.154.167.232 - - [06/Jan/2019:14:57:12] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.error.140608830453800:[06/Jan/2019:14:57:12]  📰 Профили пользователей
+INFO:cherrypy.access.140608830453800:149.154.167.232 - - [06/Jan/2019:14:57:21] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.access.140608830453800:149.154.167.232 - - [06/Jan/2019:14:57:31] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.error.140608830453800:[06/Jan/2019:14:57:31]  📋 Профиль
+INFO:cherrypy.access.140608830453800:149.154.167.232 - - [06/Jan/2019:14:57:36] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.error.140608830453800:[06/Jan/2019:14:57:36]  📰 Профили пользователей
+INFO:cherrypy.access.140608830453800:149.154.167.232 - - [06/Jan/2019:14:57:43] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.access.140608830453800:149.154.167.232 - - [06/Jan/2019:14:59:56] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.error.140608830453800:[06/Jan/2019:14:59:56]  👔 Функции администратора
+INFO:cherrypy.access.140608830453800:149.154.167.232 - - [06/Jan/2019:15:00:01] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.error.140608830453800:[06/Jan/2019:15:00:01]  Назад
+INFO:cherrypy.error:[06/Jan/2019:15:40:33] ENGINE Caught signal SIGHUP.
+INFO:cherrypy.error:[06/Jan/2019:15:40:33] ENGINE SIGHUP caught but not daemonized. Exiting.
+INFO:cherrypy.error:[06/Jan/2019:15:40:33] ENGINE Bus STOPPING
+INFO:cherrypy.error:[06/Jan/2019:15:40:33] ENGINE HTTP Server cherrypy._cpwsgi_server.CPWSGIServer(('195.201.138.7', 8443)) shut down
+INFO:cherrypy.error:[06/Jan/2019:15:40:33] ENGINE Stopped thread 'Autoreloader'.
+INFO:cherrypy.error:[06/Jan/2019:15:40:33] ENGINE Bus STOPPED
+INFO:cherrypy.error:[06/Jan/2019:15:40:33] ENGINE Bus EXITING
+INFO:cherrypy.error:[06/Jan/2019:15:40:33] ENGINE Bus EXITED
+INFO:cherrypy.error:[06/Jan/2019:15:40:33] ENGINE Waiting for child threads to terminate...
+INFO:root:[06/01/19 15:40] Bot finished
