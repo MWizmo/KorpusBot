@@ -1,20 +1,53 @@
 # -*- coding: utf-8 -*-
 from telebot.types import InlineKeyboardButton, InlineKeyboardMarkup
 import db_commands
+import telebot
+import sqlite3
+from emoji import emojize
 
-token = '644032287:AAECDJ2hZJfNJnZcsuahPCoqyrx0lGQI6d8'
-# token = '573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU'
+# token = '644032287:AAECDJ2hZJfNJnZcsuahPCoqyrx0lGQI6d8'  # main bot
+token = '573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU' #second bot
+# token = '691001400:AAF1zCuHnCpt3scH8_U1G3bNmMfbnLceW0g'
+
+bot = telebot.TeleBot(token)
+db = sqlite3.connect("korpus.db", check_same_thread=False)
+cursor = db.cursor()
+
+
+def isRang(a, b):
+    c = list(set(a) & set(b))
+    return len(c) > 0
+
+def get_keyboard(nick):
+    rangs = db_commands.GetRangs(nick,cursor)
+    markup = telebot.types.ReplyKeyboardMarkup(one_time_keyboard=True, resize_keyboard=True)
+    markup.row(emojize(":bar_chart: Оценки", use_aliases=True),
+               emojize(':open_file_folder: Проекты', use_aliases=True),
+               emojize(':clipboard: Профиль', use_aliases=True))
+    if isRang(rangs, [5]):
+        markup.add('Функции тьютора')
+    if isRang(rangs, [9]):
+        markup.add(emojize(':necktie: Функции администратора'))
+    if isRang(rangs, [8]):
+        markup.row(emojize(':credit_card: Функции инвестора'))
+    markup.row(emojize(':globe_with_meridians: Токены'))
+    return markup
 
 # ---Variables---
+current_user_for_dossier = ''
+
+project_relation_marks = dict()
+project_business_marks = dict()
+project_authority_marks = dict()
+
 fighters_num=0
 fighters_list=[]
 fighters_marks={}
 
-current_fighter_for_educator=0
+current_fighter_for_business=0
 current_fighter_for_authority=0
-current_second_flow_for_authority=0
 
-educator_marks=[]
+business_marks=[]
 authority_first_marks=[]
 authority_second_marks=[]
 
@@ -33,158 +66,50 @@ current_project=''
 #----------
 
 #-----First flow------
-keyboard_axis_of_relations_first=InlineKeyboardMarkup()
-keyboard_axis_of_relations_first.add(InlineKeyboardButton(text="Честность", callback_data="first_flow_relations_1"))
-keyboard_axis_of_relations_first.add(InlineKeyboardButton(text="Ясность позиции", callback_data="first_flow_relations_2"))
-keyboard_axis_of_relations_first.add(InlineKeyboardButton(text="Уровень энергии", callback_data="first_flow_relations_3"))
-keyboard_axis_of_relations_first.add(InlineKeyboardButton(text="Устойчивость личностного роста", callback_data="first_flow_relations_4"))
-keyboard_axis_of_relations_first.add(InlineKeyboardButton(text="Интенсивность личностного роста", callback_data="first_flow_relations_5"))
-keyboard_axis_of_relations_first.add(InlineKeyboardButton(text="Эффективность работы в команде", callback_data="first_flow_relations_6"))
-keyboard_axis_of_relations_first.add(InlineKeyboardButton(text="Следующий", callback_data="first_flow_relations_7"))
+keyboard_axis_of_relations=InlineKeyboardMarkup()
+keyboard_axis_of_relations.add(InlineKeyboardButton(text="Личностное развитие", callback_data="relations_1"))
+keyboard_axis_of_relations.add(InlineKeyboardButton(text="Понятность", callback_data="relations_2"))
+keyboard_axis_of_relations.add(InlineKeyboardButton(text="Энергия", callback_data="relations_3"))
+keyboard_axis_of_relations.add(InlineKeyboardButton(text="Следующий", callback_data="relations_4"))
 
-keyboard_axis_of_relations_first_finish=InlineKeyboardMarkup()
-keyboard_axis_of_relations_first_finish.add(InlineKeyboardButton(text="Честность", callback_data="first_flow_relations_1"))
-keyboard_axis_of_relations_first_finish.add(InlineKeyboardButton(text="Ясность позиции", callback_data="first_flow_relations_2"))
-keyboard_axis_of_relations_first_finish.add(InlineKeyboardButton(text="Уровень энергии", callback_data="first_flow_relations_3"))
-keyboard_axis_of_relations_first_finish.add(InlineKeyboardButton(text="Устойчивость личностного роста", callback_data="first_flow_relations_4"))
-keyboard_axis_of_relations_first_finish.add(InlineKeyboardButton(text="Интенсивность личностного роста", callback_data="first_flow_relations_5"))
-keyboard_axis_of_relations_first_finish.add(InlineKeyboardButton(text="Эффективность работы в команде", callback_data="first_flow_relations_6"))
-keyboard_axis_of_relations_first_finish.add(InlineKeyboardButton(text="Завершить оценивание", callback_data="first_flow_relations_8"))
+keyboard_axis_of_relations_finish=InlineKeyboardMarkup()
+keyboard_axis_of_relations_finish.add(InlineKeyboardButton(text="Личностное развитие", callback_data="relations_1"))
+keyboard_axis_of_relations_finish.add(InlineKeyboardButton(text="Понятность", callback_data="relations_2"))
+keyboard_axis_of_relations_finish.add(InlineKeyboardButton(text="Энергия", callback_data="relations_3"))
+keyboard_axis_of_relations_finish.add(InlineKeyboardButton(text="Завершить оценивание", callback_data="relations_5"))
 
-keyboard_axis_of_business_first=InlineKeyboardMarkup()
-keyboard_axis_of_business_first.add(InlineKeyboardButton(text="Движение к цели", callback_data="first_flow_business_1"))
-keyboard_axis_of_business_first.add(InlineKeyboardButton(text="Результативность", callback_data="first_flow_business_2"))
-keyboard_axis_of_business_first.add(InlineKeyboardButton(text="Адекватность картины мира", callback_data="first_flow_business_3"))
-keyboard_axis_of_business_first.add(InlineKeyboardButton(text="Ведение переговоров с внутренними и внешними референтными группами", callback_data="first_flow_business_4"))
-keyboard_axis_of_business_first.add(InlineKeyboardButton(text="Следующий", callback_data="first_flow_business_5"))
+keyboard_axis_of_business=InlineKeyboardMarkup()
+keyboard_axis_of_business.add(InlineKeyboardButton(text="Движение", callback_data="business_1"))
+keyboard_axis_of_business.add(InlineKeyboardButton(text="Завершенность", callback_data="business_2"))
+keyboard_axis_of_business.add(InlineKeyboardButton(text="Подтверждение средой", callback_data="business_3"))
+keyboard_axis_of_business.add(InlineKeyboardButton(text="Следующий", callback_data="business_4"))
 
-keyboard_axis_of_business_first_finish=InlineKeyboardMarkup()
-keyboard_axis_of_business_first_finish.add(InlineKeyboardButton(text="Движение к цели", callback_data="first_flow_business_1"))
-keyboard_axis_of_business_first_finish.add(InlineKeyboardButton(text="Результативность", callback_data="first_flow_business_2"))
-keyboard_axis_of_business_first_finish.add(InlineKeyboardButton(text="Адекватность картины мира", callback_data="first_flow_business_3"))
-keyboard_axis_of_business_first_finish.add(InlineKeyboardButton(text="Ведение переговоров с внутренними и внешними референтными группами", callback_data="first_flow_business_4"))
-keyboard_axis_of_business_first_finish.add(InlineKeyboardButton(text="Завершить оценивание", callback_data="first_flow_business_6"))
+keyboard_axis_of_business_finish=InlineKeyboardMarkup()
+keyboard_axis_of_business_finish.add(InlineKeyboardButton(text="Движение", callback_data="business_1"))
+keyboard_axis_of_business_finish.add(InlineKeyboardButton(text="Завершенность", callback_data="business_2"))
+keyboard_axis_of_business_finish.add(InlineKeyboardButton(text="Подтверждение средой", callback_data="business_3"))
+keyboard_axis_of_business_finish.add(InlineKeyboardButton(text="Завершить оценивание", callback_data="business_5"))
 
-keyboard_axis_of_authority_first=InlineKeyboardMarkup()
-keyboard_axis_of_authority_first.add(InlineKeyboardButton(text="Развитие парадигмы децентрализации", callback_data="first_flow_authority_1"))
-keyboard_axis_of_authority_first.add(InlineKeyboardButton(text="Стратегическое развитие сообщества", callback_data="first_flow_authority_2"))
-keyboard_axis_of_authority_first.add(InlineKeyboardButton(text="Управление ресурсами", callback_data="first_flow_authority_3"))
-keyboard_axis_of_authority_first.add(InlineKeyboardButton(text="Управляемость проектов", callback_data="first_flow_authority_4"))
-keyboard_axis_of_authority_first.add(InlineKeyboardButton(text="Проф. доверие", callback_data="first_flow_authority_5"))
-keyboard_axis_of_authority_first.add(InlineKeyboardButton(text="Следующий", callback_data="first_flow_authority_6"))
+keyboard_axis_of_authority=InlineKeyboardMarkup()
+keyboard_axis_of_authority.add(InlineKeyboardButton(text="Самоуправление", callback_data="authority_1"))
+keyboard_axis_of_authority.add(InlineKeyboardButton(text="Стратегия", callback_data="authority_2"))
+keyboard_axis_of_authority.add(InlineKeyboardButton(text="Управляемость", callback_data="authority_3"))
+keyboard_axis_of_authority.add(InlineKeyboardButton(text="Следующий", callback_data="authority_4"))
 
-keyboard_axis_of_authority_first_finish=InlineKeyboardMarkup()
-keyboard_axis_of_authority_first_finish.add(InlineKeyboardButton(text="Развитие парадигмы децентрализации", callback_data="first_flow_authority_1"))
-keyboard_axis_of_authority_first_finish.add(InlineKeyboardButton(text="Стратегическое развитие сообщества", callback_data="first_flow_authority_2"))
-keyboard_axis_of_authority_first_finish.add(InlineKeyboardButton(text="Управление ресурсами", callback_data="first_flow_authority_3"))
-keyboard_axis_of_authority_first_finish.add(InlineKeyboardButton(text="Управляемость проектов", callback_data="first_flow_authority_4"))
-keyboard_axis_of_authority_first_finish.add(InlineKeyboardButton(text="Проф. доверие", callback_data="first_flow_authority_5"))
-keyboard_axis_of_authority_first_finish.add(InlineKeyboardButton(text="Завершить оценивание", callback_data="first_flow_authority_7"))
+keyboard_axis_of_authority_finish=InlineKeyboardMarkup()
+keyboard_axis_of_authority_finish.add(InlineKeyboardButton(text="Самоуправление", callback_data="authority_1"))
+keyboard_axis_of_authority_finish.add(InlineKeyboardButton(text="Стратегия", callback_data="authority_2"))
+keyboard_axis_of_authority_finish.add(InlineKeyboardButton(text="Управляемость", callback_data="authority_3"))
+keyboard_axis_of_authority_finish.add(InlineKeyboardButton(text="Завершить оценивание", callback_data="authority_5"))
 #----------
 
-#-----Second flow-----
-keyboard_axis_of_relations_second=InlineKeyboardMarkup()
-keyboard_axis_of_relations_second.add(InlineKeyboardButton(text="Честность", callback_data="second_flow_relations_1"))
-keyboard_axis_of_relations_second.add(InlineKeyboardButton(text="Ясность позиции", callback_data="second_flow_relations_2"))
-keyboard_axis_of_relations_second.add(InlineKeyboardButton(text="Уровень энергии", callback_data="second_flow_relations_3"))
-keyboard_axis_of_relations_second.add(InlineKeyboardButton(text="Устойчивость личностного роста", callback_data="second_flow_relations_4"))
-keyboard_axis_of_relations_second.add(InlineKeyboardButton(text="Интенсивность личностного роста", callback_data="second_flow_relations_5"))
-keyboard_axis_of_relations_second.add(InlineKeyboardButton(text="Следующий", callback_data="second_flow_relations_6"))
+def ChooseKeyboardForRelations():
+    return keyboard_axis_of_relations_finish
 
-keyboard_axis_of_relations_second_finish=InlineKeyboardMarkup()
-keyboard_axis_of_relations_second_finish.add(InlineKeyboardButton(text="Честность", callback_data="second_flow_relations_1"))
-keyboard_axis_of_relations_second_finish.add(InlineKeyboardButton(text="Ясность позиции", callback_data="second_flow_relations_2"))
-keyboard_axis_of_relations_second_finish.add(InlineKeyboardButton(text="Уровень энергии", callback_data="second_flow_relations_3"))
-keyboard_axis_of_relations_second_finish.add(InlineKeyboardButton(text="Устойчивость личностного роста", callback_data="second_flow_relations_4"))
-keyboard_axis_of_relations_second_finish.add(InlineKeyboardButton(text="Интенсивность личностного роста", callback_data="second_flow_relations_5"))
-keyboard_axis_of_relations_second_finish.add(InlineKeyboardButton(text="Завершить оценивание", callback_data="second_flow_relations_7"))
+def ChooseKeyboardForBusiness():
+    return keyboard_axis_of_business_finish
 
-keyboard_axis_of_business_second=InlineKeyboardMarkup()
-keyboard_axis_of_business_second.add(InlineKeyboardButton(text="Движение к цели", callback_data="second_flow_business_1"))
-keyboard_axis_of_business_second.add(InlineKeyboardButton(text="Результативность", callback_data="second_flow_business_2"))
-keyboard_axis_of_business_second.add(InlineKeyboardButton(text="Адекватность картины мира", callback_data="second_flow_business_3"))
-keyboard_axis_of_business_second.add(InlineKeyboardButton(text="Ведение переговоров с внутренними и внешними референтными группами", callback_data="second_flow_business_4"))
-keyboard_axis_of_business_second.add(InlineKeyboardButton(text="Эффективность работы в команде", callback_data="second_flow_business_5"))
-keyboard_axis_of_business_second.add(InlineKeyboardButton(text="Следующий", callback_data="second_flow_business_6"))
+def ChooseKeyboardForAuthority():
+    return keyboard_axis_of_authority_finish
 
-keyboard_axis_of_business_second_finish=InlineKeyboardMarkup()
-keyboard_axis_of_business_second_finish.add(InlineKeyboardButton(text="Движение к цели", callback_data="second_flow_business_1"))
-keyboard_axis_of_business_second_finish.add(InlineKeyboardButton(text="Результативность", callback_data="second_flow_business_2"))
-keyboard_axis_of_business_second_finish.add(InlineKeyboardButton(text="Адекватность картины мира", callback_data="second_flow_business_3"))
-keyboard_axis_of_business_second_finish.add(InlineKeyboardButton(text="Ведение переговоров с внутренними и внешними референтными группами", callback_data="second_flow_business_4"))
-keyboard_axis_of_business_second_finish.add(InlineKeyboardButton(text="Эффективность работы в команде", callback_data="second_flow_business_5"))
-keyboard_axis_of_business_second_finish.add(InlineKeyboardButton(text="Завершить оценивание", callback_data="second_flow_business_7"))
 
-keyboard_axis_of_business_projects_second=InlineKeyboardMarkup()
-keyboard_axis_of_business_projects_second.add(InlineKeyboardButton(text="Движение к цели", callback_data="second_flow_projects__1"))
-keyboard_axis_of_business_projects_second.add(InlineKeyboardButton(text="Результативность", callback_data="second_flow_projects__2"))
-keyboard_axis_of_business_projects_second.add(InlineKeyboardButton(text="Адекватность картины мира", callback_data="second_flow_projects__3"))
-keyboard_axis_of_business_projects_second.add(InlineKeyboardButton(text="Ведение переговоров с внутренними и внешними референтными группами", callback_data="second_flow_projects__4"))
-keyboard_axis_of_business_projects_second.add(InlineKeyboardButton(text="Эффективность работы в команде", callback_data="second_flow_projects__5"))
-keyboard_axis_of_business_projects_second.add(InlineKeyboardButton(text="Следующий", callback_data="second_flow_projects__6"))
-
-keyboard_axis_of_business_projects_second_finish=InlineKeyboardMarkup()
-keyboard_axis_of_business_projects_second_finish.add(InlineKeyboardButton(text="Движение к цели", callback_data="second_flow_projects__1"))
-keyboard_axis_of_business_projects_second_finish.add(InlineKeyboardButton(text="Результативность", callback_data="second_flow_projects__2"))
-keyboard_axis_of_business_projects_second_finish.add(InlineKeyboardButton(text="Адекватность картины мира", callback_data="second_flow_projects__3"))
-keyboard_axis_of_business_projects_second_finish.add(InlineKeyboardButton(text="Ведение переговоров с внутренними и внешними референтными группами", callback_data="second_flow_projects__4"))
-keyboard_axis_of_business_projects_second_finish.add(InlineKeyboardButton(text="Эффективность работы в команде", callback_data="second_flow_projects__5"))
-keyboard_axis_of_business_projects_second_finish.add(InlineKeyboardButton(text="Завершить оценивание", callback_data="second_flow_projects__7"))
-
-keyboard_axis_of_authority_second=InlineKeyboardMarkup()
-keyboard_axis_of_authority_second.add(InlineKeyboardButton(text="Развитие парадигмы децентрализации", callback_data="second_flow_authority_1"))
-keyboard_axis_of_authority_second.add(InlineKeyboardButton(text="Стратегическое развитие сообщества", callback_data="second_flow_authority_2"))
-keyboard_axis_of_authority_second.add(InlineKeyboardButton(text="Управление ресурсами", callback_data="second_flow_authority_3"))
-keyboard_axis_of_authority_second.add(InlineKeyboardButton(text="Управляемость проектов", callback_data="second_flow_authority_4"))
-keyboard_axis_of_authority_second.add(InlineKeyboardButton(text="Проф. доверие", callback_data="second_flow_authority_5"))
-keyboard_axis_of_authority_second.add(InlineKeyboardButton(text="Следующий", callback_data="second_flow_authority_6"))
-
-keyboard_axis_of_authority_second_finish=InlineKeyboardMarkup()
-keyboard_axis_of_authority_second_finish.add(InlineKeyboardButton(text="Развитие парадигмы децентрализации", callback_data="second_flow_authority_1"))
-keyboard_axis_of_authority_second_finish.add(InlineKeyboardButton(text="Стратегическое развитие сообщества", callback_data="second_flow_authority_2"))
-keyboard_axis_of_authority_second_finish.add(InlineKeyboardButton(text="Управление ресурсами", callback_data="second_flow_authority_3"))
-keyboard_axis_of_authority_second_finish.add(InlineKeyboardButton(text="Управляемость проектов", callback_data="second_flow_authority_4"))
-keyboard_axis_of_authority_second_finish.add(InlineKeyboardButton(text="Проф. доверие", callback_data="second_flow_authority_5"))
-keyboard_axis_of_authority_second_finish.add(InlineKeyboardButton(text="Завершить оценивание", callback_data="second_flow_authority_7"))
-
-def ChooseKeyboardForFirstFlowRelations(nick,cursor):
-    if(db_commands.GetCurrentFighterVoting(nick,cursor)==fighters_num-1):
-        return keyboard_axis_of_relations_first_finish
-    else:
-        return keyboard_axis_of_relations_first
-
-def ChooseKeyboardForFirstFlowBusiness():
-    if (current_fighter_for_educator == fighters_num - 1):
-        return keyboard_axis_of_business_first_finish
-    else:
-        return keyboard_axis_of_business_first
-
-def ChooseKeyboardForFirstFlowAuthority():
-    if (current_fighter_for_authority == fighters_num - 1):
-        return keyboard_axis_of_authority_first_finish
-    else:
-        return keyboard_axis_of_authority_first
-
-def ChooseKeyboardForSecondFlowRelations():
-    if(current_fighter_for_tutor==second_flow_num-1):
-        return keyboard_axis_of_relations_second_finish
-    else:
-        return keyboard_axis_of_relations_second
-
-def ChooseKeyboardForSecondFlowBusiness():
-    if (current_fighter_for_educator == second_flow_num - 1):
-        return keyboard_axis_of_business_second_finish
-    else:
-        return keyboard_axis_of_business_second
-
-def ChooseKeyboardForSecondFlowProjectBusiness():
-    if (current_project_member == len(project_members) - 1):
-        return keyboard_axis_of_business_projects_second_finish
-    else:
-        return keyboard_axis_of_business_projects_second
-
-def ChooseKeyboardForSecondFlowAuthority():
-    if (current_second_flow_for_authority == second_flow_num - 1):
-        return keyboard_axis_of_authority_second_finish
-    else:
-        return keyboard_axis_of_authority_second

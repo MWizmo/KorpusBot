@@ -12,31 +12,41 @@ cursor.execute("""CREATE TABLE users(
             id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
 			name TEXT,
 			photo TEXT,
-			rang INTEGER NOT NULL,
+			rangs TEXT,
 			authority float,
 			nickname TEXT NOT NULL,
-			balance float,
 			registration_date TEXT ,
 			email TEXT ,
 			phone INTEGER,
 			dossier TEXT,
 			state INT,
-			second_rang INTEGER,
+			extra_info TEXT,
 			sum_of_marks REAL,
 			curr_voting_id INTEGER,
 			chat_id INTEGER,
-			wallet TEXT,
-			curr_editing_project INTEGER,
-            foreign key(rang) references rangs(id))""")
+			curr_editing_project INTEGER)""")
+
+cursor.execute('''CREATE TABLE users_tokens(
+    user TEXT PRIMARY KEY,
+    wallet TEXT,
+    contribution_tokens FLOAT,
+    investment_tokens FLOAT)''')
+
+cursor.execute('''CREATE TABLE exchanges(
+    id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    user_asker TEXT,
+    user_destination TEXT,
+    number_of_tokens FLOAT,
+    status TEXT)''')
 
 cursor.execute("""CREATE TABLE marks(
             id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
-			user_id INTEGER NOT NULL,
+			user INTEGER NOT NULL,
 			axis INTEGER NOT NULL,
 			mark TEXT NOT NULL,
 			mark_date TEXT NOT NULL,
-			flow INTEGER NOT NULL,
-            foreign key (user_id) references users(id))""")
+			status TEXT NOT NULL,
+			number_evaluators INTEGER NOT NULL)""")
 
 cursor.execute("""CREATE TABLE roles(
             id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
@@ -64,6 +74,15 @@ cursor.execute("""CREATE TABLE teams(
 			foreign key(project_id) references projects(id),
 			foreign key(role_id) references roles(id))""")
 
+cursor.execute("""CREATE TABLE project_voting(
+            project_id INTEGER NOT NULL,
+            user_voter TEXT NOT NULL,
+			axis INTEGER NOT NULL,
+			marks TEXT NOT NULL,
+			user_evaluator TEXT NOT NULL,
+			verdict TEXT,
+			explanation TEXT)""")
+
 cursor.execute("""CREATE TABLE voting(
             id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
             user TEXT NOT NULL,
@@ -81,21 +100,36 @@ cursor.execute("""CREATE TABLE orders(
 			type INTEGER NOT NULL,
 			status TEXT NOT NULL)""")
 
+cursor.execute("""CREATE TABLE emission_data(
+            id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+            budget INTEGER NOT NULL,
+			tokens_per_human FLOAT,
+			status TEXT NOT NULL)""")
+
+cursor.execute('''CREATE TABLE course_votings(
+            id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+            initiator TEXT NOT NULL,
+            start_date TEXT NOT NULL,
+            finish_date TEXT,
+			status TEXT)''')
+
 #################################################################
 
-cursor.execute('INSERT INTO rangs (id,title) VALUES(1,"Applicant")')
-cursor.execute('INSERT INTO rangs (title) VALUES("First flow")')
-cursor.execute('INSERT INTO rangs (title) VALUES("Fighter")')
-cursor.execute('INSERT INTO rangs (title) VALUES("Veteran")')
-cursor.execute('INSERT INTO rangs (title) VALUES("Tutor")')
-cursor.execute('INSERT INTO rangs (title) VALUES("Educator")')
-cursor.execute('INSERT INTO rangs (title) VALUES("Stalker")')
-cursor.execute('INSERT INTO rangs (title) VALUES("Investor")')
-cursor.execute('INSERT INTO rangs (title) VALUES("Admin")')
-cursor.execute('INSERT INTO rangs (title) VALUES("Expert")')
-cursor.execute('INSERT INTO rangs (title) VALUES("Head teacher")')
-cursor.execute('INSERT INTO rangs (title) VALUES("Invited investor")')
-
+cursor.execute('INSERT INTO rangs (id,title) VALUES(1,"Абитуриент")')             # 1
+cursor.execute('INSERT INTO rangs (title) VALUES("Первый курс")')                 # 2
+cursor.execute('INSERT INTO rangs (title) VALUES("Второй курс")')                 # 3
+cursor.execute('INSERT INTO rangs (title) VALUES("Третий курс")')                 # 4
+cursor.execute('INSERT INTO rangs (title) VALUES("Тьютор")')                      # 5
+cursor.execute('INSERT INTO rangs (title) VALUES("Преподаватель")')               # 6
+cursor.execute('INSERT INTO rangs (title) VALUES("Сталкер")')                     # 7
+cursor.execute('INSERT INTO rangs (title) VALUES("Инвестор")')                    # 8
+cursor.execute('INSERT INTO rangs (title) VALUES("Администратор")')               # 9
+cursor.execute('INSERT INTO rangs (title) VALUES("Эксперт")')                     # 10
+cursor.execute('INSERT INTO rangs (title) VALUES("Завуч")')                       # 11
+cursor.execute('INSERT INTO rangs (title) VALUES("Приглашенный инвестор")')       # 12
+cursor.execute('INSERT INTO rangs (title) VALUES("Приглашенный тьютор")')         # 13
+cursor.execute('INSERT INTO rangs (title) VALUES("Приглашенный эксперт")')        # 14
+cursor.execute('INSERT INTO rangs (title) VALUES("Приглашенный преподаватель")')  # 15
 
 #################################################################
 
