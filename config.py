@@ -1,15 +1,13 @@
 # -*- coding: utf-8 -*-
 from telebot.types import InlineKeyboardButton, InlineKeyboardMarkup
-import db_commands
+import db_commands.db_users as db_users
 import telebot
 import sqlite3
 from emoji import emojize
+import token
 
-# token = '644032287:AAECDJ2hZJfNJnZcsuahPCoqyrx0lGQI6d8'  # main bot
-token = '573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU' #second bot
-# token = '691001400:AAF1zCuHnCpt3scH8_U1G3bNmMfbnLceW0g'
 
-bot = telebot.TeleBot(token)
+bot = telebot.TeleBot(token.token)
 db = sqlite3.connect("korpus.db", check_same_thread=False)
 cursor = db.cursor()
 
@@ -19,7 +17,7 @@ def isRang(a, b):
     return len(c) > 0
 
 def get_keyboard(nick):
-    rangs = db_commands.GetRangs(nick,cursor)
+    rangs = db_users.GetRangs(nick,cursor)
     markup = telebot.types.ReplyKeyboardMarkup(one_time_keyboard=True, resize_keyboard=True)
     markup.row(emojize(":bar_chart: Оценки", use_aliases=True),
                emojize(':open_file_folder: Проекты', use_aliases=True),

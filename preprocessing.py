@@ -44,9 +44,7 @@ cursor.execute("""CREATE TABLE marks(
 			user INTEGER NOT NULL,
 			axis INTEGER NOT NULL,
 			mark TEXT NOT NULL,
-			mark_date TEXT NOT NULL,
-			status TEXT NOT NULL,
-			number_evaluators INTEGER NOT NULL)""")
+			mark_date TEXT NOT NULL)""")
 
 cursor.execute("""CREATE TABLE roles(
             id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
@@ -66,6 +64,7 @@ cursor.execute("""CREATE TABLE projects(
 			annotation TEXT,
 			foreign key(status) references statuses(id))""")
 
+
 cursor.execute("""CREATE TABLE teams(
             user_id INTEGER not null,
 			project_id INTEGER not null,
@@ -74,25 +73,6 @@ cursor.execute("""CREATE TABLE teams(
 			foreign key(project_id) references projects(id),
 			foreign key(role_id) references roles(id))""")
 
-cursor.execute("""CREATE TABLE project_voting(
-            project_id INTEGER NOT NULL,
-            user_voter TEXT NOT NULL,
-			axis INTEGER NOT NULL,
-			marks TEXT NOT NULL,
-			user_evaluator TEXT NOT NULL,
-			verdict TEXT,
-			explanation TEXT)""")
-
-cursor.execute("""CREATE TABLE voting(
-            id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
-            user TEXT NOT NULL,
-			chat_id TEXT NOT NULL,
-			number_of_members INTEGER NOT NULL,
-			agree_number INTEGER NOT NULL,
-			disagree_number INTEGER NOT NULL,
-			start_date TEXT NOT NULL,
-			finish_date TEXT,
-			status TEXT NOT NULL)""")
 
 cursor.execute("""CREATE TABLE orders(
             id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
@@ -105,13 +85,6 @@ cursor.execute("""CREATE TABLE emission_data(
             budget INTEGER NOT NULL,
 			tokens_per_human FLOAT,
 			status TEXT NOT NULL)""")
-
-cursor.execute('''CREATE TABLE course_votings(
-            id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
-            initiator TEXT NOT NULL,
-            start_date TEXT NOT NULL,
-            finish_date TEXT,
-			status TEXT)''')
 
 #################################################################
 
