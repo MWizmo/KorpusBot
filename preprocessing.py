@@ -24,7 +24,9 @@ cursor.execute("""CREATE TABLE users(
 			sum_of_marks REAL,
 			curr_voting_id INTEGER,
 			chat_id INTEGER,
-			curr_editing_project INTEGER)""")
+			curr_editing_project INTEGER,
+			curr_editing_voting INTEGER,
+			curr_voting_comment TEXT)""")
 
 cursor.execute('''CREATE TABLE users_tokens(
     user TEXT PRIMARY KEY,
@@ -64,7 +66,6 @@ cursor.execute("""CREATE TABLE projects(
 			annotation TEXT,
 			foreign key(status) references statuses(id))""")
 
-
 cursor.execute("""CREATE TABLE teams(
             user_id INTEGER not null,
 			project_id INTEGER not null,
@@ -72,7 +73,6 @@ cursor.execute("""CREATE TABLE teams(
 			foreign key(user_id) references users(id),
 			foreign key(project_id) references projects(id),
 			foreign key(role_id) references roles(id))""")
-
 
 cursor.execute("""CREATE TABLE orders(
             id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
@@ -85,6 +85,27 @@ cursor.execute("""CREATE TABLE emission_data(
             budget INTEGER NOT NULL,
 			tokens_per_human FLOAT,
 			status TEXT NOT NULL)""")
+
+cursor.execute("""CREATE TABLE votings(
+    id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    project_id INTEGER NOT NULL,
+    voting_date TEXT,
+    status TEXT)""")
+
+cursor.execute("""CREATE TABLE votings_experts(
+    voting_id INTEGER,
+    expert_nick TEXT,
+    axis INTEGER,
+    confirmed TEXT)""")
+
+cursor.execute("""CREATE TABLE votings_info(
+    voting_id INTEGER NOT NULL,
+    axis INTEGER NOT NULL,
+    expert_nick TEXT,
+    cadet_nick TEXT,
+    criterion INTEGER,
+    mark INTEGER,
+    comment TEXT)""")
 
 #################################################################
 

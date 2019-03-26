@@ -66,7 +66,6 @@ def text(message):
                          reply_markup=keyboard)
     elif message.chat.type == 'private':
         mess = message.text
-        print(message.text)
         cherrypy.log(message.text)
         if mess == '📂 Проекты':
             projectsMenu(message)
@@ -81,7 +80,7 @@ def text(message):
             keyboard.add('Назад')
             bot.send_message(message.chat.id, 'Вкладка <b>"Оценки"</b>', reply_markup=keyboard, parse_mode='HTML')
         elif mess == '👑 Оценка нематериального вклада':
-            pass
+            contribution(message)
         elif mess == '👀 Посмотреть свои оценки':
             marks(message)
         elif mess == '📋 Профиль':
@@ -194,31 +193,13 @@ def text(message):
             bot.send_message(message.chat.id, 'Неизвестная команда',
                              reply_markup=get_keyboard('@' + message.from_user.username))
 
-# import logging
-#
-# logging.basicConfig(filename="log.log", level=logging.INFO)
-# try:
-#     now_date = datetime.datetime.today()
-#     now_date = now_date.strftime("%d/%m/%y %H:%M")
-#     logging.info('['+now_date+'] Bot started')
-#     bot.remove_webhook()
-#     bot.set_webhook(url=webhook.WEBHOOK_URL_BASE + webhook.WEBHOOK_URL_PATH,certificate=open(webhook.WEBHOOK_SSL_CERT, 'r'))
-#     cherrypy.config.update({
-#             'server.socket_host': webhook.WEBHOOK_LISTEN,
-#             'server.socket_port': webhook.WEBHOOK_PORT,
-#             'server.ssl_module': 'builtin',
-#             'server.ssl_certificate': webhook.WEBHOOK_SSL_CERT,
-#             'server.ssl_private_key': webhook.WEBHOOK_SSL_PRIV
-#         })
-#     cherrypy.quickstart(webhook.WebhookServer(), webhook.WEBHOOK_URL_PATH, {'/': {}})
-# except:
-#     now_date = datetime.datetime.today()
-#     now_date = now_date.strftime("%d/%m/%y %H:%M")
-#     logging.debug('[' + now_date + '] Bot dropped')
-#
-# now_date = datetime.datetime.today()
-# now_date = now_date.strftime("%d/%m/%y %H:%M")
-# logging.info('['+now_date+'] Bot finished')
+
+# webhook.start()
+# cursor.execute('delete from votings where id>1')
+# cursor.execute('delete from votings_info')
+# cursor.execute('update votings set status="Preparing" where id=1')
+# db.commit()
+# cursor.execute('select * from votings')
+# a = cursor.fetchall()
 
 bot.polling(none_stop=True)
-

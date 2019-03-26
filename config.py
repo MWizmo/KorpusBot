@@ -1,13 +1,12 @@
 # -*- coding: utf-8 -*-
-from telebot.types import InlineKeyboardButton, InlineKeyboardMarkup
 import db_commands.db_users as db_users
 import telebot
 import sqlite3
 from emoji import emojize
-import token
+import bot_token
 
 
-bot = telebot.TeleBot(token.token)
+bot = telebot.TeleBot(bot_token.token)
 db = sqlite3.connect("korpus.db", check_same_thread=False)
 cursor = db.cursor()
 
@@ -63,51 +62,56 @@ project_marks=[]
 current_project=''
 #----------
 
-#-----First flow------
-keyboard_axis_of_relations=InlineKeyboardMarkup()
-keyboard_axis_of_relations.add(InlineKeyboardButton(text="Личностное развитие", callback_data="relations_1"))
-keyboard_axis_of_relations.add(InlineKeyboardButton(text="Понятность", callback_data="relations_2"))
-keyboard_axis_of_relations.add(InlineKeyboardButton(text="Энергия", callback_data="relations_3"))
-keyboard_axis_of_relations.add(InlineKeyboardButton(text="Следующий", callback_data="relations_4"))
+#-----Feybpards------
 
-keyboard_axis_of_relations_finish=InlineKeyboardMarkup()
-keyboard_axis_of_relations_finish.add(InlineKeyboardButton(text="Личностное развитие", callback_data="relations_1"))
-keyboard_axis_of_relations_finish.add(InlineKeyboardButton(text="Понятность", callback_data="relations_2"))
-keyboard_axis_of_relations_finish.add(InlineKeyboardButton(text="Энергия", callback_data="relations_3"))
-keyboard_axis_of_relations_finish.add(InlineKeyboardButton(text="Завершить оценивание", callback_data="relations_5"))
+keyboard_axis_of_relations_finish=telebot.types.InlineKeyboardMarkup()
+keyboard_axis_of_relations_finish.add(telebot.types.InlineKeyboardButton(text="Личностное развитие", callback_data="relations_1"))
+keyboard_axis_of_relations_finish.add(telebot.types.InlineKeyboardButton(text="Понятность", callback_data="relations_2"))
+keyboard_axis_of_relations_finish.add(telebot.types.InlineKeyboardButton(text="Энергия", callback_data="relations_3"))
+keyboard_axis_of_relations_finish.add(telebot.types.InlineKeyboardButton(text="Завершить оценивание", callback_data="relations_5"))
 
-keyboard_axis_of_business=InlineKeyboardMarkup()
-keyboard_axis_of_business.add(InlineKeyboardButton(text="Движение", callback_data="business_1"))
-keyboard_axis_of_business.add(InlineKeyboardButton(text="Завершенность", callback_data="business_2"))
-keyboard_axis_of_business.add(InlineKeyboardButton(text="Подтверждение средой", callback_data="business_3"))
-keyboard_axis_of_business.add(InlineKeyboardButton(text="Следующий", callback_data="business_4"))
 
-keyboard_axis_of_business_finish=InlineKeyboardMarkup()
-keyboard_axis_of_business_finish.add(InlineKeyboardButton(text="Движение", callback_data="business_1"))
-keyboard_axis_of_business_finish.add(InlineKeyboardButton(text="Завершенность", callback_data="business_2"))
-keyboard_axis_of_business_finish.add(InlineKeyboardButton(text="Подтверждение средой", callback_data="business_3"))
-keyboard_axis_of_business_finish.add(InlineKeyboardButton(text="Завершить оценивание", callback_data="business_5"))
+keyboard_axis_of_business_finish=telebot.types.InlineKeyboardMarkup()
+keyboard_axis_of_business_finish.add(telebot.types.InlineKeyboardButton(text="Движение", callback_data="business_1"))
+keyboard_axis_of_business_finish.add(telebot.types.InlineKeyboardButton(text="Завершенность", callback_data="business_2"))
+keyboard_axis_of_business_finish.add(telebot.types.InlineKeyboardButton(text="Подтверждение средой", callback_data="business_3"))
+keyboard_axis_of_business_finish.add(telebot.types.InlineKeyboardButton(text="Завершить оценивание", callback_data="business_5"))
 
-keyboard_axis_of_authority=InlineKeyboardMarkup()
-keyboard_axis_of_authority.add(InlineKeyboardButton(text="Самоуправление", callback_data="authority_1"))
-keyboard_axis_of_authority.add(InlineKeyboardButton(text="Стратегия", callback_data="authority_2"))
-keyboard_axis_of_authority.add(InlineKeyboardButton(text="Управляемость", callback_data="authority_3"))
-keyboard_axis_of_authority.add(InlineKeyboardButton(text="Следующий", callback_data="authority_4"))
 
-keyboard_axis_of_authority_finish=InlineKeyboardMarkup()
-keyboard_axis_of_authority_finish.add(InlineKeyboardButton(text="Самоуправление", callback_data="authority_1"))
-keyboard_axis_of_authority_finish.add(InlineKeyboardButton(text="Стратегия", callback_data="authority_2"))
-keyboard_axis_of_authority_finish.add(InlineKeyboardButton(text="Управляемость", callback_data="authority_3"))
-keyboard_axis_of_authority_finish.add(InlineKeyboardButton(text="Завершить оценивание", callback_data="authority_5"))
+keyboard_axis_of_authority_finish=telebot.types.InlineKeyboardMarkup()
+keyboard_axis_of_authority_finish.add(telebot.types.InlineKeyboardButton(text="Самоуправление", callback_data="authority_1"))
+keyboard_axis_of_authority_finish.add(telebot.types.InlineKeyboardButton(text="Стратегия", callback_data="authority_2"))
+keyboard_axis_of_authority_finish.add(telebot.types.InlineKeyboardButton(text="Управляемость", callback_data="authority_3"))
+keyboard_axis_of_authority_finish.add(telebot.types.InlineKeyboardButton(text="Завершить оценивание", callback_data="authority_5"))
 #----------
 
-def ChooseKeyboardForRelations():
-    return keyboard_axis_of_relations_finish
+def ChooseKeyboardForRelations(voting_id, cadet):
+    keyboard_axis_of_relations = telebot.types.InlineKeyboardMarkup()
+    keyboard_axis_of_relations.add(telebot.types.InlineKeyboardButton(text="Личностное развитие", callback_data="relations%1%"+str(voting_id)+"%"+cadet))
+    keyboard_axis_of_relations.add(telebot.types.InlineKeyboardButton(text="Понятность", callback_data="relations%2%"+str(voting_id)+"%"+cadet))
+    keyboard_axis_of_relations.add(telebot.types.InlineKeyboardButton(text="Энергия", callback_data="relations%3%"+str(voting_id)+"%"+cadet))
+    keyboard_axis_of_relations.add(telebot.types.InlineKeyboardButton(text="Следующий", callback_data="relations%4%"+str(voting_id)+"%"+cadet))
+    return keyboard_axis_of_relations
 
-def ChooseKeyboardForBusiness():
-    return keyboard_axis_of_business_finish
 
-def ChooseKeyboardForAuthority():
-    return keyboard_axis_of_authority_finish
+def ChooseKeyboardForBusiness(voting_id, cadet):
+    keyboard_axis_of_business = telebot.types.InlineKeyboardMarkup()
+    keyboard_axis_of_business.add(telebot.types.InlineKeyboardButton(text="Движение", callback_data="business%1%"+str(voting_id)+"%"+cadet))
+    keyboard_axis_of_business.add(telebot.types.InlineKeyboardButton(text="Завершенность", callback_data="business%2%"+str(voting_id)+"%"+cadet))
+    keyboard_axis_of_business.add(
+        telebot.types.InlineKeyboardButton(text="Подтверждение средой", callback_data="business%3%"+str(voting_id)+"%"+cadet))
+    keyboard_axis_of_business.add(telebot.types.InlineKeyboardButton(text="Следующий", callback_data="business%4%"+str(voting_id)+"%"+cadet))
+    return keyboard_axis_of_business
+
+
+def ChooseKeyboardForAuthority(voting_id, cadet):
+    keyboard_axis_of_authority = telebot.types.InlineKeyboardMarkup()
+    keyboard_axis_of_authority.add(
+        telebot.types.InlineKeyboardButton(text="Самоуправление", callback_data="authority%1%"+str(voting_id)+"%"+cadet))
+    keyboard_axis_of_authority.add(telebot.types.InlineKeyboardButton(text="Стратегия", callback_data="authority%2%"+str(voting_id)+"%"+cadet))
+    keyboard_axis_of_authority.add(
+        telebot.types.InlineKeyboardButton(text="Управляемость", callback_data="authority%3%"+str(voting_id)+"%"+cadet))
+    keyboard_axis_of_authority.add(telebot.types.InlineKeyboardButton(text="Следующий", callback_data="authority%4%"+str(voting_id)+"%"+cadet))
+    return keyboard_axis_of_authority
 
 

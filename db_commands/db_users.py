@@ -1,6 +1,10 @@
 import datetime
-from config import isRang
 # -*- coding: utf-8 -*-
+
+
+def isRang(a, b):
+    c = list(set(a) & set(b))
+    return len(c) > 0
 
 def AddAbit(nick,cursor,database):
     cursor.execute('INSERT INTO users(nickname,state) VALUES ("'+nick+'",0)')
