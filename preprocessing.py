@@ -45,6 +45,7 @@ cursor.execute("""CREATE TABLE marks(
             id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
 			user INTEGER NOT NULL,
 			axis INTEGER NOT NULL,
+			criterion INTEGER NOT NULL,
 			mark TEXT NOT NULL,
 			mark_date TEXT NOT NULL)""")
 
@@ -105,7 +106,32 @@ cursor.execute("""CREATE TABLE votings_info(
     cadet_nick TEXT,
     criterion INTEGER,
     mark INTEGER,
-    comment TEXT)""")
+    comment TEXT,
+    finished TEXT)""")
+
+cursor.execute("""CREATE TABLE expert_voting(
+    id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    voting_date TEXT,
+    status TEXT)""")
+
+cursor.execute("""CREATE TABLE voting_teamleads(
+    voting_id INTEGER NOT NULL,
+    teamlead_nick TEXT)""")
+
+cursor.execute("""CREATE TABLE expert_votings_info(
+    voting_id INTEGER NOT NULL,
+    expert_nick TEXT,
+    teamlead_nick TEXT,
+    criterion INTEGER,
+    mark INTEGER,
+    comment TEXT,
+    finished TEXT)""")
+
+cursor.execute("""CREATE TABLE expert_marks(
+    expert TEXT,
+    mark_date TEXT,
+    criterion INTEGER,
+    mark INTEGER)""")
 
 #################################################################
 

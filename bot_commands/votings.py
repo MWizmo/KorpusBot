@@ -3,6 +3,7 @@ from db_commands.db_users import *
 from db_commands.db_profile import *
 from db_commands.db_voting import *
 from db_commands.db_projects import *
+from db_commands.db_marks import GetMarksForDate
 import telebot
 import re
 from config import bot, db, cursor, get_keyboard
@@ -42,7 +43,7 @@ def voting_menu(user,project_id):
     if next_voting is None or next_voting[1] is None:
         info += 'Дата оценки пока не назначена\n'
     else:
-        info += 'Оценка запланирована на ' + next_voting[1] + '\n'
+        info += 'Оценка запланирована на <b>' + next_voting[1] + '</b>\n'
     communication_experts = GetExpertsFromVoting(voting,1,cursor)
     business_experts = GetExpertsFromVoting(voting,2,cursor)
     authority_experts = GetExpertsFromVoting(voting,3,cursor)
@@ -52,9 +53,9 @@ def voting_menu(user,project_id):
     else:
         info += 'Эксперты по оси отношений: '
         for expert in communication_experts:
-            info += expert[0]
+            info += '<b>' + GetName(expert[0], cursor) + '</b>'
             if expert[1] == 'Not confirmed':
-                info+='(приглашение отправлено)'
+                info += '(приглашение отправлено)'
             info += ', '
         info = info[:len(info) - 2]
         info += '\n'
@@ -64,7 +65,7 @@ def voting_menu(user,project_id):
     else:
         info += 'Эксперты по оси дела: '
         for expert in business_experts:
-            info += expert[0]
+            info += '<b>' + GetName(expert[0], cursor) + '</b>'
             if expert[1] == 'Not confirmed':
                 info += '(приглашение отправлено)'
             info += ', '
@@ -76,14 +77,14 @@ def voting_menu(user,project_id):
     else:
         info += 'Эксперты по оси власти: '
         for expert in authority_experts:
-            info += expert[0]
+            info += '<b>' + GetName(expert[0], cursor) + '</b>'
             if expert[1] == 'Not confirmed':
                 info += '(приглашение отправлено)'
             info += ', '
         info = info[:len(info) - 2]
         info += '\n'
 
-    bot.send_message(GetChatId(user, cursor), info)
+    bot.send_message(GetChatId(user, cursor), info, parse_mode='HTML')
     keyboard = telebot.types.InlineKeyboardMarkup()
     keyboard.add(telebot.types.InlineKeyboardButton(text='Назначить дату следующей оценки',
                                                     callback_data='date_vot%' + str(project_id) + '%' + str(voting)))
@@ -182,7 +183,7 @@ def set_experts(call):
             keyboard.add(telebot.types.InlineKeyboardButton(text='Завершить выбор', callback_data='expert%1%0'+'%'+str(project_id)+'%'+str(voting_id)))
             bot.send_message(call.message.chat.id, 'Выберите экспертов из списка', reply_markup=keyboard)
         else:
-            bot.send_message(call.message.message.id,'В данном момент пока нет экспертов, которые могут оценивать ось отношений')
+            bot.send_message(call.message.chat.id,'В данном момент пока нет экспертов, которые могут оценивать ось отношений')
             choose_axis(project_id,voting_id,'@'+call.from_user.username)
     elif axis == '2':
         experts = GetExpertsFromProject(project_id,cursor)
@@ -193,7 +194,7 @@ def set_experts(call):
             keyboard.add(telebot.types.InlineKeyboardButton(text='Завершить выбор', callback_data='expert%2%0'+'%'+str(project_id)+'%'+str(voting_id)))
             bot.send_message(call.message.chat.id, 'Выберите экспертов из списка', reply_markup=keyboard)
         else:
-            bot.send_message(call.message.message.id,'В данном проекте пока нет экспертов, которые могут оценивать ось дела')
+            bot.send_message(call.message.chat.id,'В данном проекте пока нет экспертов, которые могут оценивать ось дела')
             choose_axis(project_id,voting_id,'@'+call.from_user.username)
     elif axis == '3':
         all_members = GetListOfUsers(cursor)
@@ -280,140 +281,14 @@ def decide_expert(call):
     bot.send_message(GetChatId(GetTeamleadOfProject(project_id,cursor)[0],cursor),mess)
 
 
-# @bot.callback_query_handler(func=lambda call: True and call.data.startswith('relations'))
-# def fighters_vote(call):
-#     if call.data[-1] != "5":
-#         if call.data[-1] == "1":
-#             config.project_relation_marks[call.from_user.username][0] = 1 if \
-#             config.project_relation_marks[call.from_user.username][0] == 0 else 0
-#         elif call.data[-1] == "2":
-#             config.project_relation_marks[call.from_user.username][1] = 1 if \
-#             config.project_relation_marks[call.from_user.username][1] == 0 else 0
-#         elif call.data[-1] == "3":
-#             config.project_relation_marks[call.from_user.username][2] = 1 if \
-#             config.project_relation_marks[call.from_user.username][2] == 0 else 0
-#         bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id,
-#                               text='Оценка нематериального вклада.\nОсь отношений\nКурсант: ' +
-#                                    GetName('@' + call.from_user.username,cursor) +
-#                                    '\nЛичностное развитие: ' + put_sign(config.project_relation_marks[call.from_user.username][0]) +
-#                                    '\nПонятность: ' + put_sign(config.project_relation_marks[ call.from_user.username][1]) +
-#                                    '\nЭнергия: ' + put_sign(config.project_relation_marks[call.from_user.username][2]),
-#                               reply_markup=config.ChooseKeyboardForRelations())
-#     else:
-#         bot.delete_message(call.message.chat.id, call.message.message_id)
-#         id = config.project_relation_marks[call.from_user.username][3]
-#         project_members = GetMembersOfProject(id,cursor)
-#         # AddMark('@' + call.from_user.username, config.project_relation_marks[call.from_user.username][:3], 1,len(project_members)-1, cursor,db)
-#         keyboard = telebot.types.InlineKeyboardMarkup()
-#         keyboard.row(telebot.types.InlineKeyboardButton(text='Согласен', callback_data='decide_vote%'+str(id)+'%@'+call.from_user.username+'%1%1'),
-#                      telebot.types.InlineKeyboardButton(text='Не согласен',callback_data='decide_vote%' + str(id) + '%@' + call.from_user.username + '%2%1'))
-#         for member in project_members:
-#             if member[0]!='@'+call.from_user.username:
-#                 bot.send_message(GetChatId(member[0],cursor),'Курсант '+GetName('@'+call.from_user.username,cursor)+
-# 				' оценил себя по оси отношений в рамках проекта "' + GetProjectTitle(id,cursor) +
-#                                  '". Вот его оценки:\n Личностное развитие: ' +
-#                                  str(config.project_relation_marks[call.from_user.username][0]) +
-#                                  '\n Понятность: ' + str(config.project_relation_marks[ call.from_user.username][1]) +
-#                                  '\n Энергия: ' + str(config.project_relation_marks[call.from_user.username][2]) +'\nВы согласны с этими оценками?',
-#                                  reply_markup=keyboard)
-#                 StartEvaluateInProject(int(id),'@'+call.from_user.username,1,config.project_relation_marks[call.from_user.username][:3],member,cursor,db)
-#         bot.send_message(call.message.chat.id, 'Оценивание завершено',reply_markup=get_keyboard('@' + call.from_user.username))
-#
-#
-# @bot.callback_query_handler(func=lambda call: True and call.data.startswith('business'))
-# def educator_votes(call):
-#     if call.data[-1] != '5':
-#         if call.data[-1] == '1':
-#             config.project_business_marks[call.from_user.username][0] = 1 \
-#                 if config.project_business_marks[call.from_user.username][0] == 0 else 0
-#         if call.data[-1] == '2':
-#             config.project_business_marks[call.from_user.username][1] = 1 \
-#                 if config.project_business_marks[call.from_user.username][1] == 0 else 0
-#         if call.data[-1] == '3':
-#             config.project_business_marks[call.from_user.username][2] = 1 \
-#                 if config.project_business_marks[call.from_user.username][2] == 0 else 0
-#         bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id,
-#                               text='Оценка нематериального вклада.\nОсь дела \nКурсант: ' +
-#                                    GetName('@' + call.from_user.username,cursor) +
-#                                    '\nДвижение: ' + put_sign(config.project_business_marks[call.from_user.username][0]) + '\nЗавершенность: ' +
-#                                    put_sign(config.project_business_marks[call.from_user.username][1]) +
-#                                    '\nПодтверждение средой: ' + put_sign(config.project_business_marks[call.from_user.username][2]),
-#                               reply_markup=config.ChooseKeyboardForBusiness())
-#     else:
-#         bot.delete_message(call.message.chat.id, call.message.message_id)
-#         id = config.project_business_marks[call.from_user.username][3]
-#         project_members = GetMembersOfProject(id, cursor)
-#         # AddMark('@' + call.from_user.username, config.project_business_marks[call.from_user.username][:3], 2,
-#         #         len(project_members)-1, cursor, db)
-#         keyboard = telebot.types.InlineKeyboardMarkup()
-#         keyboard.row(telebot.types.InlineKeyboardButton(text='Согласен', callback_data='decide_vote%' + str(
-#             id) + '%@' + call.from_user.username + '%1%2'),
-#                      telebot.types.InlineKeyboardButton(text='Не согласен', callback_data='decide_vote%' + str(
-#                          id) + '%@' + call.from_user.username + '%2%2'))
-#         for member in project_members:
-#             if member[0]!='@'+call.from_user.username:
-#                 bot.send_message(GetChatId(member[0], cursor), 'Курсант ' + GetName('@' + call.from_user.username, cursor) +
-#                                  ' оценил себя по оси дела в рамках проекта "' + GetProjectTitle(id,cursor) +
-#                                  '". Вот его оценки:\n Движение: ' +
-#                                  str(config.project_business_marks[call.from_user.username][0]) +
-#                                  '\n Завершенность: ' + str(config.project_business_marks[call.from_user.username][1]) +
-#                                  '\n Подтверждение средой: ' +
-#                                  str(config.project_business_marks[call.from_user.username][2]) + '\nВы согласны с этими оценками?',
-#                                  reply_markup=keyboard)
-#                 StartEvaluateInProject(int(id), '@' + call.from_user.username, 2,config.project_business_marks[call.from_user.username][:3], member, cursor, db)
-#         bot.send_message(call.message.chat.id, 'Оценивание завершено',reply_markup=get_keyboard('@' + call.from_user.username))
-#
-#
-# @bot.callback_query_handler(func=lambda call: True and call.data.startswith('authority'))
-# def authority_votes1(call):
-#     if call.data[-1] != '5':
-#         if call.data[-1] == '1':
-#             config.project_authority_marks[call.from_user.username][0] = 1 \
-#                 if config.project_authority_marks[call.from_user.username][0] == 0 else 0
-#         if call.data[-1] == '2':
-#             config.project_authority_marks[call.from_user.username][1] = 1 \
-#                 if config.project_authority_marks[call.from_user.username][1] == 0 else 0
-#         if call.data[-1] == '3':
-#             config.project_authority_marks[call.from_user.username][2] = 1 \
-#                 if config.project_authority_marks[call.from_user.username][2] == 0 else 0
-#         bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id,
-#                               text='Оценка нематериального вклада.\nОсь власти \nКурсант: ' +
-#                                    GetName('@'+call.from_user.username,cursor) +
-#                                    '\nСамоуправление: ' + put_sign(config.project_authority_marks[call.from_user.username][0]) +
-#                                    '\nСтратегия: ' + put_sign(config.project_authority_marks[call.from_user.username][1]) +
-#                                    '\nУправляемость: ' + put_sign(config.project_authority_marks[call.from_user.username][2]),
-#                               reply_markup=config.ChooseKeyboardForAuthority())
-#     else:
-#         bot.delete_message(call.message.chat.id, call.message.message_id)
-#         id = config.project_authority_marks[call.from_user.username][3]
-#         project_members = GetMembersOfProject(id, cursor)
-#         # AddMark('@' + call.from_user.username, config.project_authority_marks[call.from_user.username][:3], 3,
-#          #       len(project_members)-1, cursor, db)
-#         keyboard = telebot.types.InlineKeyboardMarkup()
-#         keyboard.row(telebot.types.InlineKeyboardButton(text='Согласен', callback_data='decide_vote%' + str(
-#             id) + '%@' + call.from_user.username + '%1%3'),
-#                      telebot.types.InlineKeyboardButton(text='Не согласен', callback_data='decide_vote%' + str(
-#                          id) + '%@' + call.from_user.username + '%2%3'))
-#         for member in project_members:
-#             if member[0]!='@'+call.from_user.username:
-#                 bot.send_message(GetChatId(member[0], cursor), 'Курсант ' + GetName('@' + call.from_user.username, cursor) +
-#                                  ' оценил себя по оси власти в рамках проекта "' + GetProjectTitle(id,cursor) +
-#                                  '". Вот его оценки:\n Самоуправление: ' +
-#                                  str(config.project_authority_marks[call.from_user.username][0]) +
-#                                  '\n Стратегия: ' + str(config.project_authority_marks[call.from_user.username][1]) +
-#                                  '\n Управляемость: ' +
-#                                  str(config.project_authority_marks[call.from_user.username][2]) + '\nВы согласны с этими оценками?',
-#                                  reply_markup=keyboard)
-#         bot.send_message(call.message.chat.id, 'Оценивание завершено',reply_markup=get_keyboard('@' + call.from_user.username))
-
-
 @bot.callback_query_handler(func=lambda call: True and call.data.startswith('start_vot'))
 def start_voting(call):
     project_id = call.data.split('%')[1]
     voting_id = call.data.split('%')[2]
     bot.delete_message(call.message.chat.id, call.message.message_id)
-    bot.send_message(call.message.chat.id, 'Голосование началось, всем участвующим экспертам разосланы формы для голосования')
     if IsVotingReadyForStart(voting_id, cursor):
+        bot.send_message(call.message.chat.id,
+                         'Голосование началось, всем участвующим экспертам разосланы формы для голосования')
         StartVoting(voting_id, cursor, db)
         communication_experts = GetExpertsFromVoting(voting_id, 1, cursor)
         business_experts = GetExpertsFromVoting(voting_id, 2, cursor)
@@ -424,40 +299,32 @@ def start_voting(call):
                 PutEmptyMark(voting_id,expert[0],member[0],1,cursor,db)
             cadet = GetNonvotedCadetsForExpert(voting_id,expert[0],1,cursor)[0][0]
             bot.send_message(GetChatId(expert[0],cursor),
-                                    'Оценка нематериального вклада\nПроект "'+GetProjectTitle(project_id,cursor)+
-                                    '"\nОсь отношений\nКурсант: ' + GetName(cadet,cursor) +
-                                    '\nЛичностное развитие: -\nПонятность: -\nЭнергия: -',
-                                    reply_markup=config.ChooseKeyboardForRelations(voting_id, cadet))
+                                    'Оценка нематериального вклада\nПроект <b>"'+GetProjectTitle(project_id,cursor)+
+                                    '"</b>\nОсь отношений\nКурсант: <b>' + GetName(cadet,cursor) +
+                                    '</b>\nЛичностное развитие: 0\nПонятность: 0\nЭнергия: 0',
+                                    reply_markup=config.ChooseKeyboardForRelations(voting_id, cadet), parse_mode='HTML')
         for expert in business_experts:
             for member in project_members:
                 PutEmptyMark(voting_id,expert[0],member[0],2,cursor,db)
             cadet = GetNonvotedCadetsForExpert(voting_id,expert[0],2,cursor)[0][0]
             bot.send_message(GetChatId(expert[0], cursor),
-                             'Оценка нематериального вклада\nПроект "' + GetProjectTitle(project_id, cursor) +
-                             '"\nОсь дела\nКурсант: ' + GetName(cadet, cursor) +
-                             '\nДвижение: -\nЗавершенность: -\nПодтверждение средой: -',
-                             reply_markup=config.ChooseKeyboardForBusiness(voting_id, cadet))
+                             'Оценка нематериального вклада\nПроект <b>"' + GetProjectTitle(project_id, cursor) +
+                             '"</b>\nОсь дела\nКурсант: <b>' + GetName(cadet, cursor) +
+                             '</b>\nДвижение: 0\nЗавершенность: 0\nПодтверждение средой: 0',
+                             reply_markup=config.ChooseKeyboardForBusiness(voting_id, cadet), parse_mode='HTML')
         for expert in authority_experts:
             for member in project_members:
-                PutEmptyMark(voting_id,expert[0],member[0],3,cursor,db)
-            cadet = GetNonvotedCadetsForExpert(voting_id,expert[0],3,cursor)[0][0]
+                PutEmptyMark(voting_id, expert[0], member[0], 3, cursor, db)
+            cadet = GetNonvotedCadetsForExpert(voting_id, expert[0], 3, cursor)[0][0]
             bot.send_message(GetChatId(expert[0],cursor),
-                             'Оценка нематериального вклада\nПроект "' + GetProjectTitle(project_id, cursor) +
-                             '"\nОсь власти\nКурсант: ' + GetName(cadet, cursor) +
-                                          '\nСамоуправление: -\nСтратегия: -\nУправляемость: -',
-                                          reply_markup=config.ChooseKeyboardForAuthority(voting_id, cadet))
+                             'Оценка нематериального вклада\nПроект <b>"' + GetProjectTitle(project_id, cursor) +
+                             '"</b>\nОсь власти\nКурсант: <b>' + GetName(cadet, cursor) +
+                             '</b>\nСамоуправление: 0\nСтратегия: 0\nУправляемость: 0',
+                             reply_markup=config.ChooseKeyboardForAuthority(voting_id, cadet), parse_mode='HTML')
     else:
-        bot.send_message(call.message.chat.id, 'Вы пока не можете начать голосование. Ни один эксперт пока не подтвердил участие')
-
-
-def put_sign(num):
-    if not(num is None):
-        if num[0] == '0' or num[0] == 0 or num[0] is None or num == 0:
-            return '-'
-        else:
-            return '+'
-    else:
-        return '-'
+        bot.send_message(call.message.chat.id,
+                         'Вы пока не можете начать голосование. Ни один эксперт пока не подтвердил участие или не выставлена дата')
+        voting_menu('@' + call.from_user.username,project_id)
 
 
 @bot.callback_query_handler(func=lambda call: True and call.data.startswith('relations'))
@@ -469,30 +336,236 @@ def relations_voting(call):
     expert = '@' + call.from_user.username
     if criterion != '4':
         mark = GetMarkInVoting(voting_id,expert,cadet,1,criterion,cursor)
-        if mark is None or mark[0] is None or mark[0] == '0' or mark[0] == 0:
+        if mark is None or mark == 0 or mark == '0':
             PutMark(voting_id,expert,cadet,1,criterion,1,cursor,db)
         else:
             PutMark(voting_id, expert, cadet, 1, criterion, 0, cursor, db)
         bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id,
-                             text='Оценка нематериального вклада\nПроект "' + GetProjectTitle(project_id, cursor) +
-                                '"\nОсь отношений\nКурсант: ' + GetName(cadet, cursor) +
-                                '\nЛичностное развитие: '+put_sign(GetMarkInVoting(voting_id,expert,cadet,1,1,cursor))+
-                                '\nПонятность: '+put_sign(GetMarkInVoting(voting_id,expert,cadet,1,2,cursor))+
-                                '\nЭнергия: '+put_sign(GetMarkInVoting(voting_id,expert,cadet,1,3,cursor)),
-                             reply_markup=config.ChooseKeyboardForRelations(voting_id, cadet))
+                             text='Оценка нематериального вклада\n<b>Проект "' + GetProjectTitle(project_id, cursor) +
+                                '"</b>\nОсь отношений\nКурсант: <b>' + GetName(cadet, cursor) +
+                                '</b>\nЛичностное развитие: '+str(GetMarkInVoting(voting_id,expert,cadet,1,1,cursor))+
+                                '\nПонятность: '+str(GetMarkInVoting(voting_id,expert,cadet,1,2,cursor))+
+                                '\nЭнергия: '+str(GetMarkInVoting(voting_id,expert,cadet,1,3,cursor)),
+                             reply_markup=config.ChooseKeyboardForRelations(voting_id, cadet), parse_mode='HTML')
     else:
         bot.delete_message(call.message.chat.id, call.message.message_id)
-        commenting(expert,cadet,voting_id,1)
+        # commenting(expert,cadet,voting_id,1)
+        AcceptMark(voting_id, expert, cadet, 1, cursor, db)
         cadets = GetNonvotedCadetsForExpert(voting_id, '@'+call.from_user.username, 1, cursor)
         if cadets is None or len(cadets) == 0:
-            bot.send_message(call.message.chat.id, 'Спасибо за ваши оценки, голосование окончено')
+            bot.send_message(call.message.chat.id,
+                             'Спасибо за ваши оценки, ваше голосование по оси отношений завершено окончено')
+            if IsVotingFinished(voting_id, 1, cursor):
+                CompileMarksByAxis(voting_id, 1, cursor, db)
+                cursor.execute('SELECT voting_date FROM votings WHERE id=' + str(voting_id))
+                time = cursor.fetchone()[0]
+                marks = GetMarksForDate(time, 1, cursor)
+                cur_cadet = marks[0][0]
+                result = '<b>Результаты оценки по оси отношений в проекте "' + GetProjectTitle(project_id, cursor) \
+                         + '"</b>\nКурсант: <b>' + GetName(cur_cadet, cursor) + '</b>\n'
+                FinishVoting(voting_id, cursor, db)
+                for mark in marks:
+                    if mark[0] == cur_cadet:
+                        if mark[1] == '1' or mark[1] == 1:
+                            result += 'Личностное развитие'
+                        elif mark[1] == '2' or mark[1] == 2:
+                            result += 'Понятность'
+                        elif mark[1] == '3' or mark[1] == 3:
+                            result += 'Энергия'
+                        result += ': <b>' + str(mark[2]) + '</b>\n'
+                    else:
+                        cur_cadet = mark[0]
+                        result += '\nКурсант: <b>' + GetName(mark[0], cursor) + '</b>\n'
+                        if mark[1] == '1' or mark[1] == 1:
+                            result += 'Личностное развитие'
+                        elif mark[1] == '2' or mark[1] == 2:
+                            result += 'Понятность'
+                        elif mark[1] == '3' or mark[1] == 3:
+                            result += 'Энергия'
+                        result += ': <b>' + str(mark[2]) + '</b>\n'
+                members = GetMembersOfProject(project_id, cursor)
+                experts = GetExpertsFromVoting(voting_id, 1, cursor)
+                for member in members:
+                    bot.send_message(GetChatId(member[0], cursor), result, parse_mode='HTML')
+                for expert in experts:
+                    bot.send_message(GetChatId(expert[0], cursor), result, parse_mode='HTML')
+        else:
+            cadet = cadets[0][0]
+            bot.send_message(GetChatId(expert, cursor),
+                             'Оценка нематериального вклада\nПроект <b>"' + GetProjectTitle(project_id, cursor) +
+                             '"</b>\nОсь отношений\nКурсант: <b>' + GetName(cadet, cursor) +
+                             '</b>\nЛичностное развитие: 0\nПонятность: 0\nЭнергия: 0',
+                             reply_markup=config.ChooseKeyboardForRelations(voting_id, cadet), parse_mode='HTML')
+
+
+@bot.callback_query_handler(func=lambda call: True and call.data.startswith('business'))
+def business_voting(call):
+    criterion = call.data.split('%')[1]
+    voting_id = call.data.split('%')[2]
+    cadet = call.data.split('%')[3]
+    project_id = GetProjectIdByPreparingVotingId(voting_id, cursor)
+    expert = '@' + call.from_user.username
+    if criterion != '4':
+        mark = GetMarkInVoting(voting_id,expert,cadet,2,criterion,cursor)
+        if mark is None or mark == 0 or mark == '0':
+            PutMark(voting_id,expert,cadet,2,criterion,1,cursor,db)
+        else:
+            PutMark(voting_id, expert, cadet, 2, criterion, 0, cursor, db)
+        bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id,
+                             text='Оценка нематериального вклада\nПроект <b>"' + GetProjectTitle(project_id, cursor) +
+                                '"</b>\nОсь дела\nКурсант: <b>' + GetName(cadet, cursor) +
+                                '</b>\nДвижение: '+str(GetMarkInVoting(voting_id,expert,cadet,2,1,cursor))+
+                                '\nЗавершенность: '+str(GetMarkInVoting(voting_id,expert,cadet,2,2,cursor))+
+                                '\nПодтверждение средой: '+str(GetMarkInVoting(voting_id,expert,cadet,2,3,cursor)),
+                             reply_markup=config.ChooseKeyboardForBusiness(voting_id, cadet), parse_mode='HTML')
+    else:
+        bot.delete_message(call.message.chat.id, call.message.message_id)
+        # commenting(expert,cadet,voting_id,2)
+        AcceptMark(voting_id, expert, cadet, 2, cursor, db)
+        cadets = GetNonvotedCadetsForExpert(voting_id, '@'+call.from_user.username, 2, cursor)
+        if cadets is None or len(cadets) == 0:
+            bot.send_message(call.message.chat.id, 'Спасибо за ваши оценки, ваше голосование по оси дела окончено')
+            if IsVotingFinished(voting_id, 2, cursor):
+                CompileMarksByAxis(voting_id, 2, cursor, db)
+                cursor.execute('SELECT voting_date FROM votings WHERE id=' + str(voting_id))
+                time = cursor.fetchone()[0]
+                marks = GetMarksForDate(time, 2, cursor)
+                cur_cadet = marks[0][0]
+                result = '<b>Результаты оценки по оси дела в проекте "' + GetProjectTitle(project_id, cursor) \
+                         + '"</b>\nКурсант: <b>' + GetName(cur_cadet, cursor) + '</b>\n'
+                FinishVoting(voting_id, cursor, db)
+                for mark in marks:
+                    if mark[0] == cur_cadet:
+                        if mark[1] == '1' or mark[1] == 1:
+                            result += 'Движение'
+                        elif mark[1] == '2' or mark[1] == 2:
+                            result += 'Завершенность'
+                        elif mark[1] == '3' or mark[1] == 3:
+                            result += 'Подтверждение средой'
+                        result += ': <b>' + str(mark[2]) + '</b>\n'
+                    else:
+                        cur_cadet = mark[0]
+                        result += '\nКурсант: <b>' + GetName(mark[0], cursor) + '</b>\n'
+                        if mark[1] == '1' or mark[1] == 1:
+                            result += 'Движение'
+                        elif mark[1] == '2' or mark[1] == 2:
+                            result += 'Завершенность'
+                        elif mark[1] == '3' or mark[1] == 3:
+                            result += 'Подтверждение средой'
+                        result += ': <b>' + str(mark[2]) + '</b>\n'
+                members = GetMembersOfProject(project_id, cursor)
+                experts = GetExpertsFromVoting(voting_id, 2, cursor)
+                for member in members:
+                    bot.send_message(GetChatId(member[0], cursor), result, parse_mode='HTML')
+                for expert in experts:
+                    bot.send_message(GetChatId(expert[0], cursor), result, parse_mode='HTML')
+        else:
+            cadet = cadets[0][0]
+            bot.send_message(GetChatId(expert, cursor),
+                             'Оценка нематериального вклада\nПроект <b>"' + GetProjectTitle(project_id, cursor) +
+                             '"</b>\nОсь дела\nКурсант: <b>' + GetName(cadet, cursor) +
+                             '</b>\nДвижение: 0\nЗавершенность: 0\nПодтверждение средой: 0',
+                             reply_markup=config.ChooseKeyboardForBusiness(voting_id, cadet), parse_mode='HTML')
+
+
+@bot.callback_query_handler(func=lambda call: True and call.data.startswith('authority'))
+def authority_voting(call):
+    criterion = call.data.split('%')[1]
+    voting_id = call.data.split('%')[2]
+    cadet = call.data.split('%')[3]
+    project_id = GetProjectIdByPreparingVotingId(voting_id, cursor)
+    expert = '@' + call.from_user.username
+    if criterion != '4':
+        mark = GetMarkInVoting(voting_id,expert,cadet,3,criterion,cursor)
+        if mark is None or mark == 0 or mark == '0':
+            PutMark(voting_id,expert,cadet,3,criterion,1,cursor,db)
+        else:
+            PutMark(voting_id, expert, cadet, 3, criterion, 0, cursor, db)
+        bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id,
+                                text='Оценка нематериального вклада\nПроект <b>"' + GetProjectTitle(project_id, cursor) +
+                                '"</b>\nОсь власти\nКурсант: <b>' + GetName(cadet, cursor) +
+                                '</b>\nСамоуправление: '+str(GetMarkInVoting(voting_id,expert,cadet,3,1,cursor))+
+                                '\nСтратегия: '+str(GetMarkInVoting(voting_id,expert,cadet,3,2,cursor))+
+                                '\nУправляемость: '+str(GetMarkInVoting(voting_id,expert,cadet,3,3,cursor)),
+                                reply_markup=config.ChooseKeyboardForAuthority(voting_id, cadet), parse_mode='HTML')
+    else:
+        bot.delete_message(call.message.chat.id, call.message.message_id)
+        # commenting(expert,cadet,voting_id,3)
+        AcceptMark(voting_id, expert, cadet, 3, cursor, db)
+        cadets = GetNonvotedCadetsForExpert(voting_id, '@'+call.from_user.username, 3, cursor)
+        if cadets is None or len(cadets) == 0:
+            bot.send_message(call.message.chat.id, 'Спасибо за ваши оценки, ваше голосование по оси власти окончено')
+            if IsVotingFinished(voting_id, 3, cursor):
+                CompileMarksByAxis(voting_id, 3, cursor, db)
+                cursor.execute('SELECT voting_date FROM votings WHERE id=' + str(voting_id))
+                time = cursor.fetchone()[0]
+                marks = GetMarksForDate(time, 3, cursor)
+                cur_cadet = marks[0][0]
+                result = '<b>Результаты оценки по оси власти в проекте "' + GetProjectTitle(project_id, cursor) \
+                         + '"</b>\nКурсант: <b>' + GetName(cur_cadet, cursor) + '</b>\n'
+                FinishVoting(voting_id, cursor, db)
+                for mark in marks:
+                    if mark[0] == cur_cadet:
+                        if mark[1] == '1' or mark[1] == 1:
+                            result += 'Самоуправление'
+                        elif mark[1] == '2' or mark[1] == 2:
+                            result += 'Стратегия'
+                        elif mark[1] == '3' or mark[1] == 3:
+                            result += 'Управляемость'
+                        result += ': <b>' + str(mark[2]) + '</b>\n'
+                    else:
+                        cur_cadet = mark[0]
+                        result += '\nКурсант: <b>' + GetName(mark[0], cursor) + '</b>\n'
+                        if mark[1] == '1' or mark[1] == 1:
+                            result += 'Самоуправление'
+                        elif mark[1] == '2' or mark[1] == 2:
+                            result += 'Стратегия'
+                        elif mark[1] == '3' or mark[1] == 3:
+                            result += 'Управляемость'
+                        result += ': <b>' + str(mark[2]) + '</b>\n'
+                members = GetMembersOfProject(project_id, cursor)
+                experts = GetExpertsFromVoting(voting_id, 3, cursor)
+                for member in members:
+                    bot.send_message(GetChatId(member[0], cursor), result, parse_mode='HTML')
+                for expert in experts:
+                    bot.send_message(GetChatId(expert[0], cursor), result, parse_mode='HTML')
+        else:
+            cadet = cadets[0][0]
+            bot.send_message(GetChatId(expert, cursor),
+                             'Оценка нематериального вклада\nПроект <b>"' + GetProjectTitle(project_id, cursor) +
+                             '"</b>\nОсь власти\nКурсант: <b>' + GetName(cadet, cursor) +
+                             '</b>\nСамоуправление: 0\nСтратегия: 0\nУправляемость: 0',
+                             reply_markup=config.ChooseKeyboardForAuthority(voting_id, cadet), parse_mode='HTML')
+
 
 def commenting(expert,cadet,voting_id,axis):
     first_mark = GetMarkInVoting(voting_id, expert, cadet, axis, 1, cursor)
     second_mark = GetMarkInVoting(voting_id, expert, cadet, axis, 2, cursor)
     third_mark = GetMarkInVoting(voting_id, expert, cadet, axis, 3, cursor)
     if axis == 1:
-        bot.send_message(GetChatId(expert, cursor),'Вы оценили материальный вклад курсанта '
-                         +GetName(cadet,cursor)+' по оси отношений. Ваши оценки:\nЛичностное развитие:' + str(first_mark) +
-                         '\nПонятность: '+str(second_mark)+
-                         '\nЭнергия: '+str(third_mark) + '\nПожалуйста, прокомментируйте ваше решение')
+        bot.send_message(GetChatId(expert, cursor),'Вы оценили материальный вклад курсанта <b>'
+                         +GetName(cadet,cursor)+'</b> по оси отношений. \nВаши оценки:\nЛичностное развитие:<b>' + str(first_mark) +
+                         '</b>\nПонятность: <b>'+str(second_mark) +
+                         '</b>\nЭнергия: <b>'+str(third_mark) + '</b>\nПожалуйста, прокомментируйте ваше решение', parse_mode='HTML')
+        SetState(expert, 81, cursor, db)
+    elif axis == 2:
+        bot.send_message(GetChatId(expert, cursor), 'Вы оценили материальный вклад курсанта <b>'
+                         + GetName(cadet, cursor) + '</b> по оси дела. Ваши оценки:\nДвижение:<b>' + str(
+            first_mark) +
+                         '</b>\nЗавершенность: <b>' + str(second_mark) +
+                         '</b>\nПодтверждение средой: <b>' + str(third_mark) +
+                         '/<b>\nПожалуйста, прокомментируйте ваше решение', parse_mode='HTML')
+        SetState(expert, 82, cursor, db)
+    else:
+        bot.send_message(GetChatId(expert, cursor), 'Вы оценили материальный вклад курсанта <b>'
+                         + GetName(cadet, cursor) + '</b> по оси власти. Ваши оценки:\nСамоуправление:<b>' + str(
+            first_mark) +
+                         '</b>\nСтратегия: <b>' + str(second_mark) +
+                         '</b>\nУправляемость: <b>' + str(third_mark) +
+                         '</b>\nПожалуйста, прокомментируйте ваше решение', parse_mode='HTML')
+        SetState(expert, 83, cursor, db)
+
+
+@bot.message_handler(func=lambda message: GetState(message.from_user.username, cursor, db) == 81)
+def comment_relations(message):
+    pass

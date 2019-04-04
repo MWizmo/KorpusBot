@@ -44,7 +44,7 @@ def IsUserInDB(nick,cursor,database):
     response=cursor.fetchall()
     return len(response)>0
 
-def GetRangs (nick,cursor):
+def GetRangs(nick,cursor):
     cursor.execute('SELECT rangs FROM users WHERE nickname="'+nick+'"')
     rangs = cursor.fetchall()[0][0]
     if rangs != None:

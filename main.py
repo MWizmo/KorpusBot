@@ -6,6 +6,7 @@ from bot_commands.marks import *
 from bot_commands.inviting import *
 from bot_commands.tokens import *
 from bot_commands.votings import *
+from bot_commands.expert_voting import *
 from config import bot, db, cursor, get_keyboard, isRang
 from emoji import emojize
 import cherrypy
@@ -16,7 +17,15 @@ import webhook
 def start(message):
     if message.chat.type == 'private':
         username = "@" + message.from_user.username
-        if IsAbit(username, cursor, db):
+        if not (IsUserInDB(username, cursor, db)):
+            keyboard = telebot.types.InlineKeyboardMarkup()
+            url_button = telebot.types.InlineKeyboardButton(text="Наш канал",
+                                                            url="https://t.me/joinchat/FcADIxGou--U0fMfLs9Tvg")
+            keyboard.add(url_button)
+            bot.send_message(message.chat.id,
+                             "Привет. Сейчас я отправлю тебе ссылку на наш канал. Если ты хочешь стать частью нашего комьюнити - напиши туда и тебе обязательно ответят.",
+                             reply_markup=keyboard)
+        elif IsAbit(username, cursor, db):
             bot.send_message(message.chat.id,
                              "Привет! Я бот антишколы Корпус, мне сказали что ты наш новый курсант, давай я занесу твои данные в базу. Начнём с имени, как тебя зовут?")
             SetState(username, 1, cursor, db)
@@ -36,14 +45,6 @@ def start(message):
             bot.send_message(message.chat.id,
                              "Добрый день. Вы назначены преподавателем анти-школы Корпус. Давайте для начала внесём ваши данные в нашу базу. Начнём с имени. Напишите ваше полное имя")
             SetState(username, 1, cursor, db)
-        elif not (IsUserInDB(username, cursor, db)):
-            keyboard = telebot.types.InlineKeyboardMarkup()
-            url_button = telebot.types.InlineKeyboardButton(text="Наш канал",
-                                                            url="https://t.me/joinchat/FcADIxGou--U0fMfLs9Tvg")
-            keyboard.add(url_button)
-            bot.send_message(message.chat.id,
-                             "Привет. Сейчас я отправлю тебе ссылку на наш канал. Если ты хочешь стать частью нашего комьюнити - напиши туда и тебе обязательно ответят.",
-                             reply_markup=keyboard)
         else:
             bot.send_message(message.chat.id, 'Главное меню',
                              reply_markup=get_keyboard('@' + message.from_user.username))
@@ -73,16 +74,19 @@ def text(message):
             keyboard = telebot.types.ReplyKeyboardMarkup(one_time_keyboard=True, resize_keyboard=True)
             if IsUserTeamlead('@'+message.from_user.username,cursor):
                 keyboard.add(emojize(':crown: Оценка нематериального вклада'))
+                keyboard.add('Оценка вклада экспертов')
             if isRang(GetRangs('@' + message.from_user.username, cursor), [2, 3, 4]):
                 keyboard.add(emojize(':eyes: Посмотреть свои оценки'))
             if isRang(GetRangs('@' + message.from_user.username, cursor), [5, 8, 9, 10]):
                 keyboard.add(emojize(':newspaper: Оценки пользователей'))
             keyboard.add('Назад')
             bot.send_message(message.chat.id, 'Вкладка <b>"Оценки"</b>', reply_markup=keyboard, parse_mode='HTML')
+        elif mess == 'Оценка вклада экспертов':
+            start_expert_voting(message)
         elif mess == '👑 Оценка нематериального вклада':
             contribution(message)
         elif mess == '👀 Посмотреть свои оценки':
-            marks(message)
+            my_marks(message)
         elif mess == '📋 Профиль':
             keyboard = telebot.types.ReplyKeyboardMarkup(one_time_keyboard=True, resize_keyboard=True)
             keyboard.row(emojize(':eyes: Посмотреть профиль'),
@@ -195,11 +199,12 @@ def text(message):
 
 
 # webhook.start()
-# cursor.execute('delete from votings where id>1')
-# cursor.execute('delete from votings_info')
-# cursor.execute('update votings set status="Preparing" where id=1')
-# db.commit()
-# cursor.execute('select * from votings')
+# cursor.execute('DELETE FROM projects')
+# cursor.execute('DELETE FROM teams')
+# cursor.execute('DELETE FROM expert_voting')
+
+# cursor.execute('SELECT * FROM votings')
 # a = cursor.fetchall()
+# b = GetNextExpertForVoting('@m_wizmo', GetCurrentPreparingExpertVoting(cursor), cursor)
 
 bot.polling(none_stop=True)

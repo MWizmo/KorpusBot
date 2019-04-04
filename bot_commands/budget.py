@@ -5,6 +5,7 @@ from db_commands.db_budget import *
 from db_commands.db_marks import GetAllMarks
 import telebot
 from config import bot, db, cursor, get_keyboard, isRang
+import config
 
 budget_info = []
 

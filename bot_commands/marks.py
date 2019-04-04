@@ -5,32 +5,29 @@ from db_commands.db_marks import *
 import telebot
 from config import bot, db, cursor, get_keyboard, isRang
 
-def marks(message):
+
+def my_marks(message):
     user = '@' + message.from_user.username
     if not (isRang(GetRangs('@' + message.from_user.username, cursor), [2, 3, 4])):
         bot.send_message(message.chat.id, 'Оценки можно просмотреть только у курсантов',
                          reply_markup=get_keyboard('@' + message.from_user.username))
         return
-    marks = GetMarks(user, cursor)
-    if (len(marks) > 0):
-        for i in range(0, len(marks)):
-            if marks[i] == 2:
-                marks[i] = 0.5
-        for mark in marks:
-            axis = int(mark[1])
-            if axis == 1:
-                bot.send_message(message.chat.id,
-                                    'Оценки по оси отношений от ' + mark[2][1:] + ':\nЛичностное развитие: ' + mark[0][1] +
-                                     '\nПонятность: ' + mark[0][2] + '\nЭнергия: ' + mark[0][3])
-            elif axis == 2:
-                bot.send_message(message.chat.id,
-                                     'Оценки по оси дела от ' + mark[2][1:] + ':\nДвижение: ' + mark[0][1] +
-                                     '\nЗавершенность: ' + mark[0][2] + '\nПодтверждение средой: ' + mark[0][3])
-            elif axis == 3:
-                bot.send_message(message.chat.id,
-                                 'Оценки по оси власти от ' + mark[2][1:] + ':\nСамоуправление: ' +
-                                 mark[0][1] +
-                                 '\nСтратегия: ' + mark[0][2] + '\nУправляемость: ' + mark[0][3])
+    dates = GetAllDatesOfVotingByUser(user, cursor)
+    info = ''
+    if len(dates) > 0:
+        for date in dates:
+            info += '<b>' + date[0] + '</b>\n'
+            marks = GetMarksForDateAndUser(date[0], 1, user, cursor)
+            for mark in marks:
+                if mark[0] == '1' or mark[0] == 1:
+                    info += 'Личностное развитие'
+                elif mark[0] == '2' or mark[0] == 2:
+                    info += 'Понятность'
+                elif mark[0] == '3' or mark[0] == 3:
+                    info += 'Энергия'
+                info += ': <b>' + str(mark[1]) + '</b>\n'
+            marks = GetMarksForDateAndUser(date[0], 2, user, cursor)
+            marks = GetMarksForDateAndUser(date[0], 3, user, cursor)
     else:
         bot.send_message(message.chat.id, 'Для данного пользователя пока нет оценок',
                          reply_markup=get_keyboard('@' + message.from_user.username))
@@ -60,14 +57,11 @@ def looking_marks(call):
                          reply_markup=get_keyboard('@' + call.from_user.username))
     else:
         user = call.data[14:]
-        if isRang(GetRangs(user, cursor), [2]):
-            marks = GetMarks(user, cursor)
-        else:
-            marks = MarksOfSecondFlow(user, cursor)
-        if (len(marks) > 0):
-            for i in range(0, len(marks)):
-                if marks[i] == 2:
-                    marks[i] = 0.5
+        marks = GetMarks(user, cursor)
+        if len(marks) > 0:
+            # for i in range(0, len(marks)):
+            #     if marks[i] == 2:
+            #         marks[i] = 0.5
             for mark in marks:
                 axis = int(mark[1])
                 if axis == 1:
