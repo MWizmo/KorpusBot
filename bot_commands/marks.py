@@ -7,11 +7,6 @@ from config import bot, db, cursor, get_keyboard, isRang
 
 
 def marks_of(message, user):
-    # user = '@' + message.from_user.username
-    # if not (isRang(GetRangs('@' + message.from_user.username, cursor), [2, 3, 4])):
-    #     bot.send_message(message.chat.id, 'Оценки можно просмотреть только у курсантов',
-    #                      reply_markup=get_keyboard('@' + message.from_user.username))
-    #     return
     dates = GetAllDatesOfVotingByUser(user, cursor)
     info = ''
     if len(dates) > 0:
