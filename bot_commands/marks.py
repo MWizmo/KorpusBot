@@ -6,28 +6,48 @@ import telebot
 from config import bot, db, cursor, get_keyboard, isRang
 
 
-def my_marks(message):
-    user = '@' + message.from_user.username
-    if not (isRang(GetRangs('@' + message.from_user.username, cursor), [2, 3, 4])):
-        bot.send_message(message.chat.id, 'Оценки можно просмотреть только у курсантов',
-                         reply_markup=get_keyboard('@' + message.from_user.username))
-        return
+def marks_of(message, user):
+    # user = '@' + message.from_user.username
+    # if not (isRang(GetRangs('@' + message.from_user.username, cursor), [2, 3, 4])):
+    #     bot.send_message(message.chat.id, 'Оценки можно просмотреть только у курсантов',
+    #                      reply_markup=get_keyboard('@' + message.from_user.username))
+    #     return
     dates = GetAllDatesOfVotingByUser(user, cursor)
     info = ''
     if len(dates) > 0:
         for date in dates:
             info += '<b>' + date[0] + '</b>\n'
             marks = GetMarksForDateAndUser(date[0], 1, user, cursor)
+            info += '<b>Ось отношений:</b>\n'
             for mark in marks:
                 if mark[0] == '1' or mark[0] == 1:
-                    info += 'Личностное развитие'
+                    info += '  Личностное развитие'
                 elif mark[0] == '2' or mark[0] == 2:
-                    info += 'Понятность'
+                    info += '  Понятность'
                 elif mark[0] == '3' or mark[0] == 3:
-                    info += 'Энергия'
+                    info += '  Энергия'
                 info += ': <b>' + str(mark[1]) + '</b>\n'
             marks = GetMarksForDateAndUser(date[0], 2, user, cursor)
+            info += '<b>Ось дела:</b>\n'
+            for mark in marks:
+                if mark[0] == '1' or mark[0] == 1:
+                    info += '  Движение'
+                elif mark[0] == '2' or mark[0] == 2:
+                    info += '  Завершенность'
+                elif mark[0] == '3' or mark[0] == 3:
+                    info += '  Подтверждение средой'
+                info += ': <b>' + str(mark[1]) + '</b>\n'
             marks = GetMarksForDateAndUser(date[0], 3, user, cursor)
+            info += '<b>Ось власти:</b>\n'
+            for mark in marks:
+                if mark[0] == '1' or mark[0] == 1:
+                    info += '  Самоуправление'
+                elif mark[0] == '2' or mark[0] == 2:
+                    info += '  Стратегия'
+                elif mark[0] == '3' or mark[0] == 3:
+                    info += '  Управляемость'
+                info += ': <b>' + str(mark[1]) + '</b>\n'
+        bot.send_message(message.chat.id, info, parse_mode='HTML')
     else:
         bot.send_message(message.chat.id, 'Для данного пользователя пока нет оценок',
                          reply_markup=get_keyboard('@' + message.from_user.username))
@@ -57,26 +77,42 @@ def looking_marks(call):
                          reply_markup=get_keyboard('@' + call.from_user.username))
     else:
         user = call.data[14:]
-        marks = GetMarks(user, cursor)
-        if len(marks) > 0:
-            # for i in range(0, len(marks)):
-            #     if marks[i] == 2:
-            #         marks[i] = 0.5
-            for mark in marks:
-                axis = int(mark[1])
-                if axis == 1:
-                    bot.send_message(call.message.chat.id,
-                                     'Оценки по оси отношений от ' + mark[2][1:] + ':\nЛичностное развитие: ' + mark[0][
-                                         1] + '\nПонятность: ' + mark[0][2] + '\nЭнергия: ' + mark[0][3])
-                elif axis == 2:
-                    bot.send_message(call.message.chat.id,
-                                     'Оценки по оси дела от ' + mark[2][1:] + ':\nДвижение: ' + mark[0][1] +
-                                     '\nЗавершенность: ' + mark[0][2] + '\nПодтверждение средой: ' + mark[0][3])
-                elif axis == 3:
-                    bot.send_message(call.message.chat.id,
-                                     'Оценки по оси власти от ' + mark[2][1:] + ':\nСамоуправление: ' +
-                                     mark[0][1] +
-                                     '\nСтратегия: ' + mark[0][2] + '\nУправляемость: ' + mark[0][3])
+        dates = GetAllDatesOfVotingByUser(user, cursor)
+        info = ''
+        if len(dates) > 0:
+            for date in dates:
+                info += '<b>' + date[0] + '</b>\n'
+                marks = GetMarksForDateAndUser(date[0], 1, user, cursor)
+                info += '<b>Ось отношений:</b>\n'
+                for mark in marks:
+                    if mark[0] == '1' or mark[0] == 1:
+                        info += '  Личностное развитие'
+                    elif mark[0] == '2' or mark[0] == 2:
+                        info += '  Понятность'
+                    elif mark[0] == '3' or mark[0] == 3:
+                        info += '  Энергия'
+                    info += ': <b>' + str(mark[1]) + '</b>\n'
+                marks = GetMarksForDateAndUser(date[0], 2, user, cursor)
+                info += '<b>Ось дела:</b>\n'
+                for mark in marks:
+                    if mark[0] == '1' or mark[0] == 1:
+                        info += '  Движение'
+                    elif mark[0] == '2' or mark[0] == 2:
+                        info += '  Завершенность'
+                    elif mark[0] == '3' or mark[0] == 3:
+                        info += '  Подтверждение средой'
+                    info += ': <b>' + str(mark[1]) + '</b>\n'
+                marks = GetMarksForDateAndUser(date[0], 3, user, cursor)
+                info += '<b>Ось власти:</b>\n'
+                for mark in marks:
+                    if mark[0] == '1' or mark[0] == 1:
+                        info += '  Самоуправление'
+                    elif mark[0] == '2' or mark[0] == 2:
+                        info += '  Стратегия'
+                    elif mark[0] == '3' or mark[0] == 3:
+                        info += '  Управляемость'
+                    info += ': <b>' + str(mark[1]) + '</b>\n'
+            bot.send_message(call.message.chat.id, info, parse_mode='HTML')
         else:
             bot.send_message(call.message.chat.id, 'Для данного пользователя пока нет оценок',
                              reply_markup=get_keyboard('@' + call.from_user.username))

@@ -111,3 +111,4 @@ def GetTitleOfRang(rang,cursor):
 def GetInvestors(nick,cursor):
     cursor.execute('SELECT chat_id FROM users WHERE rang=8 AND nickname!="'+nick+'"')
     return cursor.fetchall()
+

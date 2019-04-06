@@ -28,5 +28,5 @@ def GetMarksForDateAndUser(date, axis, user, cursor):
 
 
 def GetAllDatesOfVotingByUser(user, cursor):
-    cursor.execute('SELECT mark_date FROM marks WHERE user="' + user + '"')
+    cursor.execute('SELECT mark_date FROM marks WHERE user="' + user + '" GROUP BY mark_date')
     return cursor.fetchall()

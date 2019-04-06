@@ -86,7 +86,7 @@ def text(message):
         elif mess == '👑 Оценка нематериального вклада':
             contribution(message)
         elif mess == '👀 Посмотреть свои оценки':
-            my_marks(message)
+            marks_of(message, '@' + message.from_user.username)
         elif mess == '📋 Профиль':
             keyboard = telebot.types.ReplyKeyboardMarkup(one_time_keyboard=True, resize_keyboard=True)
             keyboard.row(emojize(':eyes: Посмотреть профиль'),
