@@ -4,10 +4,11 @@ import telebot
 import sqlite3
 from emoji import emojize
 import bot_token
-
+import pymysql
 
 bot = telebot.TeleBot(bot_token.token)
-db = sqlite3.connect("korpus.db", check_same_thread=False)
+#db = sqlite3.connect("korpus.db", check_same_thread=False)
+db = pymysql.connect("localhost", "root", "", "korpus", charset="utf8")
 cursor = db.cursor()
 
 
@@ -15,8 +16,9 @@ def isRang(a, b):
     c = list(set(a) & set(b))
     return len(c) > 0
 
-def get_keyboard(nick):
-    rangs = db_users.GetRangs(nick,cursor)
+
+def get_keyboard(id):
+    rangs = db_users.GetRangs(id, cursor)
     markup = telebot.types.ReplyKeyboardMarkup(one_time_keyboard=True, resize_keyboard=True)
     markup.row(emojize(":bar_chart: Оценки", use_aliases=True),
                emojize(':open_file_folder: Проекты', use_aliases=True),
@@ -85,33 +87,64 @@ keyboard_axis_of_authority_finish.add(telebot.types.InlineKeyboardButton(text="�
 keyboard_axis_of_authority_finish.add(telebot.types.InlineKeyboardButton(text="Завершить оценивание", callback_data="authority_5"))
 #----------
 
-def ChooseKeyboardForRelations(voting_id, cadet):
+def ChooseKeyboardForRelations(voting_id, cadet, is_last):
     keyboard_axis_of_relations = telebot.types.InlineKeyboardMarkup()
-    keyboard_axis_of_relations.add(telebot.types.InlineKeyboardButton(text="Личностное развитие", callback_data="relations%1%"+str(voting_id)+"%"+cadet))
-    keyboard_axis_of_relations.add(telebot.types.InlineKeyboardButton(text="Понятность", callback_data="relations%2%"+str(voting_id)+"%"+cadet))
-    keyboard_axis_of_relations.add(telebot.types.InlineKeyboardButton(text="Энергия", callback_data="relations%3%"+str(voting_id)+"%"+cadet))
-    keyboard_axis_of_relations.add(telebot.types.InlineKeyboardButton(text="Следующий", callback_data="relations%4%"+str(voting_id)+"%"+cadet))
+    keyboard_axis_of_relations.row(telebot.types.InlineKeyboardButton(text="Личностное развитие", callback_data="relations%1%"+str(voting_id)+"%"+str(cadet)))
+                                   #telebot.types.InlineKeyboardButton(text='?', callback_data='relations%7'))
+    keyboard_axis_of_relations.row(telebot.types.InlineKeyboardButton(text="Понятность", callback_data="relations%2%"+str(voting_id)+"%"+str(cadet)))
+                                   #telebot.types.InlineKeyboardButton(text='?', callback_data='relations%8'))
+    keyboard_axis_of_relations.row(telebot.types.InlineKeyboardButton(text="Энергия", callback_data="relations%3%"+str(voting_id)+"%"+str(cadet)))
+                                   #telebot.types.InlineKeyboardButton(text='?', callback_data='relations%9'))
+    # keyboard_axis_of_relations.add(telebot.types.InlineKeyboardButton(text="Изменить предыдущие оценки",
+    #                                                                   callback_data="relations%5%" + str(
+    #                                                                       voting_id) + "%" + str(cadet)))
+    if is_last == False:
+        keyboard_axis_of_relations.add(telebot.types.InlineKeyboardButton(text="Следующий", callback_data="relations%4%"+str(voting_id)+"%"+str(cadet)))
+    else:
+        keyboard_axis_of_relations.add(telebot.types.InlineKeyboardButton(text="Завершить",
+                                                                          callback_data="relations%4%" + str(
+                                                                              voting_id) + "%" + str(cadet)))
     return keyboard_axis_of_relations
 
 
-def ChooseKeyboardForBusiness(voting_id, cadet):
+def ChooseKeyboardForBusiness(voting_id, cadet, is_last):
     keyboard_axis_of_business = telebot.types.InlineKeyboardMarkup()
-    keyboard_axis_of_business.add(telebot.types.InlineKeyboardButton(text="Движение", callback_data="business%1%"+str(voting_id)+"%"+cadet))
-    keyboard_axis_of_business.add(telebot.types.InlineKeyboardButton(text="Завершенность", callback_data="business%2%"+str(voting_id)+"%"+cadet))
-    keyboard_axis_of_business.add(
-        telebot.types.InlineKeyboardButton(text="Подтверждение средой", callback_data="business%3%"+str(voting_id)+"%"+cadet))
-    keyboard_axis_of_business.add(telebot.types.InlineKeyboardButton(text="Следующий", callback_data="business%4%"+str(voting_id)+"%"+cadet))
+    keyboard_axis_of_business.row(telebot.types.InlineKeyboardButton(text="Движение", callback_data="business%1%"+str(voting_id)+"%"+str(cadet)))
+                                  #telebot.types.InlineKeyboardButton(text='?', callback_data='business%7'))
+    keyboard_axis_of_business.row(telebot.types.InlineKeyboardButton(text="Завершенность", callback_data="business%2%"+str(voting_id)+"%"+str(cadet)))
+                                  #telebot.types.InlineKeyboardButton(text='?', callback_data='business%8'))
+    keyboard_axis_of_business.row(
+        telebot.types.InlineKeyboardButton(text="Подтверждение средой", callback_data="business%3%"+str(voting_id)+"%"+str(cadet)))
+        #telebot.types.InlineKeyboardButton(text='?', callback_data='business%9'))
+    # keyboard_axis_of_business.add(telebot.types.InlineKeyboardButton(text="Ищменить предыдущие оценки",
+    #                                                                  callback_data="business%5%" + str(
+    #                                                                      voting_id) + "%" + str(cadet)))
+    if is_last == False:
+        keyboard_axis_of_business.add(telebot.types.InlineKeyboardButton(text="Следующий", callback_data="business%4%"+str(voting_id)+"%"+str(cadet)))
+    else:
+        keyboard_axis_of_business.add(telebot.types.InlineKeyboardButton(text="Завершить",
+                                                                         callback_data="business%4%" + str(
+                                                                             voting_id) + "%" + str(cadet)))
     return keyboard_axis_of_business
 
 
-def ChooseKeyboardForAuthority(voting_id, cadet):
+def ChooseKeyboardForAuthority(voting_id, cadet, is_last):
     keyboard_axis_of_authority = telebot.types.InlineKeyboardMarkup()
-    keyboard_axis_of_authority.add(
-        telebot.types.InlineKeyboardButton(text="Самоуправление", callback_data="authority%1%"+str(voting_id)+"%"+cadet))
-    keyboard_axis_of_authority.add(telebot.types.InlineKeyboardButton(text="Стратегия", callback_data="authority%2%"+str(voting_id)+"%"+cadet))
-    keyboard_axis_of_authority.add(
-        telebot.types.InlineKeyboardButton(text="Управляемость", callback_data="authority%3%"+str(voting_id)+"%"+cadet))
-    keyboard_axis_of_authority.add(telebot.types.InlineKeyboardButton(text="Следующий", callback_data="authority%4%"+str(voting_id)+"%"+cadet))
+    keyboard_axis_of_authority.row(
+        telebot.types.InlineKeyboardButton(text="Самоуправление", callback_data="authority%1%"+str(voting_id)+"%"+str(cadet)))
+        #telebot.types.InlineKeyboardButton(text='?', callback_data='authority%7'))
+    keyboard_axis_of_authority.row(telebot.types.InlineKeyboardButton(text="Стратегия", callback_data="authority%2%"+str(voting_id)+"%"+str(cadet)))
+                                   #telebot.types.InlineKeyboardButton(text='?', callback_data='authority%8'))
+    keyboard_axis_of_authority.row(
+        telebot.types.InlineKeyboardButton(text="Управляемость", callback_data="authority%3%"+str(voting_id)+"%"+str(cadet)))
+        #telebot.types.InlineKeyboardButton(text='?', callback_data='authority%9'))
+    # keyboard_axis_of_authority.add(telebot.types.InlineKeyboardButton(text="Изменить предыдущие оценки",
+    #                                                                   callback_data="authority%5%" + str(
+    #                                                                       voting_id) + "%" + str(cadet)))
+    if is_last == False:
+        keyboard_axis_of_authority.add(telebot.types.InlineKeyboardButton(text="Следующий", callback_data="authority%4%"+str(voting_id)+"%"+str(cadet)))
+    else:
+        keyboard_axis_of_authority.add(telebot.types.InlineKeyboardButton(text="Завершить",
+                                                                          callback_data="authority%4%" + str(
+                                                                              voting_id) + "%" + str(cadet)))
     return keyboard_axis_of_authority
-
-
