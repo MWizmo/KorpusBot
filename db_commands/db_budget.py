@@ -57,7 +57,7 @@ def StartVoting(chat_id, user, number, summa, cursor, database):
     now_date = now_date.strftime("%Y/%m/%d %H:%M:%S")
     cursor.execute(
         'INSERT INTO budget_votings(chat_id,creator_id,number_of_members,agree_number,disagree_number,start_date,status) values ("' + str(
-            chat_id) + '","' + user + '",' + str(number) +
+            chat_id) + '",' + str(user) + ',' + str(number) +
         ',0,0,"' + now_date + '","active")')
     cursor.execute('UPDATE emission_data SET status="not actual" WHERE status="accepted"')
     cursor.execute('INSERT INTO emission_data(budget,status) VALUES (' + str(summa) + ',"voting")')
@@ -65,14 +65,14 @@ def StartVoting(chat_id, user, number, summa, cursor, database):
 
 
 def GetUserWhoStartedVoting(cursor):
-    cursor.execute('SELECT creator_id FROM voting WHERE status="active"')
+    cursor.execute('SELECT creator_id FROM budget_votings WHERE status="active"')
     return cursor.fetchall()[0][0]
 
 
 def FinishVoting(cursor, database):
     now_date = datetime.datetime.today()
     now_date = now_date.strftime("%Y/%m/%d %H:%M:%S")
-    cursor.execute('UPDATE voting SET finish_date="' + now_date + '" WHERE status="active"')
-    cursor.execute('UPDATE voting SET status="finished" WHERE status="active"')
+    cursor.execute('UPDATE budget_votings SET finish_date="' + now_date + '" WHERE status="active"')
+    cursor.execute('UPDATE budget_votings SET status="finished" WHERE status="active"')
     cursor.execute('UPDATE emission_data SET status="accepted" WHERE status="voting"')
     database.commit()

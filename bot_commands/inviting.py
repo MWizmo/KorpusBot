@@ -87,7 +87,7 @@ def adding_investor(message):
     if nick == 'Закончить':
         bot.send_message(message.chat.id, 'Все инвесторы успешно добавлены',
                          reply_markup=get_keyboard(message.from_user.id))
-        username = "@" + message.from_user.id
+        username = "@" + message.from_user.username
         SetState(username, 6, cursor, db)
     else:
         if nick[0] != '@':
@@ -107,7 +107,7 @@ def adding_tutor(message):
     if nick == 'Закончить':
         bot.send_message(message.chat.id, 'Все тьюторы успешно добавлены',
                          reply_markup=get_keyboard(message.from_user.id))
-        username = "@" + message.from_user.id
+        username = "@" + message.from_user.username
         SetState(username, 6, cursor, db)
     else:
         if nick[0] != '@':
@@ -127,7 +127,7 @@ def adding_expert(message):
     if nick == 'Закончить':
         bot.send_message(message.chat.id, 'Все эксперты успешно добавлены',
                          reply_markup=get_keyboard(message.from_user.id))
-        username = "@" + message.from_user.id
+        username = "@" + message.from_user.username
         SetState(username, 6, cursor, db)
     else:
         if nick[0] != '@':

@@ -7,7 +7,7 @@ def GetMarks(user_id,cursor):
 
 
 def GetAllMarks(cursor):
-    cursor.execute('SELECT sum_of_marks,user_id FROM users')
+    cursor.execute('SELECT sum_of_marks,id FROM users')
     return cursor.fetchall()
 
 

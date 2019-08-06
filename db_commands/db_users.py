@@ -135,22 +135,22 @@ def GetListOfUsers(cursor):
 
 
 def InviteInvestor(nick, cursor, database):
-    cursor.execute('INSERT INTO users(nickname,state, rangs) VALUES ("' + nick + '",0, "12")')
+    cursor.execute('INSERT INTO users(nickname,state, rangs) VALUES ("' + nick + '",0, "12|")')
     database.commit()
 
 
 def InviteTutor(nick, cursor, database):
-    cursor.execute('INSERT INTO users(nickname,state, rangs) VALUES ("' + nick + '",0, "13")')
+    cursor.execute('INSERT INTO users(nickname,state, rangs) VALUES ("' + nick + '",0, "13|")')
     database.commit()
 
 
 def InviteExpert(nick, cursor, database):
-    cursor.execute('INSERT INTO users(nickname,state, rangs) VALUES ("' + nick + '",0, "14")')
+    cursor.execute('INSERT INTO users(nickname,state, rangs) VALUES ("' + nick + '",0, "14|")')
     database.commit()
 
 
 def InviteEducator(nick, cursor, database):
-    cursor.execute('INSERT INTO users(nickname,state, rangs) VALUES ("' + nick + '",0, "15")')
+    cursor.execute('INSERT INTO users(nickname,state, rangs) VALUES ("' + nick + '",0, "15|")')
     database.commit()
 
 
