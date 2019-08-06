@@ -20,7 +20,7 @@ def send_budget_offer(message):
             SetState(message.from_user.id, 51, cursor, db)
 
 
-@bot.message_handler(func=lambda message: GetState(message.from_user.username, cursor) == 51)
+@bot.message_handler(func=lambda message: GetState(message.from_user.id, cursor) == 51)
 def enter_budget_money(message):
     try:
         summa = int(message.text)
@@ -32,7 +32,7 @@ def enter_budget_money(message):
         bot.send_message(message.chat.id, 'Необходимо ввести число')
 
 
-@bot.message_handler(func=lambda message: GetState(message.from_user.username, cursor) == 52)
+@bot.message_handler(func=lambda message: GetState(message.from_user.id, cursor) == 52)
 def enter_budget_money(message):
     url = message.text
     budget_info.append(url)

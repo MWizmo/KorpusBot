@@ -171,21 +171,24 @@ def get_profile(message):
 
 @bot.message_handler(func=lambda message: GetState(message.from_user.id, cursor) == 1)
 def user_entering_fio(message):
-    if IsAbit(message.from_user.id, cursor):
-        name = message.text
-        bot.send_message(message.chat.id, "Всё, кажется запомнил. Теперь напиши свой номер телефона, он мне пригодится")
-        SetState(message.from_user.id, 2, cursor, db)
-    elif IsInvitedExpert(message.from_user.id, cursor):
-        name = message.text
-        bot.send_message(message.chat.id,
-                         "Напишите, пожалуйста, в какиx областяx вы являетесь экспертом")
-        SetState(message.from_user.id, 101, cursor, db)
-    else:
-        name = message.text
-        bot.send_message(message.chat.id,
-                         "Отлично. Для контакта с вами нам может потребоваться номер вашего мобильного телефона. Введите его, пожалуйста")
-        SetState(message.from_user.id, 2, cursor, db)
-    UpdateName(message.from_user.id, name, cursor, db)
+    try:
+        if IsAbit(message.from_user.id, cursor):
+            name = message.text
+            bot.send_message(message.chat.id, "Всё, кажется запомнил. Теперь напиши свой номер телефона, он мне пригодится")
+            SetState(message.from_user.id, 2, cursor, db)
+        elif IsInvitedExpert(message.from_user.id, cursor):
+            name = message.text
+            bot.send_message(message.chat.id,
+                             "Напишите, пожалуйста, в какиx областяx вы являетесь экспертом")
+            SetState(message.from_user.id, 101, cursor, db)
+        else:
+            name = message.text
+            bot.send_message(message.chat.id,
+                             "Отлично. Для контакта с вами нам может потребоваться номер вашего мобильного телефона. Введите его, пожалуйста")
+            SetState(message.from_user.id, 2, cursor, db)
+        UpdateName(message.from_user.id, name, cursor, db)
+    except:
+        bot.send_message(message.chat.id, 'Некорректное значение')
 
 
 @bot.message_handler(func=lambda message: GetState(message.from_user.id, cursor) == 101)

@@ -251,11 +251,11 @@ def full_clean():
 # cursor.execute('delete from votings_info')
 # cursor.execute('delete from votings_experts')
 # db.commit()
-# import time
-# while True:
-#     try:
-bot.polling(none_stop=True)
-    # except Exception as e:
-    #     bot.stop_polling()
-    #     print(e)
-    #     time.sleep(3)
+import time
+while True:
+    try:
+        bot.polling()
+    except Exception as e:
+        bot.stop_polling()
+        print(e)
+        time.sleep(5)
