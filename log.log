@@ -1,0 +1,315 @@
+INFO:root:[07/08/19 14:53] Bot started
+INFO:cherrypy.error:[07/Aug/2019:14:53:55] ENGINE Listening for SIGTERM.
+INFO:cherrypy.error:[07/Aug/2019:14:53:55] ENGINE Listening for SIGUSR1.
+INFO:cherrypy.error:[07/Aug/2019:14:53:55] ENGINE Listening for SIGHUP.
+INFO:cherrypy.error:[07/Aug/2019:14:53:55] ENGINE Bus STARTING
+INFO:cherrypy.error:[07/Aug/2019:14:53:55] ENGINE Started monitor thread 'Autoreloader'.
+INFO:cherrypy.error:[07/Aug/2019:14:53:55] ENGINE Serving on https://195.201.138.7:8443
+INFO:cherrypy.error:[07/Aug/2019:14:53:55] ENGINE Bus STARTED
+INFO:cherrypy.access.139877015437384:91.108.6.64 - - [07/Aug/2019:14:53:55] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.access.139877015437384:91.108.6.64 - - [07/Aug/2019:14:53:55] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.access.139877015437384:91.108.6.64 - - [07/Aug/2019:14:53:55] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.access.139877015437384:91.108.6.64 - - [07/Aug/2019:14:53:55] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.access.139877015437384:91.108.6.64 - - [07/Aug/2019:14:53:55] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.access.139877015437384:91.108.6.64 - - [07/Aug/2019:14:53:57] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.access.139877015437384:91.108.6.64 - - [07/Aug/2019:14:54:07] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.access.139877015437384:91.108.6.64 - - [07/Aug/2019:14:54:09] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.access.139877015437384:91.108.6.64 - - [07/Aug/2019:14:54:11] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.access.139877015437384:91.108.6.64 - - [07/Aug/2019:14:55:07] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.error.139877015437384:[07/Aug/2019:14:55:07]  📋 Профиль
+INFO:cherrypy.access.139877015437384:91.108.6.64 - - [07/Aug/2019:14:55:09] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.error.139877015437384:[07/Aug/2019:14:55:09]  👀 Посмотреть профиль
+INFO:cherrypy.access.139877015437384:91.108.6.64 - - [07/Aug/2019:14:55:13] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.error.139877015437384:[07/Aug/2019:14:55:13]  📊 Оценки
+INFO:cherrypy.access.139877015437384:91.108.6.64 - - [07/Aug/2019:14:55:15] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.error.139877015437384:[07/Aug/2019:14:55:15]  👀 Посмотреть свои оценки
+INFO:cherrypy.access.139877015437384:91.108.6.64 - - [07/Aug/2019:14:57:22] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.error.139877015437384:[07/Aug/2019:14:57:22]  👔 Функции администратора
+INFO:cherrypy.access.139877015437384:91.108.6.64 - - [07/Aug/2019:14:57:34] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.error.139877015437384:[07/Aug/2019:14:57:34]  Назад
+INFO:cherrypy.access.139877015437384:91.108.6.64 - - [07/Aug/2019:14:57:37] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.error.139877015437384:[07/Aug/2019:14:57:37]  👔 Функции администратора
+INFO:cherrypy.access.139877015437384:91.108.6.64 - - [07/Aug/2019:14:57:43] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.error.139877015437384:[07/Aug/2019:14:57:43]  Назад
+INFO:cherrypy.access.139877015437384:91.108.6.64 - - [07/Aug/2019:14:57:48] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.error.139877015437384:[07/Aug/2019:14:57:48]  📊 Оценки
+INFO:cherrypy.access.139877015437384:91.108.6.64 - - [07/Aug/2019:14:57:51] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.error.139877015437384:[07/Aug/2019:14:57:51]  Назад
+INFO:cherrypy.error:[07/Aug/2019:15:01:05] ENGINE Restarting because /home/prostoedgar/KorpusBot/config.py changed.
+INFO:cherrypy.error:[07/Aug/2019:15:01:05] ENGINE Stopped thread 'Autoreloader'.
+INFO:cherrypy.error:[07/Aug/2019:15:01:05] ENGINE Bus STOPPING
+INFO:cherrypy.error:[07/Aug/2019:15:01:05] ENGINE HTTP Server cherrypy._cpwsgi_server.CPWSGIServer(('195.201.138.7', 8443)) shut down
+INFO:cherrypy.error:[07/Aug/2019:15:01:05] ENGINE Bus STOPPED
+INFO:cherrypy.error:[07/Aug/2019:15:01:05] ENGINE Bus EXITING
+INFO:cherrypy.error:[07/Aug/2019:15:01:05] ENGINE Bus EXITED
+INFO:cherrypy.error:[07/Aug/2019:15:01:05] ENGINE Waiting for child threads to terminate...
+INFO:cherrypy.error:[07/Aug/2019:15:01:05] ENGINE Re-spawning 
+INFO:root:[07/08/19 15:01] Bot finished
+INFO:root:[07/08/19 15:07] Bot started
+INFO:cherrypy.error:[07/Aug/2019:15:07:47] ENGINE Listening for SIGHUP.
+INFO:cherrypy.error:[07/Aug/2019:15:07:47] ENGINE Listening for SIGTERM.
+INFO:cherrypy.error:[07/Aug/2019:15:07:47] ENGINE Listening for SIGUSR1.
+INFO:cherrypy.error:[07/Aug/2019:15:07:47] ENGINE Bus STARTING
+INFO:cherrypy.error:[07/Aug/2019:15:07:47] ENGINE Started monitor thread 'Autoreloader'.
+INFO:cherrypy.error:[07/Aug/2019:15:07:47] ENGINE Serving on https://195.201.138.7:8443
+INFO:cherrypy.error:[07/Aug/2019:15:07:47] ENGINE Bus STARTED
+INFO:cherrypy.access.139974478245560:91.108.6.64 - - [07/Aug/2019:15:07:49] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.error.139974478245560:[07/Aug/2019:15:07:49]  👔 Функции администратора
+INFO:cherrypy.access.139974478245560:91.108.6.64 - - [07/Aug/2019:15:07:49] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.error.139974478245560:[07/Aug/2019:15:07:49]  👔 Функции администратора
+INFO:cherrypy.access.139974478245560:91.108.6.64 - - [07/Aug/2019:15:08:28] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.error.139974478245560:[07/Aug/2019:15:08:28]  Назад
+INFO:cherrypy.access.139974478245560:91.108.6.64 - - [07/Aug/2019:15:08:29] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.error.139974478245560:[07/Aug/2019:15:08:29]  👔 Функции администратора
+INFO:cherrypy.access.139974478245560:91.108.6.64 - - [07/Aug/2019:15:08:35] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.error.139974478245560:[07/Aug/2019:15:08:35]  Назад
+INFO:cherrypy.access.139974478245560:91.108.6.64 - - [07/Aug/2019:15:08:37] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.error.139974478245560:[07/Aug/2019:15:08:37]  📂 Проекты
+INFO:cherrypy.access.139974478245560:91.108.6.64 - - [07/Aug/2019:15:08:38] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.error.139974478245560:[07/Aug/2019:15:08:38]  Список проектов
+INFO:cherrypy.access.139974478245560:91.108.6.64 - - [07/Aug/2019:15:08:41] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.access.139974478245560:91.108.6.64 - - [07/Aug/2019:15:08:46] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.error.139974478245560:[07/Aug/2019:15:08:46]  Назад
+INFO:cherrypy.access.139974478245560:91.108.6.64 - - [07/Aug/2019:15:08:47] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.error.139974478245560:[07/Aug/2019:15:08:47]  📋 Профиль
+INFO:cherrypy.access.139974478245560:91.108.6.64 - - [07/Aug/2019:15:08:48] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.error.139974478245560:[07/Aug/2019:15:08:48]  📰 Профили пользователей
+INFO:cherrypy.access.139974478245560:91.108.6.64 - - [07/Aug/2019:15:08:55] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.access.139974478245560:91.108.6.64 - - [07/Aug/2019:15:10:01] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.error.139974478245560:[07/Aug/2019:15:10:01]  📋 Профиль
+INFO:cherrypy.error.139974478245560:[07/Aug/2019:15:10:03]  👀 Посмотреть профиль
+INFO:cherrypy.access.139974478245560:91.108.6.64 - - [07/Aug/2019:15:10:03] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.error:[07/Aug/2019:15:18:59] ENGINE Restarting because /home/prostoedgar/KorpusBot/config.py changed.
+INFO:cherrypy.error:[07/Aug/2019:15:18:59] ENGINE Stopped thread 'Autoreloader'.
+INFO:cherrypy.error:[07/Aug/2019:15:18:59] ENGINE Bus STOPPING
+INFO:cherrypy.error:[07/Aug/2019:15:18:59] ENGINE HTTP Server cherrypy._cpwsgi_server.CPWSGIServer(('195.201.138.7', 8443)) shut down
+INFO:cherrypy.error:[07/Aug/2019:15:18:59] ENGINE Bus STOPPED
+INFO:cherrypy.error:[07/Aug/2019:15:18:59] ENGINE Bus EXITING
+INFO:cherrypy.error:[07/Aug/2019:15:18:59] ENGINE Bus EXITED
+INFO:cherrypy.error:[07/Aug/2019:15:18:59] ENGINE Waiting for child threads to terminate...
+INFO:cherrypy.error:[07/Aug/2019:15:18:59] ENGINE Re-spawning 
+INFO:root:[07/08/19 15:18] Bot finished
+INFO:root:[07/08/19 15:18] Bot started
+INFO:cherrypy.error:[07/Aug/2019:15:18:59] ENGINE Listening for SIGHUP.
+INFO:cherrypy.error:[07/Aug/2019:15:18:59] ENGINE Listening for SIGTERM.
+INFO:cherrypy.error:[07/Aug/2019:15:18:59] ENGINE Listening for SIGUSR1.
+INFO:cherrypy.error:[07/Aug/2019:15:18:59] ENGINE Bus STARTING
+INFO:cherrypy.error:[07/Aug/2019:15:18:59] ENGINE Started monitor thread 'Autoreloader'.
+INFO:cherrypy.error:[07/Aug/2019:15:18:59] ENGINE Serving on https://195.201.138.7:8443
+INFO:cherrypy.error:[07/Aug/2019:15:18:59] ENGINE Bus STARTED
+INFO:cherrypy.error:[07/Aug/2019:15:19:04] ENGINE Restarting because /home/prostoedgar/KorpusBot/db_commands/db_budget.py changed.
+INFO:cherrypy.error:[07/Aug/2019:15:19:04] ENGINE Stopped thread 'Autoreloader'.
+INFO:cherrypy.error:[07/Aug/2019:15:19:04] ENGINE Bus STOPPING
+INFO:cherrypy.error:[07/Aug/2019:15:19:04] ENGINE HTTP Server cherrypy._cpwsgi_server.CPWSGIServer(('195.201.138.7', 8443)) shut down
+INFO:cherrypy.error:[07/Aug/2019:15:19:04] ENGINE Bus STOPPED
+INFO:cherrypy.error:[07/Aug/2019:15:19:04] ENGINE Bus EXITING
+INFO:cherrypy.error:[07/Aug/2019:15:19:04] ENGINE Bus EXITED
+INFO:cherrypy.error:[07/Aug/2019:15:19:04] ENGINE Waiting for child threads to terminate...
+INFO:cherrypy.error:[07/Aug/2019:15:19:04] ENGINE Re-spawning 
+INFO:root:[07/08/19 15:19] Bot finished
+INFO:root:[07/08/19 15:19] Bot started
+INFO:cherrypy.error:[07/Aug/2019:15:19:19] ENGINE Listening for SIGTERM.
+INFO:cherrypy.error:[07/Aug/2019:15:19:19] ENGINE Listening for SIGUSR1.
+INFO:cherrypy.error:[07/Aug/2019:15:19:19] ENGINE Listening for SIGHUP.
+INFO:cherrypy.error:[07/Aug/2019:15:19:19] ENGINE Bus STARTING
+INFO:cherrypy.error:[07/Aug/2019:15:19:19] ENGINE Started monitor thread 'Autoreloader'.
+INFO:cherrypy.error:[07/Aug/2019:15:19:19] ENGINE Serving on https://195.201.138.7:8443
+INFO:cherrypy.error:[07/Aug/2019:15:19:19] ENGINE Bus STARTED
+INFO:cherrypy.access.139626717112584:91.108.6.64 - - [07/Aug/2019:15:19:29] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.error.139626717112584:[07/Aug/2019:15:19:29]  📋 Профиль
+INFO:cherrypy.access.139626717112584:91.108.6.64 - - [07/Aug/2019:15:19:30] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.error.139626717112584:[07/Aug/2019:15:19:30]  👀 Посмотреть профиль
+INFO:cherrypy.error.139626717112584:[07/Aug/2019:15:19:33]  👔 Функции администратора
+INFO:cherrypy.access.139626717112584:91.108.6.64 - - [07/Aug/2019:15:19:33] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.access.139626717112584:91.108.6.64 - - [07/Aug/2019:15:19:36] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.error.139626717112584:[07/Aug/2019:15:19:36]  Назад
+INFO:cherrypy.access.139626717112584:91.108.6.64 - - [07/Aug/2019:15:19:38] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.error.139626717112584:[07/Aug/2019:15:19:38]  📊 Оценки
+INFO:cherrypy.access.139626717112584:91.108.6.64 - - [07/Aug/2019:15:19:39] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.error.139626717112584:[07/Aug/2019:15:19:39]  Назад
+INFO:cherrypy.access.139626717112584:91.108.6.64 - - [07/Aug/2019:15:19:40] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.error.139626717112584:[07/Aug/2019:15:19:40]  👔 Функции администратора
+INFO:cherrypy.access.139626717112584:91.108.6.64 - - [07/Aug/2019:15:19:43] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.error.139626717112584:[07/Aug/2019:15:19:43]  Закончить утверждение бюджета
+ERROR:TeleBot:IndexError occurred, args=('tuple index out of range',)
+Traceback (most recent call last):
+  File "/home/prostoedgar/KorpusBot/venv/lib/python3.5/site-packages/telebot/util.py", line 59, in run
+    task(*args, **kwargs)
+  File "./wsgi.py", line 182, in text
+    finish_budget(message)
+  File "./bot_commands/budget.py", line 83, in finish_budget
+    emission(message)
+  File "./bot_commands/budget.py", line 102, in emission
+    AddAuthorityToUser(i[2], round(coeff * i[0]), cursor, db)
+IndexError: tuple index out of range
+
+INFO:cherrypy.error:[07/Aug/2019:15:21:24] ENGINE Restarting because /home/prostoedgar/KorpusBot/config.py changed.
+INFO:cherrypy.error:[07/Aug/2019:15:21:24] ENGINE Stopped thread 'Autoreloader'.
+INFO:cherrypy.error:[07/Aug/2019:15:21:24] ENGINE Bus STOPPING
+INFO:cherrypy.error:[07/Aug/2019:15:21:24] ENGINE HTTP Server cherrypy._cpwsgi_server.CPWSGIServer(('195.201.138.7', 8443)) shut down
+INFO:cherrypy.error:[07/Aug/2019:15:21:24] ENGINE Bus STOPPED
+INFO:cherrypy.error:[07/Aug/2019:15:21:24] ENGINE Bus EXITING
+INFO:cherrypy.error:[07/Aug/2019:15:21:24] ENGINE Bus EXITED
+INFO:cherrypy.error:[07/Aug/2019:15:21:24] ENGINE Waiting for child threads to terminate...
+INFO:cherrypy.error:[07/Aug/2019:15:21:24] ENGINE Re-spawning 
+INFO:root:[07/08/19 15:21] Bot finished
+INFO:root:[07/08/19 15:21] Bot started
+INFO:cherrypy.error:[07/Aug/2019:15:21:24] ENGINE Listening for SIGTERM.
+INFO:cherrypy.error:[07/Aug/2019:15:21:24] ENGINE Listening for SIGUSR1.
+INFO:cherrypy.error:[07/Aug/2019:15:21:24] ENGINE Listening for SIGHUP.
+INFO:cherrypy.error:[07/Aug/2019:15:21:24] ENGINE Bus STARTING
+INFO:cherrypy.error:[07/Aug/2019:15:21:24] ENGINE Started monitor thread 'Autoreloader'.
+INFO:cherrypy.error:[07/Aug/2019:15:21:24] ENGINE Serving on https://195.201.138.7:8443
+INFO:cherrypy.error:[07/Aug/2019:15:21:24] ENGINE Bus STARTED
+INFO:cherrypy.error:[07/Aug/2019:15:21:38] ENGINE Restarting because /home/prostoedgar/KorpusBot/bot_commands/budget.py changed.
+INFO:cherrypy.error:[07/Aug/2019:15:21:38] ENGINE Stopped thread 'Autoreloader'.
+INFO:cherrypy.error:[07/Aug/2019:15:21:38] ENGINE Bus STOPPING
+INFO:cherrypy.error:[07/Aug/2019:15:21:38] ENGINE HTTP Server cherrypy._cpwsgi_server.CPWSGIServer(('195.201.138.7', 8443)) shut down
+INFO:cherrypy.error:[07/Aug/2019:15:21:38] ENGINE Bus STOPPED
+INFO:cherrypy.error:[07/Aug/2019:15:21:38] ENGINE Bus EXITING
+INFO:cherrypy.error:[07/Aug/2019:15:21:38] ENGINE Bus EXITED
+INFO:cherrypy.error:[07/Aug/2019:15:21:38] ENGINE Waiting for child threads to terminate...
+INFO:cherrypy.error:[07/Aug/2019:15:21:38] ENGINE Re-spawning 
+INFO:root:[07/08/19 15:21] Bot finished
+INFO:root:[07/08/19 15:21] Bot started
+INFO:cherrypy.error:[07/Aug/2019:15:21:51] ENGINE Listening for SIGUSR1.
+INFO:cherrypy.error:[07/Aug/2019:15:21:51] ENGINE Listening for SIGHUP.
+INFO:cherrypy.error:[07/Aug/2019:15:21:51] ENGINE Listening for SIGTERM.
+INFO:cherrypy.error:[07/Aug/2019:15:21:51] ENGINE Bus STARTING
+INFO:cherrypy.error:[07/Aug/2019:15:21:51] ENGINE Started monitor thread 'Autoreloader'.
+INFO:cherrypy.error:[07/Aug/2019:15:21:51] ENGINE Serving on https://195.201.138.7:8443
+INFO:cherrypy.error:[07/Aug/2019:15:21:51] ENGINE Bus STARTED
+INFO:cherrypy.access.139760681056520:91.108.6.64 - - [07/Aug/2019:15:21:53] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.error.139760681056520:[07/Aug/2019:15:21:53]  👔 Функции администратора
+INFO:cherrypy.access.139760681056520:91.108.6.64 - - [07/Aug/2019:15:21:58] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.error.139760681056520:[07/Aug/2019:15:21:58]  📢 Начать голосование за утверждение бюджета
+INFO:cherrypy.access.139760681056520:91.108.6.64 - - [07/Aug/2019:15:22:01] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.access.139760681056520:91.108.6.64 - - [07/Aug/2019:15:22:06] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.access.139760681056520:91.108.6.64 - - [07/Aug/2019:15:22:17] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.error.139760681056520:[07/Aug/2019:15:22:17]  👔 Функции администратора
+INFO:cherrypy.access.139760681056520:91.108.6.64 - - [07/Aug/2019:15:22:19] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.error.139760681056520:[07/Aug/2019:15:22:19]  Закончить утверждение бюджета
+INFO:cherrypy.access.139760681056520:91.108.6.64 - - [07/Aug/2019:15:22:26] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.error.139760681056520:[07/Aug/2019:15:22:26]  📋 Профиль
+INFO:cherrypy.access.139760681056520:91.108.6.64 - - [07/Aug/2019:15:22:28] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.error.139760681056520:[07/Aug/2019:15:22:28]  📰 Профили пользователей
+INFO:cherrypy.access.139760681056520:91.108.6.64 - - [07/Aug/2019:15:22:30] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.access.139760681056520:91.108.6.64 - - [07/Aug/2019:15:22:33] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+ERROR:TeleBot:TypeError occurred, args=("Can't convert 'int' object to str implicitly",)
+Traceback (most recent call last):
+  File "/home/prostoedgar/KorpusBot/venv/lib/python3.5/site-packages/telebot/util.py", line 59, in run
+    task(*args, **kwargs)
+  File "./bot_commands/budget.py", line 62, in voting
+    authority = GetAuthority(call.from_user.id, cursor)
+  File "./db_commands/db_profile.py", line 20, in GetAuthority
+    cursor.execute('SELECT authority FROM users WHERE id=' + id)
+TypeError: Can't convert 'int' object to str implicitly
+
+INFO:cherrypy.access.139760681056520:91.108.6.64 - - [07/Aug/2019:15:22:35] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.error.139760681056520:[07/Aug/2019:15:22:35]  📋 Профиль
+INFO:cherrypy.access.139760681056520:91.108.6.64 - - [07/Aug/2019:15:22:36] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.error.139760681056520:[07/Aug/2019:15:22:36]  👀 Посмотреть профиль
+INFO:cherrypy.access.139760681056520:91.108.6.64 - - [07/Aug/2019:15:24:55] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+ERROR:TeleBot:TypeError occurred, args=("Can't convert 'int' object to str implicitly",)
+Traceback (most recent call last):
+  File "/home/prostoedgar/KorpusBot/venv/lib/python3.5/site-packages/telebot/util.py", line 59, in run
+    task(*args, **kwargs)
+  File "./bot_commands/budget.py", line 62, in voting
+    authority = GetAuthority(call.from_user.id, cursor)
+  File "./db_commands/db_profile.py", line 20, in GetAuthority
+    cursor.execute('SELECT authority FROM users WHERE id=' + id)
+TypeError: Can't convert 'int' object to str implicitly
+
+INFO:cherrypy.error:[07/Aug/2019:15:27:54] ENGINE Restarting because /home/prostoedgar/KorpusBot/config.py changed.
+INFO:cherrypy.error:[07/Aug/2019:15:27:54] ENGINE Stopped thread 'Autoreloader'.
+INFO:cherrypy.error:[07/Aug/2019:15:27:54] ENGINE Bus STOPPING
+INFO:cherrypy.error:[07/Aug/2019:15:27:54] ENGINE HTTP Server cherrypy._cpwsgi_server.CPWSGIServer(('195.201.138.7', 8443)) shut down
+INFO:cherrypy.error:[07/Aug/2019:15:27:54] ENGINE Bus STOPPED
+INFO:cherrypy.error:[07/Aug/2019:15:27:54] ENGINE Bus EXITING
+INFO:cherrypy.error:[07/Aug/2019:15:27:54] ENGINE Bus EXITED
+INFO:cherrypy.error:[07/Aug/2019:15:27:54] ENGINE Waiting for child threads to terminate...
+INFO:cherrypy.error:[07/Aug/2019:15:27:54] ENGINE Re-spawning 
+INFO:root:[07/08/19 15:27] Bot finished
+INFO:root:[07/08/19 15:27] Bot started
+INFO:cherrypy.error:[07/Aug/2019:15:27:54] ENGINE Listening for SIGUSR1.
+INFO:cherrypy.error:[07/Aug/2019:15:27:54] ENGINE Listening for SIGHUP.
+INFO:cherrypy.error:[07/Aug/2019:15:27:54] ENGINE Listening for SIGTERM.
+INFO:cherrypy.error:[07/Aug/2019:15:27:54] ENGINE Bus STARTING
+INFO:cherrypy.error:[07/Aug/2019:15:27:54] ENGINE Started monitor thread 'Autoreloader'.
+INFO:cherrypy.error:[07/Aug/2019:15:27:55] ENGINE Serving on https://195.201.138.7:8443
+INFO:cherrypy.error:[07/Aug/2019:15:27:55] ENGINE Bus STARTED
+INFO:cherrypy.error:[07/Aug/2019:15:28:10] ENGINE Restarting because /home/prostoedgar/KorpusBot/db_commands/db_users.py changed.
+INFO:cherrypy.error:[07/Aug/2019:15:28:10] ENGINE Stopped thread 'Autoreloader'.
+INFO:cherrypy.error:[07/Aug/2019:15:28:10] ENGINE Bus STOPPING
+INFO:cherrypy.error:[07/Aug/2019:15:28:10] ENGINE HTTP Server cherrypy._cpwsgi_server.CPWSGIServer(('195.201.138.7', 8443)) shut down
+INFO:cherrypy.error:[07/Aug/2019:15:28:10] ENGINE Bus STOPPED
+INFO:cherrypy.error:[07/Aug/2019:15:28:10] ENGINE Bus EXITING
+INFO:cherrypy.error:[07/Aug/2019:15:28:10] ENGINE Bus EXITED
+INFO:cherrypy.error:[07/Aug/2019:15:28:10] ENGINE Waiting for child threads to terminate...
+INFO:cherrypy.error:[07/Aug/2019:15:28:10] ENGINE Re-spawning 
+INFO:root:[07/08/19 15:28] Bot finished
+INFO:root:[07/08/19 15:30] Bot started
+INFO:cherrypy.error:[07/Aug/2019:15:30:26] ENGINE Listening for SIGHUP.
+INFO:cherrypy.error:[07/Aug/2019:15:30:26] ENGINE Listening for SIGUSR1.
+INFO:cherrypy.error:[07/Aug/2019:15:30:26] ENGINE Listening for SIGTERM.
+INFO:cherrypy.error:[07/Aug/2019:15:30:26] ENGINE Bus STARTING
+INFO:cherrypy.error:[07/Aug/2019:15:30:26] ENGINE Started monitor thread 'Autoreloader'.
+INFO:cherrypy.error:[07/Aug/2019:15:30:27] ENGINE Serving on https://195.201.138.7:8443
+INFO:cherrypy.error:[07/Aug/2019:15:30:27] ENGINE Bus STARTED
+INFO:cherrypy.access.139635915253464:91.108.6.64 - - [07/Aug/2019:15:30:28] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.error.139635915253464:[07/Aug/2019:15:30:28]  📊 Оценки
+INFO:cherrypy.access.139635915253464:91.108.6.64 - - [07/Aug/2019:15:30:33] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.error.139635915253464:[07/Aug/2019:15:30:33]  👀 Посмотреть свои оценки
+INFO:cherrypy.access.139635915253464:91.108.6.64 - - [07/Aug/2019:15:30:55] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.error.139635915253464:[07/Aug/2019:15:30:55]  👔 Функции администратора
+INFO:cherrypy.access.139635915253464:91.108.6.64 - - [07/Aug/2019:15:30:57] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.error.139635915253464:[07/Aug/2019:15:30:57]  📢 Начать голосование за утверждение бюджета
+INFO:cherrypy.access.139635915253464:91.108.6.64 - - [07/Aug/2019:15:30:59] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.access.139635915253464:91.108.6.64 - - [07/Aug/2019:15:31:07] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.access.139635915253464:91.108.6.64 - - [07/Aug/2019:15:31:09] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.error.139635915253464:[07/Aug/2019:15:31:09]  👔 Функции администратора
+INFO:cherrypy.access.139635915253464:91.108.6.64 - - [07/Aug/2019:15:31:10] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.error.139635915253464:[07/Aug/2019:15:31:10]  Закончить утверждение бюджета
+INFO:cherrypy.access.139635915253464:91.108.6.64 - - [07/Aug/2019:15:31:12] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.error.139635915253464:[07/Aug/2019:15:31:12]  📋 Профиль
+INFO:cherrypy.access.139635915253464:91.108.6.64 - - [07/Aug/2019:15:31:13] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.error.139635915253464:[07/Aug/2019:15:31:13]  👀 Посмотреть профиль
+INFO:cherrypy.access.139635915253464:91.108.6.64 - - [07/Aug/2019:16:49:45] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.access.139635915253464:91.108.6.64 - - [07/Aug/2019:17:45:37] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.error.139635915253464:[07/Aug/2019:17:45:37]  👔 Функции администратора
+INFO:cherrypy.access.139635915253464:91.108.6.64 - - [07/Aug/2019:17:45:38] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.error.139635915253464:[07/Aug/2019:17:45:38]  Назад
+INFO:cherrypy.access.139635915253464:91.108.6.64 - - [07/Aug/2019:17:51:59] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.access.139635915253464:91.108.6.64 - - [07/Aug/2019:18:38:01] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.error.139635915253464:[07/Aug/2019:18:38:01]  📊 Оценки
+INFO:cherrypy.access.139635915253464:91.108.6.64 - - [07/Aug/2019:18:38:03] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.error.139635915253464:[07/Aug/2019:18:38:03]  📰 Оценки пользователей
+INFO:cherrypy.access.139635915253464:91.108.6.64 - - [07/Aug/2019:18:38:05] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.error:[07/Aug/2019:20:58:54] ENGINE Caught signal SIGHUP.
+INFO:cherrypy.error:[07/Aug/2019:20:58:54] ENGINE SIGHUP caught but not daemonized. Exiting.
+INFO:cherrypy.error:[07/Aug/2019:20:58:54] ENGINE Bus STOPPING
+INFO:cherrypy.error:[07/Aug/2019:20:58:54] ENGINE HTTP Server cherrypy._cpwsgi_server.CPWSGIServer(('195.201.138.7', 8443)) shut down
+INFO:cherrypy.error:[07/Aug/2019:20:58:54] ENGINE Stopped thread 'Autoreloader'.
+INFO:cherrypy.error:[07/Aug/2019:20:58:54] ENGINE Bus STOPPED
+INFO:cherrypy.error:[07/Aug/2019:20:58:54] ENGINE Bus EXITING
+INFO:cherrypy.error:[07/Aug/2019:20:58:54] ENGINE Bus EXITED
+INFO:cherrypy.error:[07/Aug/2019:20:58:54] ENGINE Waiting for child threads to terminate...
+INFO:root:[07/08/19 20:58] Bot finished
+INFO:root:[07/08/19 20:58] Bot started
+INFO:cherrypy.error:[07/Aug/2019:20:58:54] ENGINE Listening for SIGHUP.
+INFO:cherrypy.error:[07/Aug/2019:20:58:54] ENGINE Listening for SIGUSR1.
+INFO:cherrypy.error:[07/Aug/2019:20:58:54] ENGINE Listening for SIGTERM.
+INFO:cherrypy.error:[07/Aug/2019:20:58:54] ENGINE Bus STARTING
+INFO:cherrypy.error:[07/Aug/2019:20:58:54] ENGINE Started monitor thread 'Autoreloader'.
+INFO:cherrypy.error:[07/Aug/2019:20:58:54] ENGINE Serving on https://195.201.138.7:8443
+INFO:cherrypy.error:[07/Aug/2019:20:58:54] ENGINE Bus STARTED
+INFO:cherrypy.error:[07/Aug/2019:21:00:44] ENGINE Restarting because /home/prostoedgar/KorpusBot/config.py changed.
+INFO:cherrypy.error:[07/Aug/2019:21:00:44] ENGINE Stopped thread 'Autoreloader'.
+INFO:cherrypy.error:[07/Aug/2019:21:00:44] ENGINE Bus STOPPING
+INFO:cherrypy.error:[07/Aug/2019:21:00:44] ENGINE HTTP Server cherrypy._cpwsgi_server.CPWSGIServer(('195.201.138.7', 8443)) shut down
+INFO:cherrypy.error:[07/Aug/2019:21:00:44] ENGINE Bus STOPPED
+INFO:cherrypy.error:[07/Aug/2019:21:00:44] ENGINE Bus EXITING
+INFO:cherrypy.error:[07/Aug/2019:21:00:44] ENGINE Bus EXITED
+INFO:cherrypy.error:[07/Aug/2019:21:00:44] ENGINE Waiting for child threads to terminate...
+INFO:cherrypy.error:[07/Aug/2019:21:00:44] ENGINE Re-spawning 
+INFO:root:[07/08/19 21:00] Bot finished

@@ -1,18 +1,10 @@
 # -*- coding: utf-8 -*-
-from bot_commands.profile import *
-from bot_commands.budget import *
-from bot_commands.projects import *
-from bot_commands.marks import *
-from bot_commands.inviting import *
-# from bot_commands.tokens import *
-from bot_commands.votings import *
-# from bot_commands.expert_voting import *
-from config import bot, db, cursor, get_keyboard, isRang
-from emoji import emojize
-import cherrypy
+from config import bot
 import webhook
+import main_commands
 
 
+<<<<<<< HEAD
 @bot.message_handler(commands=['normalize'])
 def norm(message):
     SetState(message.from_user.id, 6, cursor, db)
@@ -263,3 +255,7 @@ webhook.start()
 #         bot.stop_polling()
 #         print('!')
 #         time.sleep(2)
+=======
+# webhook.start()
+bot.polling()
+>>>>>>> 116947201244919907cf070764b5148ed0726593
