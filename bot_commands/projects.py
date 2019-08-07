@@ -27,7 +27,9 @@ def projectsMenu(message):
 
 def project_switch(message, flag):
     if flag == 1:
-        bot.send_message(message.chat.id, 'Введите название проекта')
+        keyboard = telebot.types.ReplyKeyboardMarkup(resize_keyboard=True, one_time_keyboard=True)
+        keyboard.add('Отмена')
+        bot.send_message(message.chat.id, 'Введите название проекта', reply_markup=keyboard)
         SetState(message.from_user.id, 21, cursor, db)
     elif flag == 2:
         projects = GetProjects(message.from_user.id, cursor)
@@ -316,22 +318,26 @@ def editing3(call):
     bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text="Принято")
 
 
-project_info = {}
+project_info = {'name':'Project', 'leader':2142341235, 'type':'1', 'experts':[]}
 
 
 @bot.message_handler(func=lambda message: GetState(message.from_user.id, cursor) == 21)
 def new_project2(message):
-    project_info['name'] = message.text
-    users = GetListOfUsers(cursor)
-    students = list()
-    for user in users:
-        if isRang(GetRangs(user[0], cursor), [2, 3, 4]):
-            students.append(user)
-    keyboard = telebot.types.InlineKeyboardMarkup()
-    for student in students:
-            keyboard.add(telebot.types.InlineKeyboardButton(text=GetName(student[0],cursor), callback_data='chooseteamlead_' + str(student[0])))
-    bot.send_message(message.chat.id, 'Выберите лидера команды из числа курсантов', reply_markup=keyboard)
-    #SetState(message.from_user.id, 210, cursor, db)
+    if message.text == 'Отмена':
+        SetState(message.from_user.id, 6, cursor,db)
+        projectsMenu(message)
+    else:
+        project_info['name'] = message.text
+        users = GetListOfUsers(cursor)
+        students = list()
+        for user in users:
+            if isRang(GetRangs(user[0], cursor), [2, 3, 4]):
+                students.append(user)
+        keyboard = telebot.types.InlineKeyboardMarkup()
+        for student in students:
+                keyboard.add(telebot.types.InlineKeyboardButton(text=GetName(student[0],cursor), callback_data='chooseteamlead_' + str(student[0])))
+        bot.send_message(message.chat.id, 'Выберите лидера команды из числа курсантов', reply_markup=keyboard)
+        #SetState(message.from_user.id, 210, cursor, db)
 
 
 @bot.callback_query_handler(func=lambda call: True and call.data.startswith('chooseteamlead_'))
@@ -426,3 +432,24 @@ def new_project4(call):
         experts.append(expert)
         SetState(call.from_user.id, 6, cursor, db)
         bot.send_message(call.message.chat.id, "Принято")
+
+
+def delete_project(message):
+    projects = GetAllProjects(cursor)
+    keyboard = telebot.types.InlineKeyboardMarkup()
+    if len(projects) != 0:
+        for i in range(0, len(projects)):
+            keyboard.add(telebot.types.InlineKeyboardButton(text=projects[i][0],
+                                                            callback_data='dlt_project_' + str(projects[i][1])))
+        bot.send_message(message.chat.id, 'Выберите проект', reply_markup=keyboard)
+    else:
+        bot.send_message(message.chat.id, 'Активных проектов нет',
+                         reply_markup=get_keyboard(message.from_user.id))
+
+
+@bot.callback_query_handler(func=lambda call: True and call.data.startswith('dlt_project_'))
+def deleting(call):
+    bot.delete_message(call.message.chat.id, call.message.message_id)
+    project_id = call.data.split('_')[2]
+    DeleteProject(project_id, cursor, db)
+    bot.send_message(call.message.chat.id, 'Успешно', reply_markup=get_keyboard(call.from_user.id))

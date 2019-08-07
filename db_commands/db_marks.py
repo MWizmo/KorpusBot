@@ -46,3 +46,8 @@ def AddMarksToUser(user_id, time, cursor, db):
         summa += float(mark[0])
     cursor.execute('UPDATE users SET sum_of_marks = ' + str(summa) +' WHERE id=' + str(user_id))
     db.commit()
+
+
+def GetMarksForDateAndAxis(user_id, time, axis, cursor):
+    cursor.execute('SELECT mark FROM marks where user_id=' + str(user_id) + ' AND mark_date="' + time + '" AND axis=' + str(axis))
+    return cursor.fetchall()
