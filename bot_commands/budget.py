@@ -99,4 +99,4 @@ def emission(message):
     for i in all_marks:
         if i[0] != None:
             bot.send_message(message.chat.id, GetName(i[1], cursor) + ' получит ' + str(round(coeff * i[0], 5)))
-            AddAuthorityToUser(i[2], round(coeff * i[0]), cursor, db)
+            AddAuthorityToUser(i[1], round(coeff * i[0]), cursor, db)
