@@ -38,7 +38,7 @@ def start():
         now_date = now_date.strftime("%d/%m/%y %H:%M")
         logging.info('['+now_date+'] Bot started')
         bot.remove_webhook()
-        bot.set_webhook(url=WEBHOOK_URL_BASE + WEBHOOK_URL_PATH,certificate=open(WEBHOOK_SSL_CERT, 'r'))
+        bot.set_webhook(url=WEBHOOK_URL_BASE + WEBHOOK_URL_PATH, certificate=open(WEBHOOK_SSL_CERT, 'r'))
         cherrypy.config.update({
                 'server.socket_host': WEBHOOK_LISTEN,
                 'server.socket_port': WEBHOOK_PORT,

@@ -240,7 +240,7 @@ def full_clean():
     db.commit()
 
 
-# webhook.start()
+webhook.start()
 # full_clean()
 # AddAbit('@m_wizmo', cursor, db)
 # AddAbit('@robertlengdon', cursor, db)
@@ -254,12 +254,12 @@ def full_clean():
 # cursor.execute('delete from votings_info')
 # cursor.execute('delete from votings_experts')
 # db.commit()
-import time
-while True:
-    try:
-
-        bot.polling()
-    except :#Exception as e:
-        bot.stop_polling()
-        print('!')
-        time.sleep(2)
+# import time
+# while True:
+#     try:
+#
+#         bot.polling()
+#     except :#Exception as e:
+#         bot.stop_polling()
+#         print('!')
+#         time.sleep(2)
