@@ -123,7 +123,7 @@ def text(message):
                 keyboard.add('Закончить утверждение бюджета')
             else:
                 keyboard.add(emojize(':loudspeaker: Начать голосование за утверждение бюджета'))
-                keyboard.row('Удалить проект', 'Удалить пользователя')
+            keyboard.row('Удалить проект', 'Удалить пользователя')
             keyboard.add('Назад')
             bot.send_message(message.chat.id, 'Вкладка <b>"Администратор"</b>', reply_markup=keyboard,
                              parse_mode='HTML')

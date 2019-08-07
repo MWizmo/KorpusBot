@@ -162,3 +162,15 @@ def GetTitleOfRang(rang, cursor):
 def GetInvestors(nick, cursor):
     cursor.execute('SELECT chat_id FROM users WHERE rang=8 AND nickname!="' + nick + '"')
     return cursor.fetchall()
+
+
+def AddAuthorityToUser(user_id, number, cursor, db):
+    cursor.execute('SELECT authority FROM users where id=' + str(user_id))
+    res = cursor.fetchone()[0]
+    cursor.execute('UPDATE users SET sum_of_marks = ' + str(res + number) +' WHERE id=' + str(user_id))
+    db.commit()
+
+
+def GetAuthority(user_id, cursor):
+    cursor.execute('SELECT authority FROM users where id=' + str(user_id))
+    return cursor.fetchone()[0]

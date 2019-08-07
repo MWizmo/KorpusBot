@@ -12,15 +12,17 @@ def SetCoeff(coeff, cursor, database):
     database.commit()
 
 
-def BudgetVote(num, cursor, database):
+def BudgetVote(num, authority, cursor, database):
+    if authority == 0:
+        authority = 1
     if num == '1':
         cursor.execute('SELECT agree_number FROM budget_votings WHERE status="active"')
         count = cursor.fetchall()[0][0]
-        cursor.execute('UPDATE budget_votings SET agree_number=' + str(count + 1) + ' WHERE status="active"')
+        cursor.execute('UPDATE budget_votings SET agree_number=' + str(count + authority) + ' WHERE status="active"')
     else:
         cursor.execute('SELECT disagree_number FROM budget_votings WHERE status="active"')
         count = cursor.fetchall()[0][0]
-        cursor.execute('UPDATE budget_votings SET disagree_number=' + str(count + 1) + ' WHERE status="active"')
+        cursor.execute('UPDATE budget_votings SET disagree_number=' + str(count + authority) + ' WHERE status="active"')
     database.commit()
 
 
