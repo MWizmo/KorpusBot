@@ -254,18 +254,6 @@ webhook.start()
 # cursor.execute('delete from votings_info')
 # cursor.execute('delete from votings_experts')
 # db.commit()
-<<<<<<< HEAD:main.py
-import time
-bot.stop_polling()
-while True:
-    try:
-
-        bot.polling()
-    except :#Exception as e:
-        bot.stop_polling()
-        print('!')
-        time.sleep(2)
-=======
 # import time
 # while True:
 #     try:
@@ -275,4 +263,3 @@ while True:
 #         bot.stop_polling()
 #         print('!')
 #         time.sleep(2)
->>>>>>> ddcfdf81ea63c5cb51cebf7662c80c71c05a282c:wsgi.py
