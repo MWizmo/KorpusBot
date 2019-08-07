@@ -170,7 +170,3 @@ def AddAuthorityToUser(user_id, number, cursor, db):
     cursor.execute('UPDATE users SET sum_of_marks = ' + str(res + number) +' WHERE id=' + str(user_id))
     db.commit()
 
-
-def GetAuthority(user_id, cursor):
-    cursor.execute('SELECT authority FROM users where id=' + str(user_id))
-    return cursor.fetchone()[0]

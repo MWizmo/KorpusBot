@@ -17,7 +17,7 @@ def GetChatId(id, cursor):
 
 
 def GetAuthority(id, cursor):
-    cursor.execute('SELECT authority FROM users WHERE id=' + id)
+    cursor.execute('SELECT authority FROM users WHERE id=' + str(id))
     return cursor.fetchall()[0][0]
 
 
