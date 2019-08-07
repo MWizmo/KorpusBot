@@ -49,5 +49,6 @@ def AddMarksToUser(user_id, time, cursor, db):
 
 
 def GetMarksForDateAndAxis(user_id, time, axis, cursor):
-    cursor.execute('SELECT mark FROM marks where user_id=' + str(user_id) + ' AND mark_date="' + time + '" AND axis=' + str(axis))
+    sql = 'SELECT mark FROM marks where user_id=' + str(user_id) + ' AND mark_date="' + time + '" AND axis=' + str(axis)
+    cursor.execute(sql)
     return cursor.fetchall()

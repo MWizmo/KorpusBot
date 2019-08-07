@@ -1184,7 +1184,7 @@ def put_mark_to_table(project, date, cadets, wks):
         wks.append_row(
                 ['', GetName(cadet[0], cursor), norm_marks[0], norm_marks[1], norm_marks[2], norm_marks[3],
                  norm_marks[4], norm_marks[5], norm_marks[6], norm_marks[7], norm_marks[8], norm_marks[9]], 'USER_ENTERED')
-    wks.update_acell(updated_cell, project)
+    wks.update_acell(updated_cell, GetProjectTitle(project, cursor))
 
 # a = wks.row_values(1)
 # print(a)
