@@ -252,6 +252,7 @@ def full_clean():
 # cursor.execute('delete from votings_experts')
 # db.commit()
 import time
+bot.stop_polling()
 while True:
     try:
         bot.polling()

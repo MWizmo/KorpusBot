@@ -8,7 +8,7 @@ import pymysql
 
 bot = telebot.TeleBot(bot_token.token)
 #db = sqlite3.connect("korpus.db", check_same_thread=False)
-db = pymysql.connect("localhost", "root", "", "korpus", charset="utf8")
+db = pymysql.connect("localhost", "korpus", "t0ken", "korpus_token", charset="utf8")
 cursor = db.cursor()
 
 
