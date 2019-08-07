@@ -8,9 +8,9 @@ import pymysql
 
 bot = telebot.TeleBot(bot_token.token)
 #db = sqlite3.connect("korpus.db", check_same_thread=False)
-db = pymysql.connect("localhost", "root", "", "korpus", charset="utf8")
+db = pymysql.connect("localhost", "root", "1", "korpus", charset="utf8")
 cursor = db.cursor()
-
+# db.close()
 
 def isRang(a, b):
     c = list(set(a) & set(b))
@@ -67,8 +67,8 @@ current_project=''
 #-----Feybpards------
 
 keyboard_axis_of_relations_finish=telebot.types.InlineKeyboardMarkup()
-keyboard_axis_of_relations_finish.add(telebot.types.InlineKeyboardButton(text="Личностное развитие", callback_data="relations_1"))
-keyboard_axis_of_relations_finish.add(telebot.types.InlineKeyboardButton(text="Понятность", callback_data="relations_2"))
+keyboard_axis_of_relations_finish.add(telebot.types.InlineKeyboardButton(text="Личностный рост", callback_data="relations_1"))
+keyboard_axis_of_relations_finish.add(telebot.types.InlineKeyboardButton(text="Ясность позиции", callback_data="relations_2"))
 keyboard_axis_of_relations_finish.add(telebot.types.InlineKeyboardButton(text="Энергия", callback_data="relations_3"))
 keyboard_axis_of_relations_finish.add(telebot.types.InlineKeyboardButton(text="Завершить оценивание", callback_data="relations_5"))
 
@@ -89,9 +89,9 @@ keyboard_axis_of_authority_finish.add(telebot.types.InlineKeyboardButton(text="�
 
 def ChooseKeyboardForRelations(voting_id, cadet, is_last):
     keyboard_axis_of_relations = telebot.types.InlineKeyboardMarkup()
-    keyboard_axis_of_relations.row(telebot.types.InlineKeyboardButton(text="Личностное развитие", callback_data="relations%1%"+str(voting_id)+"%"+str(cadet)))
+    keyboard_axis_of_relations.row(telebot.types.InlineKeyboardButton(text="Личностный рост", callback_data="relations%1%"+str(voting_id)+"%"+str(cadet)))
                                    #telebot.types.InlineKeyboardButton(text='?', callback_data='relations%7'))
-    keyboard_axis_of_relations.row(telebot.types.InlineKeyboardButton(text="Понятность", callback_data="relations%2%"+str(voting_id)+"%"+str(cadet)))
+    keyboard_axis_of_relations.row(telebot.types.InlineKeyboardButton(text="Ясность позиции", callback_data="relations%2%"+str(voting_id)+"%"+str(cadet)))
                                    #telebot.types.InlineKeyboardButton(text='?', callback_data='relations%8'))
     keyboard_axis_of_relations.row(telebot.types.InlineKeyboardButton(text="Энергия", callback_data="relations%3%"+str(voting_id)+"%"+str(cadet)))
                                    #telebot.types.InlineKeyboardButton(text='?', callback_data='relations%9'))

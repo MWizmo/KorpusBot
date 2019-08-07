@@ -24,8 +24,11 @@ def BudgetVote(num, cursor, database):
     database.commit()
 
 
-def BudgetInfo(cursor):
-    cursor.execute('SELECT agree_number,disagree_number,number_of_members FROM budget_votings WHERE status="active"')
+def BudgetInfo(cursor, is_end=False):
+    status = '"active"'
+    if is_end:
+        status = '"finished" order by id desc'
+    cursor.execute('SELECT agree_number,disagree_number,number_of_members FROM budget_votings WHERE status=' + status)
     arr = cursor.fetchall()[0]
     return 'За: ' + str(arr[0]) + '. Против: ' + str(arr[1]) + '. Число участников голосования: ' + str(arr[2])
 

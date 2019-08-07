@@ -224,27 +224,28 @@ def set_date(message):
 
 
 def invite_expert(nick, voting_id, axis, project_id, from_id):
+    if not IsExpertGenerallyInVoting(nick, voting_id, cursor):
+        keyboard = telebot.types.InlineKeyboardMarkup()
+        keyboard.row(telebot.types.InlineKeyboardButton(text='Принять',
+                                                        callback_data='exp_decide%1%' + str(axis) + '%'
+                                                                      + str(project_id) + '%' + str(voting_id)),
+                     telebot.types.InlineKeyboardButton(text='Отклонить',
+                                                        callback_data='exp_decide%2%' + str(axis) + '%' +
+                                                                      str(project_id) + '%' + str(voting_id)))
+        info = GetName(from_id, cursor) + ' пригласил вас  для оценки вклада курсантов '  # по оси '
+        # if axis == 1:
+        #     info += 'отношений '
+        # elif axis == 2:
+        #     info += 'дела '
+        # else:
+        #     info += 'власти '
+        info += 'в проекте "' + GetProjectTitle(project_id, cursor) + '".'
+        try:
+            info += ' Ожидаемое время оценки: ' + GetNextVotingDateByProject(project_id, cursor)[1]
+        except:
+            info += 'Время оценки пока не назначено'
+        bot.send_message(GetChatId(nick, cursor), info, reply_markup=keyboard)
     AddExpertToVoting(nick, voting_id, axis, cursor, db)
-    keyboard = telebot.types.InlineKeyboardMarkup()
-    keyboard.row(telebot.types.InlineKeyboardButton(text='Принять',
-                                                    callback_data='exp_decide%1%' + str(axis) + '%'
-                                                                  + str(project_id) + '%' + str(voting_id)),
-                 telebot.types.InlineKeyboardButton(text='Отклонить',
-                                                    callback_data='exp_decide%2%' + str(axis) + '%' +
-                                                                  str(project_id) + '%' + str(voting_id)))
-    info = GetName(from_id, cursor) + ' пригласил вас  для оценки вклада курсантов по оси '
-    if axis == 1:
-        info += 'отношений '
-    elif axis == 2:
-        info += 'дела '
-    else:
-        info += 'власти '
-    info += 'в проекте "' + GetProjectTitle(project_id, cursor) + '".'
-    try:
-        info += ' Ожидаемое время оценки: ' + GetNextVotingDateByProject(project_id, cursor)[1]
-    except:
-        info += 'Время оценки пока не назначено'
-    bot.send_message(GetChatId(nick, cursor), info, reply_markup=keyboard)
 
 
 @bot.callback_query_handler(func=lambda call: True and call.data.startswith('exp_vot'))
@@ -422,13 +423,13 @@ def decide_expert(call):
     voting_id = call.data.split('%')[4]
     bot.delete_message(chat_id=call.message.chat.id, message_id=call.message.message_id)
     mess = 'Эксперт ' + GetName(call.from_user.id,
-                                cursor) + ', приглашенный оценивать вклад курсантов по оси '
-    if axis == '1':
-        mess += 'отношений '
-    elif axis == '2':
-        mess += 'дела '
-    else:
-        mess += 'власти '
+                                cursor) + ', приглашенный оценивать вклад курсантов '  # по оси '
+    # if axis == '1':
+    #     mess += 'отношений '
+    # elif axis == '2':
+    #     mess += 'дела '
+    # else:
+    #     mess += 'власти '
     mess += 'в проекте "' + GetProjectTitle(project_id, cursor) + '", '
     if desicion == '1':
         ExpertDecisedInVoting(call.from_user.id, voting_id, axis, 'Accepted', cursor, db)
@@ -474,7 +475,7 @@ def start_voting(call):
                                      'Оценка нематериального вклада\nПроект <b>"' + GetProjectTitle(project_id,
                                                                                                     cursor) +
                                      '"</b>\nОсь отношений\nКурсант: <b>' + GetName(cadet, cursor) +
-                                     '</b>\nЛичностное развитие: 0\nПонятность: 0\nЭнергия: 0',
+                                     '</b>\nЛичностный рост: 0\nЯсность позиции: 0\nЭнергия: 0',
                                      reply_markup=config.ChooseKeyboardForRelations(voting_id, cadet, True),
                                      parse_mode='HTML')
                 else:
@@ -482,7 +483,7 @@ def start_voting(call):
                                      'Оценка нематериального вклада\nПроект <b>"' + GetProjectTitle(project_id,
                                                                                                     cursor) +
                                      '"</b>\nОсь отношений\nКурсант: <b>' + GetName(cadet, cursor) +
-                                     '</b>\nЛичностное развитие: 0\nПонятность: 0\nЭнергия: 0',
+                                     '</b>\nЛичностный рост: 0\nЯсность позиции: 0\nЭнергия: 0',
                                      reply_markup=config.ChooseKeyboardForRelations(voting_id, cadet, False),
                                      parse_mode='HTML')
             except:
@@ -558,9 +559,9 @@ def relations_voting(call):
                                       text='Оценка нематериального вклада\n<b>Проект "' + GetProjectTitle(project_id,
                                                                                                           cursor) +
                                            '"</b>\nОсь отношений\nКурсант: <b>' + GetName(cadet, cursor) +
-                                           '</b>\nЛичностное развитие: ' + str(
+                                           '</b>\nЛичностный рост: ' + str(
                                           GetMarkInVoting(voting_id, expert, cadet, 1, 1, cursor)) +
-                                           '\nПонятность: ' + str(
+                                           '\nЯсность позиции: ' + str(
                                           GetMarkInVoting(voting_id, expert, cadet, 1, 2, cursor)) +
                                            '\nЭнергия: ' + str(GetMarkInVoting(voting_id, expert, cadet, 1, 3, cursor)),
                                       reply_markup=config.ChooseKeyboardForRelations(voting_id, cadet, True),
@@ -570,9 +571,9 @@ def relations_voting(call):
                                       text='Оценка нематериального вклада\n<b>Проект "' + GetProjectTitle(project_id,
                                                                                                           cursor) +
                                            '"</b>\nОсь отношений\nКурсант: <b>' + GetName(cadet, cursor) +
-                                           '</b>\nЛичностное развитие: ' + str(
+                                           '</b>\nЛичностный рост: ' + str(
                                           GetMarkInVoting(voting_id, expert, cadet, 1, 1, cursor)) +
-                                           '\nПонятность: ' + str(
+                                           '\nЯсность позиции: ' + str(
                                           GetMarkInVoting(voting_id, expert, cadet, 1, 2, cursor)) +
                                            '\nЭнергия: ' + str(GetMarkInVoting(voting_id, expert, cadet, 1, 3, cursor)),
                                       reply_markup=config.ChooseKeyboardForRelations(voting_id, cadet, False),
@@ -610,9 +611,9 @@ def relations_voting(call):
                 #     for mark in marks:
                 #         if mark[0] == cur_cadet:
                 #             if mark[1] == '1' or mark[1] == 1:
-                #                 result += 'Личностное развитие'
+                #                 result += 'Личностный рост'
                 #             elif mark[1] == '2' or mark[1] == 2:
-                #                 result += 'Понятность'
+                #                 result += 'Ясность позиции'
                 #             elif mark[1] == '3' or mark[1] == 3:
                 #                 result += 'Энергия'
                 #             result += ': <b>' + str(mark[2]) + '</b>\n'
@@ -620,9 +621,9 @@ def relations_voting(call):
                 #             cur_cadet = mark[0]
                 #             result += '\nКурсант: <b>' + GetName(mark[0], cursor) + '</b>\n'
                 #             if mark[1] == '1' or mark[1] == 1:
-                #                 result += 'Личностное развитие'
+                #                 result += 'Личностный рост'
                 #             elif mark[1] == '2' or mark[1] == 2:
-                #                 result += 'Понятность'
+                #                 result += 'Ясность позиции'
                 #             elif mark[1] == '3' or mark[1] == 3:
                 #                 result += 'Энергия'
                 #             result += ': <b>' + str(mark[2]) + '</b>\n'
@@ -639,7 +640,7 @@ def relations_voting(call):
                                      'Оценка нематериального вклада\nПроект <b>"' + GetProjectTitle(project_id,
                                                                                                     cursor) +
                                      '"</b>\nОсь отношений\nКурсант: <b>' + GetName(cadet, cursor) +
-                                     '</b>\nЛичностное развитие: 0\nПонятность: 0\nЭнергия: 0',
+                                     '</b>\nЛичностный рост: 0\nЯсность позиции: 0\nЭнергия: 0',
                                      reply_markup=config.ChooseKeyboardForRelations(voting_id, cadet, True),
                                      parse_mode='HTML')
                 else:
@@ -647,7 +648,7 @@ def relations_voting(call):
                                      'Оценка нематериального вклада\nПроект <b>"' + GetProjectTitle(project_id,
                                                                                                     cursor) +
                                      '"</b>\nОсь отношений\nКурсант: <b>' + GetName(cadet, cursor) +
-                                     '</b>\nЛичностное развитие: 0\nПонятность: 0\nЭнергия: 0',
+                                     '</b>\nЛичностный рост: 0\nЯсность позиции: 0\nЭнергия: 0',
                                      reply_markup=config.ChooseKeyboardForRelations(voting_id, cadet, False),
                                      parse_mode='HTML')
 
@@ -924,9 +925,9 @@ def finish_voting(call):
     # for mark in marks:
     #         if mark[0] == cur_cadet:
     #             if mark[1] == '1' or mark[1] == 1:
-    #                 result += 'Личностное развитие'
+    #                 result += 'Личностный рост'
     #             elif mark[1] == '2' or mark[1] == 2:
-    #                 result += 'Понятность'
+    #                 result += 'Ясность позиции'
     #             elif mark[1] == '3' or mark[1] == 3:
     #                 result += 'Энергия'
     #             result += ': <b>' + str(mark[2]) + '</b>\n'
@@ -934,9 +935,9 @@ def finish_voting(call):
     #             cur_cadet = mark[0]
     #             result += '\nКурсант: <b>' + GetName(mark[0], cursor) + '</b>\n'
     #             if mark[1] == '1' or mark[1] == 1:
-    #                 result += 'Личностное развитие'
+    #                 result += 'Личностный рост'
     #             elif mark[1] == '2' or mark[1] == 2:
-    #                 result += 'Понятность'
+    #                 result += 'Ясность позиции'
     #             elif mark[1] == '3' or mark[1] == 3:
     #                 result += 'Энергия'
     #             result += ': <b>' + str(mark[2]) + '</b>\n'
@@ -1020,7 +1021,7 @@ def finish_voting(call):
     # experts = GetExpertsFromVoting(voting_id, 3, cursor)
     members = GetMembersOfProject(project_id, cursor)
     experts = GetExpertsFromVoting(voting_id, 1, cursor)
-    put_mark_to_table(GetProjectTitle(project_id, cursor), time, members)
+    fill_worksheet(GetProjectTitle(project_id, cursor), time, members)
     for member in members:
                         bot.send_message(GetChatId(member[0], cursor), 'https://docs.google.com/spreadsheets/d/1SHvJ9GqM-OKYtp0-QTNDrw2xkcP72da-MlXy4Z2k3mc/edit#gid=872248178', parse_mode='HTML')
     for expert in experts:
@@ -1040,6 +1041,7 @@ def finish_voting(call):
         bot.send_message(GetChatId(admin, cursor),
                          'Голосование в проекте "' + GetProjectTitle(project_id, cursor) + '" завершено')
 
+
 @bot.callback_query_handler(func=lambda call: True and call.data.startswith('chng'))
 def change_mark(call):
     bot.delete_message(call.message.chat.id, call.message.message_id)
@@ -1052,8 +1054,8 @@ def change_mark(call):
         bot.send_message(GetChatId(expert, cursor),
                          'Оценка нематериального вклада\n<b>Проект "' + GetProjectTitle(project_id, cursor) +
                          '"</b>\nОсь отношений\nКурсант: <b>' + GetName(cadet, cursor) +
-                         '</b>\nЛичностное развитие: ' + str(GetMarkInVoting(voting_id, expert, cadet, 1, 1, cursor)) +
-                         '\nПонятность: ' + str(GetMarkInVoting(voting_id, expert, cadet, 1, 2, cursor)) +
+                         '</b>\nЛичностный рост: ' + str(GetMarkInVoting(voting_id, expert, cadet, 1, 1, cursor)) +
+                         '\nЯсность позиции: ' + str(GetMarkInVoting(voting_id, expert, cadet, 1, 2, cursor)) +
                          '\nЭнергия: ' + str(GetMarkInVoting(voting_id, expert, cadet, 1, 3, cursor)),
                          reply_markup=config.ChooseKeyboardForRelations(voting_id, cadet, False), parse_mode='HTML')
     elif axis == '2':
@@ -1091,9 +1093,9 @@ def commenting(expert, cadet, voting_id, axis):
     if axis == 1:
         bot.send_message(GetChatId(expert, cursor), 'Вы оценили материальный вклад курсанта <b>'
                          + GetName(cadet,
-                                   cursor) + '</b> по оси отношений. \nВаши оценки:\nЛичностное развитие:<b>' + str(
+                                   cursor) + '</b> по оси отношений. \nВаши оценки:\nЛичностный рост:<b>' + str(
             first_mark) +
-                         '</b>\nПонятность: <b>' + str(second_mark) +
+                         '</b>\nЯсность позиции: <b>' + str(second_mark) +
                          '</b>\nЭнергия: <b>' + str(third_mark) + '</b>\nПожалуйста, прокомментируйте ваше решение',
                          parse_mode='HTML')
         SetState(expert, 81, cursor, db)
@@ -1128,39 +1130,61 @@ def get_sheet():
     return gc.open("KorpusRating")
 
 
-def put_mark_to_table(project, date, cadets):
+def fill_worksheet(project, date, cadets):
     table = get_sheet()
     for i in range(0, len(table.worksheets())):
         if table.get_worksheet(i).title == date.split(' ')[0]:
             wks = table.get_worksheet(i)
-            a = len(wks.col_values(2))
-            updated_cell = 'A' + str(a + 1)
-            for cadet in cadets:
-                marks = GetAllMarksForDate(cadet[0], date, cursor)
-                norm_marks = list()
-                for mark in marks:
-                    norm_marks.append(mark[0])
-                wks.append_row(
-                    ['', GetName(cadet[0], cursor), norm_marks[0], norm_marks[1], norm_marks[2], norm_marks[3],
-                     norm_marks[4], norm_marks[5], norm_marks[6], norm_marks[7], norm_marks[8]], 'USER_ENTERED')
-            wks.update_acell(updated_cell, project)
+            put_mark_to_table(project, date, cadets, wks)
             break
     else:
         table.add_worksheet(date.split(' ')[0], 1000, 100)
         for i in range(0, len(table.worksheets())):
             if table.get_worksheet(i).title == date.split(' ')[0]:
                 wks = table.get_worksheet(i)
-                wks.append_row(['Проект', 'Имя курсанта', 'Ясность позиции', 'Энергия', 'Личностный рост', 'Движение', 'Завершённость', 'Подтверждение средой', 'Самоуправление', 'Стратегия', 'Управляемость'], 'USER_ENTERED')
-                a = len(wks.col_values(2))
-                updated_cell = 'A' + str(a + 1)
-                for cadet in cadets:
-                    marks = GetAllMarksForDate(cadet[0], date, cursor)
-                    norm_marks = list()
-                    for mark in marks:
-                        norm_marks.append(mark[0])
-                    wks.append_row(['', GetName(cadet[0], cursor), norm_marks], 'USER_ENTERED')
-                wks.update_acell(updated_cell, project)
+                wks.append_row(['Проект', 'Имя курсанта', 'Ясность позиции', 'Энергия', 'Личностный рост', 'Движение',
+                                'Завершённость', 'Подтверждение средой', 'Бонус для тимлида', 'Самоуправление',
+                                'Стратегия', 'Управляемость'], 'USER_ENTERED')
+                put_mark_to_table(project, date, cadets, wks)
                 break
+
+
+def put_mark_to_table(project, date, cadets, wks):
+    a = len(wks.col_values(2))
+    updated_cell = 'A' + str(a + 1)
+    for cadet in cadets:
+        relations_marks = GetMarksForDateAndAxis(cadet[0], date, 1, cursor)
+        business_marks = GetMarksForDateAndAxis(cadet[0], date, 2, cursor)
+        authority_marks = GetMarksForDateAndAxis(cadet[0], date, 3, cursor)
+        norm_marks = list()
+        if len(relations_marks):
+            for mark in relations_marks:
+                norm_marks.append(mark[0])
+        else:
+            norm_marks.append('-')
+            norm_marks.append('-')
+            norm_marks.append('-')
+        if len(business_marks):
+            for mark in business_marks:
+                norm_marks.append(mark[0])
+        else:
+            norm_marks.append('-')
+            norm_marks.append('-')
+            norm_marks.append('-')
+            norm_marks.append('-')
+        if len(business_marks) == 3:
+            norm_marks.append('-')
+        if len(authority_marks):
+            for mark in authority_marks:
+                norm_marks.append(mark[0])
+        else:
+            norm_marks.append('-')
+            norm_marks.append('-')
+            norm_marks.append('-')
+        wks.append_row(
+                ['', GetName(cadet[0], cursor), norm_marks[0], norm_marks[1], norm_marks[2], norm_marks[3],
+                 norm_marks[4], norm_marks[5], norm_marks[6], norm_marks[7], norm_marks[8], norm_marks[9]], 'USER_ENTERED')
+    wks.update_acell(updated_cell, project)
 
 # a = wks.row_values(1)
 # print(a)

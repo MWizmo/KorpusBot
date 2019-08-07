@@ -123,6 +123,7 @@ def text(message):
                 keyboard.add('Закончить утверждение бюджета')
             else:
                 keyboard.add(emojize(':loudspeaker: Начать голосование за утверждение бюджета'))
+                keyboard.row('Удалить проект', 'Удалить пользователя')
             keyboard.add('Назад')
             bot.send_message(message.chat.id, 'Вкладка <b>"Администратор"</b>', reply_markup=keyboard,
                              parse_mode='HTML')
@@ -130,6 +131,8 @@ def text(message):
             set_rang(message)
         elif mess == 'Убрать роль пользователя':
             delete_rang(message)
+        elif mess == 'Удалить проект':
+            delete_project(message)
         elif mess == 'Добавить пользователей в систему':
             keyboard = telebot.types.ReplyKeyboardMarkup(one_time_keyboard=True, resize_keyboard=True)
             keyboard.row(emojize(':heavy_plus_sign::notebook: Добавить абитуриентов'),
@@ -254,8 +257,9 @@ def full_clean():
 import time
 while True:
     try:
+
         bot.polling()
-    except Exception as e:
+    except :#Exception as e:
         bot.stop_polling()
-        print(e)
-        time.sleep(5)
+        print('!')
+        time.sleep(2)

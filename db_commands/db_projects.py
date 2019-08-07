@@ -159,3 +159,9 @@ def AddExpertToProject(project_id, expert_id, cursor, database):
 def GetProjectsOfUser(user_id, cursor):
     cursor.execute('select projects.title from projects,teams where projects.id=teams.project_id and teams.user_id='+str(user_id)+' group by projects.title')
     return cursor.fetchall()
+
+
+def DeleteProject(project_id, cursor,db):
+    cursor.execute('DELETE FROM teams WHERE project_id=' + str(project_id))
+    cursor.execute('DELETE FROM projects WHERE id=' + str(project_id))
+    db.commit()

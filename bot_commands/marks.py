@@ -16,9 +16,9 @@ def marks_of(message, user_id):
             info += '<b>Ось отношений:</b>\n'
             for mark in marks:
                 if mark[0] == '1' or mark[0] == 1:
-                    info += '  Личностное развитие'
+                    info += '  Личностный рост'
                 elif mark[0] == '2' or mark[0] == 2:
-                    info += '  Понятность'
+                    info += '  Ясность позиции'
                 elif mark[0] == '3' or mark[0] == 3:
                     info += '  Энергия'
                 info += ': <b>' + str(mark[1]) + '</b>\n'
@@ -83,9 +83,9 @@ def looking_marks(call):
                 info += '<b>Ось отношений:</b>\n'
                 for mark in marks:
                     if mark[0] == '1' or mark[0] == 1:
-                        info += '  Личностное развитие'
+                        info += '  Личностный рост'
                     elif mark[0] == '2' or mark[0] == 2:
-                        info += '  Понятность'
+                        info += '  Ясность позиции'
                     elif mark[0] == '3' or mark[0] == 3:
                         info += '  Энергия'
                     info += ': <b>' + str(mark[1]) + '</b>\n'

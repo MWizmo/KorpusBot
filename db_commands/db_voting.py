@@ -22,7 +22,8 @@ def OrganizeNewVoting(project_id, cursor, db):
 
 
 def GetCurrentPreparingVoting(project_id, cursor):
-    cursor.execute('SELECT id,status FROM votings WHERE project_id=' + str(project_id) + ' AND (status="Preparing" or status="Started")')
+    cursor.execute('SELECT id,status FROM votings WHERE project_id=' + str(
+        project_id) + ' AND (status="Preparing" or status="Started")')
     res = cursor.fetchone()
     return res[0], res[1]
 
@@ -57,6 +58,12 @@ def AddExpertToVoting(expert_id, voting_id, axis, cursor, db):
     cursor.execute('INSERT INTO votings_experts(voting_id,expert_id,axis,confirmed) VALUES (' +
                    str(voting_id) + ',' + str(expert_id) + ',' + str(axis) + ', "Not confirmed")')
     db.commit()
+
+
+def IsExpertGenerallyInVoting(expert_id, voting_id, cursor):
+    cursor.execute('SELECT * FROM votings_experts WHERE expert_id=' + str(expert_id) + ' AND voting_id=' + str(
+        voting_id))
+    return len(cursor.fetchall())
 
 
 def ExpertDecisedInVoting(id, voting_id, axis, verdict, cursor, db):
@@ -196,7 +203,7 @@ def CompileMarksByAxis(voting_id, axis, cursor, db):
     cadets = cursor.fetchall()
     if axis == 0:
         voted_dates = list()
-        #voted_dates.append(time)
+        # voted_dates.append(time)
         cursor.execute('SELECT voting_date FROM votings')
         dates = cursor.fetchall()
         for date in dates:
@@ -216,8 +223,9 @@ def CompileMarksByAxis(voting_id, axis, cursor, db):
                     for m in marks:
                         cur_mark *= int(m[0])
                     summary_mark += cur_mark
-                cursor.execute('INSERT INTO marks(user_id,axis,criterion,mark,mark_date) VALUES (' + str(cadet[0]) + ',' +
-                               str(axis) + ',' + str(i) + ',' + str(summary_mark) + ',"' + time + '")')
+                cursor.execute(
+                    'INSERT INTO marks(user_id,axis,criterion,mark,mark_date) VALUES (' + str(cadet[0]) + ',' +
+                    str(axis) + ',' + str(i) + ',' + str(summary_mark) + ',"' + time + '")')
     else:
         for cadet in cadets:
             for i in range(1, 4):
@@ -232,8 +240,9 @@ def CompileMarksByAxis(voting_id, axis, cursor, db):
                     mark = 2
                 if mark == 1 and axis == 3 and i == 2:
                     mark = 3
-                cursor.execute('INSERT INTO marks(user_id,axis,criterion,mark,mark_date) VALUES (' + str(cadet[0]) + ',' +
-                               str(axis) + ',' + str(i) + ',' + str(mark) + ',"' + time + '")')
+                cursor.execute(
+                    'INSERT INTO marks(user_id,axis,criterion,mark,mark_date) VALUES (' + str(cadet[0]) + ',' +
+                    str(axis) + ',' + str(i) + ',' + str(mark) + ',"' + time + '")')
     db.commit()
 
 
@@ -244,12 +253,14 @@ def FinishVoting(voting_id, cursor, db):
 
 def PutExtraMarkForTeamlead(user_id, mark_date, cursor, db):
     cursor.execute(
-        'INSERT INTO marks(user_id,axis,criterion,mark,mark_date) VALUES (' + str(user_id) + ',2,4,1,"' + mark_date + '")')
+        'INSERT INTO marks(user_id,axis,criterion,mark,mark_date) VALUES (' + str(
+            user_id) + ',2,4,1,"' + mark_date + '")')
     db.commit()
 
 
 def IsExpertInVoting(expert_id, voting_id, axis, cursor):
-    cursor.execute('SELECT * FROM votings_experts WHERE expert_id='+str(expert_id)+' AND voting_id='+str(voting_id)+' AND axis='+str(axis))
+    cursor.execute('SELECT * FROM votings_experts WHERE expert_id=' + str(expert_id) + ' AND voting_id=' + str(
+        voting_id) + ' AND axis=' + str(axis))
     return len(cursor.fetchall()) > 0
 
 

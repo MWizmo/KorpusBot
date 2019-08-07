@@ -42,7 +42,7 @@ def enter_budget_money(message):
     StartVoting(message.chat.id, message.from_user.id, count, budget_info[0], cursor, db)
     bot.send_message(message.chat.id,
                      'Утверждается бюджет на следующий месяц\nПодробности по ссылке: ' + url + '\nИтоговая сумма: ' +
-                     budget_info[0],
+                     str(budget_info[0]),
                      reply_markup=get_keyboard(message.from_user.id))
     SetState(message.from_user.id, 6, cursor, db)
     keyboard = telebot.types.InlineKeyboardMarkup()
@@ -52,16 +52,21 @@ def enter_budget_money(message):
         if members[i][2] != None and members[i][0] != message.from_user.id:
             bot.send_message(members[i][2],
                              'Началось голосование за утверждение бюджета. Подробности по ссылке: ' + url + '\nИтоговая сумма: ' +
-                             budget_info[0] +
+                             str(budget_info[0]) +
                              '\nВыразите ваше мнение', reply_markup=keyboard)
 
 
 @bot.callback_query_handler(func=lambda call: True and call.data.startswith('voting'))
 def voting(call):
-    BudgetVote(call.data[-1], cursor, db)
     bot.delete_message(chat_id=call.message.chat.id, message_id=call.message.message_id)
-    bot.send_message(call.message.chat.id, 'Спасибо за ваш голос! Текущий прогресс голосования:\n' + BudgetInfo(cursor),
+    try:
+        BudgetVote(call.data[-1], cursor, db)
+        bot.send_message(call.message.chat.id, 'Спасибо за ваш голос! Текущий прогресс голосования:\n' + BudgetInfo(cursor),
                      reply_markup=get_keyboard(call.from_user.id))
+    except:
+        bot.send_message(call.message.chat.id,
+                         'Спасибо за участие. К сожалению, голосование уже окончилось. Его результат:\n' + BudgetInfo(cursor, True),
+                         reply_markup=get_keyboard(call.from_user.id))
 
 
 def finish_budget(message):
@@ -79,6 +84,7 @@ def finish_budget(message):
                 bot.send_message(message.chat.id, 'Голосование может завершить только тот, кто его начал',
                                  reply_markup=get_keyboard(message.from_user.id))
 
+
 def emission(message):
     all_marks = GetAllMarks(cursor)
     marks_sum = 0
@@ -87,8 +93,8 @@ def emission(message):
             marks_sum += mark[0]
     budget = GetSumOfBudget(cursor)
     summa_for_students = budget / 7 * 3
-    coeff = summa_for_students / marks_sum
+    coeff = round(summa_for_students / marks_sum, 5)
     SetCoeff(coeff, cursor, db)
     for i in all_marks:
         if i[0] != None:
-            bot.send_message(message.chat.id, GetName(i[1], cursor) + ' получит ' + str(coeff * i[0]))
+            bot.send_message(message.chat.id, GetName(i[1], cursor) + ' получит ' + str(round(coeff * i[0], 5)))
