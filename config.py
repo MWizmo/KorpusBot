@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 import db_commands.db_users as db_users
 import telebot
-import sqlite3
 from emoji import emojize
 import bot_token
 import pymysql
