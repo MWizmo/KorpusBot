@@ -41,11 +41,9 @@ def UpdatePhone(id, phone, cursor, database):
     cursor.execute('UPDATE users SET phone="' + str(phone) + '" WHERE id=' + str(id))
     database.commit()
 
-
 def UpdateEmail(id, email, cursor, database):
     cursor.execute('UPDATE users SET email="' + email + '" WHERE id=' + str(id))
     database.commit()
-
 
 def UpdatePhoto(id, photo, cursor, database):
     cursor.execute('UPDATE users SET photo="' + photo + '" WHERE id=' + str(id))
