@@ -240,7 +240,7 @@ def full_clean():
     db.commit()
 
 
-# webhook.start()
+webhook.start()
 # full_clean()
 # AddAbit('@m_wizmo', cursor, db)
 # AddAbit('@robertlengdon', cursor, db)
