@@ -59,8 +59,9 @@ def enter_budget_money(message):
 @bot.callback_query_handler(func=lambda call: True and call.data.startswith('voting'))
 def voting(call):
     bot.delete_message(chat_id=call.message.chat.id, message_id=call.message.message_id)
+    authority = GetAuthority(call.from_user.id, cursor)
     try:
-        BudgetVote(call.data[-1], cursor, db)
+        BudgetVote(call.data[-1], authority, cursor, db)
         bot.send_message(call.message.chat.id, 'Спасибо за ваш голос! Текущий прогресс голосования:\n' + BudgetInfo(cursor),
                      reply_markup=get_keyboard(call.from_user.id))
     except:
@@ -98,3 +99,4 @@ def emission(message):
     for i in all_marks:
         if i[0] != None:
             bot.send_message(message.chat.id, GetName(i[1], cursor) + ' получит ' + str(round(coeff * i[0], 5)))
+            AddAuthorityToUser(i[1], round(coeff * i[0]), cursor, db)
