@@ -313,3 +313,169 @@ INFO:cherrypy.error:[07/Aug/2019:21:00:44] ENGINE Bus EXITED
 INFO:cherrypy.error:[07/Aug/2019:21:00:44] ENGINE Waiting for child threads to terminate...
 INFO:cherrypy.error:[07/Aug/2019:21:00:44] ENGINE Re-spawning 
 INFO:root:[07/08/19 21:00] Bot finished
+INFO:root:[07/08/19 21:10] Bot started
+INFO:cherrypy.error:[07/Aug/2019:21:10:56] ENGINE Listening for SIGUSR1.
+INFO:cherrypy.error:[07/Aug/2019:21:10:56] ENGINE Listening for SIGTERM.
+INFO:cherrypy.error:[07/Aug/2019:21:10:56] ENGINE Listening for SIGHUP.
+INFO:cherrypy.error:[07/Aug/2019:21:10:56] ENGINE Bus STARTING
+INFO:cherrypy.error:[07/Aug/2019:21:10:56] ENGINE Started monitor thread 'Autoreloader'.
+INFO:cherrypy.error:[07/Aug/2019:21:10:56] ENGINE Serving on https://195.201.138.7:8443
+INFO:cherrypy.error:[07/Aug/2019:21:10:56] ENGINE Bus STARTED
+INFO:cherrypy.access.140330893987792:91.108.6.53 - - [07/Aug/2019:21:11:29] "POST /632250139:AAEa_80FLxkKCJEmzzKnuEu3oek8wV3Y8Ek/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.error.140330893987792:[07/Aug/2019:21:11:29]  👔 Функции администратора
+INFO:cherrypy.error:[07/Aug/2019:21:11:47] ENGINE Restarting because /home/prostoedgar/KorpusBot/bot_token.py changed.
+INFO:cherrypy.error:[07/Aug/2019:21:11:47] ENGINE Stopped thread 'Autoreloader'.
+INFO:cherrypy.error:[07/Aug/2019:21:11:47] ENGINE Bus STOPPING
+INFO:cherrypy.error:[07/Aug/2019:21:11:52] ENGINE HTTP Server cherrypy._cpwsgi_server.CPWSGIServer(('195.201.138.7', 8443)) shut down
+INFO:cherrypy.error:[07/Aug/2019:21:11:52] ENGINE Bus STOPPED
+INFO:cherrypy.error:[07/Aug/2019:21:11:52] ENGINE Bus EXITING
+INFO:cherrypy.error:[07/Aug/2019:21:11:52] ENGINE Bus EXITED
+INFO:cherrypy.error:[07/Aug/2019:21:11:52] ENGINE Waiting for child threads to terminate...
+INFO:cherrypy.error:[07/Aug/2019:21:11:52] ENGINE Re-spawning 
+INFO:root:[07/08/19 21:11] Bot finished
+INFO:root:[07/08/19 21:11] Bot started
+INFO:cherrypy.error:[07/Aug/2019:21:11:53] ENGINE Listening for SIGUSR1.
+INFO:cherrypy.error:[07/Aug/2019:21:11:53] ENGINE Listening for SIGTERM.
+INFO:cherrypy.error:[07/Aug/2019:21:11:53] ENGINE Listening for SIGHUP.
+INFO:cherrypy.error:[07/Aug/2019:21:11:53] ENGINE Bus STARTING
+INFO:cherrypy.error:[07/Aug/2019:21:11:53] ENGINE Started monitor thread 'Autoreloader'.
+INFO:cherrypy.error:[07/Aug/2019:21:11:53] ENGINE Serving on https://195.201.138.7:8443
+INFO:cherrypy.error:[07/Aug/2019:21:11:53] ENGINE Bus STARTED
+INFO:root:[07/08/19 21:11] Bot started
+INFO:cherrypy.error:[07/Aug/2019:21:11:56] ENGINE Listening for SIGTERM.
+INFO:cherrypy.error:[07/Aug/2019:21:11:56] ENGINE Listening for SIGUSR1.
+INFO:cherrypy.error:[07/Aug/2019:21:11:56] ENGINE Listening for SIGHUP.
+INFO:cherrypy.error:[07/Aug/2019:21:11:56] ENGINE Bus STARTING
+INFO:cherrypy.error:[07/Aug/2019:21:11:56] ENGINE Started monitor thread 'Autoreloader'.
+INFO:cherrypy.error:[07/Aug/2019:21:11:56] ENGINE Serving on https://195.201.138.7:8443
+INFO:cherrypy.error:[07/Aug/2019:21:11:56] ENGINE Bus STARTED
+INFO:cherrypy.access.139662041419392:91.108.6.64 - - [07/Aug/2019:21:11:58] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.error.139662041419392:[07/Aug/2019:21:11:58]  👔 Функции администратора
+INFO:cherrypy.error.139662041419392:[07/Aug/2019:21:11:58]  👔 Функции администратора
+INFO:cherrypy.access.139662041419392:91.108.6.64 - - [07/Aug/2019:21:11:58] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.access.139662041419392:91.108.6.64 - - [07/Aug/2019:21:11:58] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.error.139662041419392:[07/Aug/2019:21:11:58]  📋 Профиль
+INFO:cherrypy.access.139662041419392:91.108.6.64 - - [07/Aug/2019:21:12:00] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.error.139662041419392:[07/Aug/2019:21:12:00]  Назад
+INFO:cherrypy.access.139662041419392:91.108.6.64 - - [08/Aug/2019:04:34:55] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.access.139662041419392:91.108.6.64 - - [08/Aug/2019:04:59:38] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.error.139662041419392:[08/Aug/2019:04:59:38]  🌐 Токены
+INFO:cherrypy.access.139662041419392:91.108.6.64 - - [08/Aug/2019:06:22:47] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.error.139662041419392:[08/Aug/2019:06:22:47]  👔 Функции администратора
+INFO:cherrypy.access.139662041419392:91.108.6.64 - - [08/Aug/2019:06:22:48] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.error.139662041419392:[08/Aug/2019:06:22:48]  Назад
+INFO:cherrypy.access.139662041419392:91.108.6.64 - - [08/Aug/2019:06:22:50] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.error.139662041419392:[08/Aug/2019:06:22:50]  📋 Профиль
+INFO:cherrypy.access.139662041419392:91.108.6.64 - - [08/Aug/2019:06:22:51] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.error.139662041419392:[08/Aug/2019:06:22:51]  👀 Посмотреть профиль
+INFO:cherrypy.error.139662041419392:[08/Aug/2019:06:22:57]  📊 Оценки
+INFO:cherrypy.access.139662041419392:91.108.6.64 - - [08/Aug/2019:06:22:57] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.access.139662041419392:91.108.6.64 - - [08/Aug/2019:06:23:02] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.error.139662041419392:[08/Aug/2019:06:23:02]  Назад
+INFO:cherrypy.access.139662041419392:91.108.6.64 - - [08/Aug/2019:06:23:04] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.error.139662041419392:[08/Aug/2019:06:23:04]  👔 Функции администратора
+INFO:cherrypy.access.139662041419392:91.108.6.64 - - [08/Aug/2019:06:23:06] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.error.139662041419392:[08/Aug/2019:06:23:06]  📢 Начать голосование за утверждение бюджета
+INFO:cherrypy.access.139662041419392:91.108.6.64 - - [08/Aug/2019:06:23:10] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.access.139662041419392:91.108.6.64 - - [08/Aug/2019:06:23:12] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.access.139662041419392:91.108.6.64 - - [08/Aug/2019:06:23:14] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.error.139662041419392:[08/Aug/2019:06:23:14]  👔 Функции администратора
+INFO:cherrypy.access.139662041419392:91.108.6.64 - - [08/Aug/2019:06:23:15] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.error.139662041419392:[08/Aug/2019:06:23:15]  Закончить утверждение бюджета
+INFO:cherrypy.access.139662041419392:91.108.6.64 - - [08/Aug/2019:06:23:21] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.error.139662041419392:[08/Aug/2019:06:23:21]  📋 Профиль
+INFO:cherrypy.access.139662041419392:91.108.6.64 - - [08/Aug/2019:06:23:22] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.error.139662041419392:[08/Aug/2019:06:23:22]  👀 Посмотреть профиль
+INFO:cherrypy.access.139662041419392:91.108.6.64 - - [08/Aug/2019:06:23:36] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.access.139662041419392:91.108.6.64 - - [08/Aug/2019:06:28:12] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:root:[09/08/19 11:31] Bot started
+INFO:cherrypy.error:[09/Aug/2019:11:31:03] ENGINE Listening for SIGUSR1.
+INFO:cherrypy.error:[09/Aug/2019:11:31:03] ENGINE Listening for SIGHUP.
+INFO:cherrypy.error:[09/Aug/2019:11:31:03] ENGINE Listening for SIGTERM.
+INFO:cherrypy.error:[09/Aug/2019:11:31:03] ENGINE Bus STARTING
+INFO:cherrypy.error:[09/Aug/2019:11:31:03] ENGINE Started monitor thread 'Autoreloader'.
+INFO:cherrypy.error:[09/Aug/2019:11:31:04] ENGINE Serving on https://195.201.138.7:8443
+INFO:cherrypy.error:[09/Aug/2019:11:31:04] ENGINE Bus STARTED
+INFO:cherrypy.access.140606932475520:91.108.6.64 - - [09/Aug/2019:11:31:04] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.access.140606932475520:91.108.6.64 - - [09/Aug/2019:11:31:04] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.error.140606932475520:[09/Aug/2019:11:31:04]  📋 Профиль
+INFO:cherrypy.access.140606932475520:91.108.6.64 - - [09/Aug/2019:11:31:04] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.error.140606932475520:[09/Aug/2019:11:31:04]  📋 Профиль
+INFO:cherrypy.access.140606932475520:91.108.6.64 - - [09/Aug/2019:11:31:05] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.access.140606932475520:91.108.6.64 - - [09/Aug/2019:11:32:08] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.access.140606932475520:91.108.6.64 - - [09/Aug/2019:11:32:21] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.error.140606932475520:[09/Aug/2019:11:32:21]  👔 Функции администратора
+INFO:cherrypy.access.140606932475520:91.108.6.64 - - [09/Aug/2019:11:32:26] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.error.140606932475520:[09/Aug/2019:11:32:26]  Убрать роль пользователя
+INFO:cherrypy.access.140606932475520:91.108.6.64 - - [09/Aug/2019:11:32:28] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.access.140606932475520:91.108.6.64 - - [09/Aug/2019:11:32:31] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.access.140606932475520:91.108.6.64 - - [09/Aug/2019:11:32:34] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.error.140606932475520:[09/Aug/2019:11:32:34]  👔 Функции администратора
+INFO:cherrypy.access.140606932475520:91.108.6.64 - - [09/Aug/2019:11:32:36] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.error.140606932475520:[09/Aug/2019:11:32:36]  Указать роль для пользователя
+INFO:cherrypy.access.140606932475520:91.108.6.64 - - [09/Aug/2019:11:32:37] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.access.140606932475520:91.108.6.64 - - [09/Aug/2019:11:32:38] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.access.140606932475520:91.108.6.64 - - [09/Aug/2019:11:32:39] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.error.140606932475520:[09/Aug/2019:11:32:39]  👔 Функции администратора
+INFO:cherrypy.access.140606932475520:91.108.6.64 - - [09/Aug/2019:11:32:41] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.error.140606932475520:[09/Aug/2019:11:32:41]  Убрать роль пользователя
+INFO:cherrypy.access.140606932475520:91.108.6.64 - - [09/Aug/2019:11:32:43] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.access.140606932475520:91.108.6.64 - - [09/Aug/2019:11:32:44] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.access.140606932475520:91.108.6.64 - - [09/Aug/2019:11:32:49] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.access.140606932475520:91.108.6.64 - - [09/Aug/2019:11:32:51] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.error.140606932475520:[09/Aug/2019:11:32:51]  📋 Профиль
+INFO:cherrypy.access.140606932475520:91.108.6.64 - - [09/Aug/2019:11:32:53] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.error.140606932475520:[09/Aug/2019:11:32:53]  👀 Посмотреть профиль
+INFO:cherrypy.access.140606932475520:91.108.6.64 - - [09/Aug/2019:11:33:05] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.error.140606932475520:[09/Aug/2019:11:33:05]  👔 Функции администратора
+INFO:cherrypy.access.140606932475520:91.108.6.64 - - [09/Aug/2019:11:33:06] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.error.140606932475520:[09/Aug/2019:11:33:06]  📢 Начать голосование за утверждение бюджета
+INFO:cherrypy.access.140606932475520:91.108.6.64 - - [09/Aug/2019:11:33:10] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.access.140606932475520:91.108.6.64 - - [09/Aug/2019:11:33:14] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.access.140606932475520:91.108.6.64 - - [09/Aug/2019:11:33:17] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.error.140606932475520:[09/Aug/2019:11:33:17]  👔 Функции администратора
+INFO:cherrypy.access.140606932475520:91.108.6.64 - - [09/Aug/2019:11:33:19] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.error.140606932475520:[09/Aug/2019:11:33:19]  Закончить утверждение бюджета
+INFO:cherrypy.access.140606932475520:91.108.6.64 - - [09/Aug/2019:11:33:31] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.access.140606932475520:91.108.6.64 - - [09/Aug/2019:11:33:57] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.error.140606932475520:[09/Aug/2019:11:33:57]  📋 Профиль
+INFO:cherrypy.access.140606932475520:91.108.6.64 - - [09/Aug/2019:11:33:58] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.error.140606932475520:[09/Aug/2019:11:33:58]  📰 Профили пользователей
+INFO:cherrypy.access.140606932475520:91.108.6.64 - - [09/Aug/2019:11:34:00] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.access.140606932475520:91.108.6.64 - - [09/Aug/2019:11:34:36] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.error.140606932475520:[09/Aug/2019:11:34:36]  🌐 Токены
+INFO:cherrypy.access.140606932475520:91.108.6.64 - - [09/Aug/2019:11:34:53] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.access.140606932475520:91.108.6.64 - - [09/Aug/2019:11:35:13] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.error.140606932475520:[09/Aug/2019:11:35:13]  👔 Функции администратора
+INFO:cherrypy.access.140606932475520:91.108.6.64 - - [09/Aug/2019:11:35:16] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.error.140606932475520:[09/Aug/2019:11:35:16]  📢 Начать голосование за утверждение бюджета
+INFO:cherrypy.access.140606932475520:91.108.6.64 - - [09/Aug/2019:11:35:20] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.access.140606932475520:91.108.6.64 - - [09/Aug/2019:11:35:24] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.access.140606932475520:91.108.6.64 - - [09/Aug/2019:11:35:25] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.error.140606932475520:[09/Aug/2019:11:35:25]  👔 Функции администратора
+INFO:cherrypy.access.140606932475520:91.108.6.64 - - [09/Aug/2019:11:35:26] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.error.140606932475520:[09/Aug/2019:11:35:26]  📢 Начать голосование за утверждение бюджета
+INFO:cherrypy.access.140606932475520:91.108.6.64 - - [09/Aug/2019:11:35:28] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.access.140606932475520:91.108.6.64 - - [09/Aug/2019:11:35:34] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.access.140606932475520:91.108.6.64 - - [09/Aug/2019:11:35:37] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.access.140606932475520:91.108.6.64 - - [09/Aug/2019:11:35:39] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.access.140606932475520:91.108.6.64 - - [09/Aug/2019:11:36:05] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.access.140606932475520:91.108.6.64 - - [09/Aug/2019:11:36:40] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.error.140606932475520:[09/Aug/2019:11:36:40]  👔 Функции администратора
+INFO:cherrypy.access.140606932475520:91.108.6.64 - - [09/Aug/2019:11:36:41] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.error.140606932475520:[09/Aug/2019:11:36:41]  Закончить утверждение бюджета
+INFO:cherrypy.access.140606932475520:91.108.6.64 - - [09/Aug/2019:11:36:59] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.error.140606932475520:[09/Aug/2019:11:36:59]  📋 Профиль
+INFO:cherrypy.access.140606932475520:91.108.6.64 - - [09/Aug/2019:11:37:01] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.error.140606932475520:[09/Aug/2019:11:37:01]  📰 Профили пользователей
+INFO:cherrypy.access.140606932475520:91.108.6.64 - - [09/Aug/2019:11:37:02] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.error.140606932475520:[09/Aug/2019:11:37:02]  👔 Функции администратора
+INFO:cherrypy.access.140606932475520:91.108.6.64 - - [09/Aug/2019:11:37:02] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.access.140606932475520:91.108.6.64 - - [09/Aug/2019:11:37:04] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.error.140606932475520:[09/Aug/2019:11:37:04]  Закончить утверждение бюджета
+INFO:cherrypy.access.140606932475520:91.108.6.64 - - [09/Aug/2019:11:37:04] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.error.140606932475520:[09/Aug/2019:11:37:04]  📋 Профиль
+INFO:cherrypy.access.140606932475520:91.108.6.64 - - [09/Aug/2019:11:37:06] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.error.140606932475520:[09/Aug/2019:11:37:06]  👀 Посмотреть профиль
+INFO:cherrypy.access.140606932475520:91.108.6.64 - - [09/Aug/2019:13:07:24] "POST /573817226:AAHM6cFFyr64GS7c5ZWw6z_j6UHGNKQldBU/ HTTP/1.1" 200 - "" ""
+INFO:cherrypy.error.140606932475520:[09/Aug/2019:13:07:24]  🌐 Токены
